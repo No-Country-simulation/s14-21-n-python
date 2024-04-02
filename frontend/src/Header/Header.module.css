@@ -1,0 +1,9 @@
+.nombre {
+    background-color: blueviolet;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    
+}
