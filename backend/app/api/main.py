@@ -1,3 +1,6 @@
 from fastapi import APIRouter
+router = APIRouter()
 
-api_router = APIRouter()
+@router.get("/") 
+async def main_route():     
+  return {"message": "Hey, It is me Fastapi"}
