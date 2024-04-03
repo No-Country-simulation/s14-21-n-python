@@ -8,7 +8,7 @@ function App() {
       <div className="text-3xl font-bold underline">Hello world sol!</div>
       <div className="text-3xl font-bold underline">Hello world sol!</div>
 
-      <Header nombre='Maria'  />
+      <Header nombre="Maria" />
     </>
   );
 }
