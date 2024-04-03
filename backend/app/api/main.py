@@ -1,6 +1,5 @@
 from fastapi import APIRouter
-router = APIRouter()
+from app.api.routes import hello
 
-@router.get("/") 
-async def main_route():     
-  return {"message": "Hey, It is me Fastapi"}
+api_router = APIRouter()
+api_router.include_router(hello.router)
