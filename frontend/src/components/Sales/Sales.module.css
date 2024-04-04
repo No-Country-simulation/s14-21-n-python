@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+}
+
+.card {
+  background-color: burlywood;
+  width: 300px;
+  height: 400px;
+  margin: 10px;
+}

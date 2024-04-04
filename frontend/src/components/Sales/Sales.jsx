@@ -1,8 +1,8 @@
-import AddProd from "../AddProd/AddProd";
-import style from "./Productos.module.css";
+import AddSale from "../AddSale/AddSale.jsx";
+import style from "./Sales.module.css";
 import { useState } from "react";
 
-const Productos = () => {
+const Sales = () => {
   const testArray = [
     {
       id: "1",
@@ -39,15 +39,12 @@ const Productos = () => {
   return (
     <main className={style.container}>
       <div>
-        <h1>Titulo de la pagina de productos</h1>
+        <h1>Ventas</h1>
       </div>
       <section>
         <div>
-          <input type="text" />
           <button>Agregar</button>
-          <button onClick={() => setModifyProds(!modifyProds)}>
-            Administrar
-          </button>
+          <button>Generar Reporte</button>
         </div>
       </section>
       <section className={style.layout}>
@@ -68,9 +65,9 @@ const Productos = () => {
           );
         })}
       </section>
-      <AddProd />
+      <AddSale />
     </main>
   );
 };
 
-export default Productos;
+export default Sales;
