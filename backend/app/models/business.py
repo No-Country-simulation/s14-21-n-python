@@ -1,13 +1,19 @@
-from sqlalchemy import Column, Integer, String
 from core.database import Base
-# from sqlalchemy.ext.declarative import declarative_base
+from typing import Optional
+from sqlalchemy import Integer
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-# Base = declarative_base()
+#Importamos el modelo
+from models import User, Product, Transaction
 
 class Business(Base):
     __tablename__ = 'businesses'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(100))
-    address = Column(String(255))
-    phone = Column(String(20))
+    id = mapped_column(Integer, primary_key=True, increment=True, unique= True)
+    name: Mapped[Optional[str]]
+    address: Mapped[str]
+    phone: Mapped[str]
+
+    users: Mapped["User"] = relationship('User', back_populates='business')
+    products: Mapped["Product"] = relationship('Product', back_populates='business')
+    transactions: Mapped["Transaction"] = relationship('Transaction', back_populates='business')

@@ -1,11 +1,19 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
 from core.database import Base
+
+from sqlalchemy import Integer
+from sqlalchemy.orm import relationship
+from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import mapped_column
+
+#Importamos el modelo
+from models import Transaction
 
 class Supplier(Base):
     __tablename__ = 'suppliers'
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(100))
-    phone = Column(String(20))
-    address = Column(String(255))
-    business_id = Column(Integer, ForeignKey('businesses.id'))
+    id = mapped_column(Integer, primary_key=True, increment=True)
+    name: Mapped[str]
+    phone: Mapped[str]
+    address: Mapped[str]
+
+    transactions: Mapped["Transaction"] = relationship('Transaction', back_populates='supplier')

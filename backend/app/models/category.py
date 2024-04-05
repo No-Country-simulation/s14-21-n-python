@@ -1,9 +1,19 @@
-from sqlalchemy import Column, Integer, String
 from core.database import Base
 
-class Category(Base):
-    __tablename__ = 'category'
+from sqlalchemy import Integer
+from sqlalchemy.orm import relationship
+from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import mapped_column
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(100))
-    description = Column(String(255))
+#Importamos el modelo
+from models import Product
+
+
+class Category(Base):
+    __tablename__ = 'categories'
+
+    id = mapped_column(Integer, primary_key=True, increment=True)
+    name: Mapped[str]
+    description: Mapped[str]
+
+    products: Mapped["Product"] = relationship('Product', back_populates='category')
