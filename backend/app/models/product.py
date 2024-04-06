@@ -1,8 +1,6 @@
-from app.models.business import Business
-from app.models.category import Category
 from core.database import Base
 from sqlalchemy import DateTime, ForeignKey, Integer, Numeric, String
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class Product(Base):
@@ -19,7 +17,8 @@ class Product(Base):
     original_price = mapped_column(Numeric(10, 2))
     purchase_date = mapped_column(DateTime)
     expiration_date = mapped_column(DateTime)
-    category_id = mapped_column(Integer, ForeignKey("categories.id"))
 
-    business: Mapped["Business"] = relationship(back_populates="products")
-    category: Mapped["Category"] = relationship(back_populates="products")
+    # category_id = mapped_column(Integer, ForeignKey("categories.id"))
+
+    # business: Mapped["Business"] = relationship(back_populates="products")
+    # category: Mapped["Category"] = relationship(back_populates="products")
