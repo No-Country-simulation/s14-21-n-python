@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import "./Pedidos.css"  
+import React, { useState } from "react";
+import "./Order.module.css";
 
-const Pedidos = () => {
-  const [pedidos, setPedidos] = useState([]);
-  const [nuevoPedido, setNuevoPedido] = useState('');
+const Orders = () => {
+  const [orders, setOrders] = useState([]);
+  const [newOrder, setNewOrder] = useState("");
 
   const handleAgregarPedido = () => {
-    if (nuevoPedido.trim() !== '') {
-      setPedidos([...pedidos, { id: pedidos.length + 1, nombre: nuevoPedido, entregado: false }]);
-      setNuevoPedido('');
+    if (nuevoPedido.trim() !== "") {
+      setPedidos([
+        ...pedidos,
+        { id: pedidos.length + 1, nombre: nuevoPedido, entregado: false },
+      ]);
+      setNuevoPedido("");
     }
   };
 
@@ -33,14 +36,22 @@ const Pedidos = () => {
           placeholder="Nombre del pedido"
           className="pedidos-input"
         />
-        <button onClick={handleAgregarPedido} className="pedidos-button">Agregar Pedido</button>
+        <button onClick={handleAgregarPedido} className="pedidos-button">
+          Agregar Pedido
+        </button>
       </div>
       <div>
         <h3 className="pedidos-subtitle">Hechos</h3>
         <ul className="pedidos-list">
           {pedidosPendientes.map((pedido) => (
             <li key={pedido.id} className="pedidos-item">
-              {pedido.nombre} <button onClick={() => handleMarcarEntregado(pedido.id)} className="pedidos-mark-delivered">Marcar entregado</button>
+              {pedido.nombre}{" "}
+              <button
+                onClick={() => handleMarcarEntregado(pedido.id)}
+                className="pedidos-mark-delivered"
+              >
+                Marcar entregado
+              </button>
             </li>
           ))}
         </ul>
@@ -49,7 +60,9 @@ const Pedidos = () => {
         <h3 className="pedidos-subtitle">Entregados</h3>
         <ul className="pedidos-list">
           {pedidosEntregados.map((pedido) => (
-            <li key={pedido.id} className="pedidos-item">{pedido.nombre}</li>
+            <li key={pedido.id} className="pedidos-item">
+              {pedido.nombre}
+            </li>
           ))}
         </ul>
       </div>
@@ -57,4 +70,4 @@ const Pedidos = () => {
   );
 };
 
-export default Pedidos;
+export default Orders;
