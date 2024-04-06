@@ -1,7 +1,8 @@
-// import AddSale from "../AddSale/AddSale.jsx";
 import style from "./Sales.module.css";
 import { useState } from "react";
 import AddSale from "../AddSale/AddSale";
+import { FaRegEdit } from "react-icons/fa";
+import { MdOutlineDelete } from "react-icons/md";
 
 const Sales = () => {
   const testArray = [
@@ -92,7 +93,6 @@ const Sales = () => {
             <div className={style.column}>Marca</div>
             <div className={style.column}>Cantidad</div>
             <div className={style.column}>Precio</div>
-            <div className={style.column}>Administrar</div>
           </div>
           {testArray.map((sale) => {
             return (
@@ -102,14 +102,6 @@ const Sales = () => {
                 <div className={style.column}>{sale.brand}</div>
                 <div className={style.column}>{sale.amount}</div>
                 <div className={style.column}>$ {sale.price}</div>
-                <div className={style.column}>
-                  {modifySales && (
-                    <div>
-                      <button>Mod</button>
-                      <button>Elim</button>
-                    </div>
-                  )}
-                </div>
               </div>
             );
           })}
