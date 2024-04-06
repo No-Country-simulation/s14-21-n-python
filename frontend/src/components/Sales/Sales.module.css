@@ -3,6 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
+  background-color: rgb(234, 234, 234);
+}
+
+.title {
+  margin-top: 15px;
+}
+
+.title h1 {
+  text-align: left;
 }
 
 .layout {
@@ -16,4 +26,8 @@
   width: 300px;
   height: 400px;
   margin: 10px;
+}
+
+.data {
+  margin-left: 10px;
 }

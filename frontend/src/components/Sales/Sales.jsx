@@ -1,44 +1,41 @@
 // import AddSale from "../AddSale/AddSale.jsx";
 import style from "./Sales.module.css";
 import { useState } from "react";
+import AddSale from "../AddSale/AddSale";
 
 const Sales = () => {
   const testArray = [
     {
       id: "1",
-      name: "fideos",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      name: "Venta 1",
+      date: "fecha",
+      price: "9999",
     },
     {
       id: "2",
-      name: "arroz",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      name: "Venta 2",
+      date: "fecha",
+      price: "9999",
     },
     {
       id: "3",
-      name: "polenta",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      name: "Venta 3",
+      date: "fecha",
+      price: "9999",
     },
     {
       id: "4",
-      name: "aceite",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      name: "Venta 4",
+      date: "fecha",
+      price: "9999",
     },
   ];
 
-  const [modifyProds, setModifyProds] = useState(false);
+  const [modifySales, setModifySales] = useState(false);
 
   return (
     <main className={style.container}>
-      <div>
+      <div className={style.title}>
         <h1>Ventas</h1>
       </div>
       <section>
@@ -48,19 +45,20 @@ const Sales = () => {
         </div>
       </section>
       <section className={style.layout}>
-        {testArray.map((prod) => {
+        {testArray.map((sale) => {
           return (
-            <div className={style.card} key={prod.id}>
-              <h3>{prod.name}</h3>
-              <p> {prod.brand}</p>
-              <p> {prod.provider} </p>
-              <p> Stock: {prod.stock}</p>
-              {modifyProds && (
-                <div>
-                  <button>Mod</button>
-                  <button>Elim</button>
-                </div>
-              )}
+            <div className={style.card} key={sale.id}>
+              <div className={style.data}>
+                <h3>{sale.name}</h3>
+                <p> {sale.date}</p>
+                <p> $ {sale.price} </p>
+                {modifySales && (
+                  <div>
+                    <button>Mod</button>
+                    <button>Elim</button>
+                  </div>
+                )}
+              </div>
             </div>
           );
         })}
