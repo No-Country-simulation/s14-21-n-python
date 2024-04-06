@@ -1,4 +1,4 @@
-import AddSale from "../AddSale/AddSale.jsx";
+// import AddSale from "../AddSale/AddSale.jsx";
 import style from "./Sales.module.css";
 import { useState } from "react";
 
