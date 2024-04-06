@@ -1,19 +1,12 @@
 from core.database import Base
-
-from sqlalchemy import Integer
-from sqlalchemy.orm import relationship
-from sqlalchemy.orm import Mapped
-from sqlalchemy.orm import mapped_column
-
-#Importamos el modelo
-from models import Product
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class Category(Base):
-    __tablename__ = 'categories'
+    __tablename__ = "category"
 
-    id = mapped_column(Integer, primary_key=True, increment=True)
+    id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str]
     description: Mapped[str]
 
-    products: Mapped["Product"] = relationship('Product', back_populates='category')
+    # products: Mapped["Product"] = relationship('Product', back_populates='category')
