@@ -1,19 +1,14 @@
 from core.database import Base
 
-from sqlalchemy import Integer
-from sqlalchemy.orm import relationship
-from sqlalchemy.orm import Mapped
-from sqlalchemy.orm import mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 
-#Importamos el modelo
-from models import Transaction
 
 class Supplier(Base):
-    __tablename__ = 'suppliers'
+    __tablename__ = "supplier"
 
-    id = mapped_column(Integer, primary_key=True, increment=True)
+    id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str]
     phone: Mapped[str]
     address: Mapped[str]
 
-    transactions: Mapped["Transaction"] = relationship('Transaction', back_populates='supplier')
+    # transactions: Mapped["Transaction"] = relationship('Transaction', back_populates='supplier')
