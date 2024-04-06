@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Footer from "./components/Footer/Footer";
 import Supplier from "./components/Supplier/Supplier";
 import Orders from "./components/Orders/Order";
+import { Category } from "./components/Category/Category";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/sales" element={<Sales />} />
               <Route path="/suppliers" element={<Supplier />} />
               <Route path="/orders" element={<Orders />} />
+              <Route path="/category" element={<Category />} />
             </Routes>
           </div>
 
