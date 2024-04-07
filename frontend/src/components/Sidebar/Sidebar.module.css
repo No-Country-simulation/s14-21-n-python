@@ -1,0 +1,19 @@
+
+ .sidebar{
+    grid-area: sidebar;
+    overflow-y: auto;
+    width: 12rem;
+    height: 100vh;
+    border-right: 1px solid gainsboro;
+    ul{
+      list-style: none;
+      padding: 1rem 2rem;
+      li{
+        margin-bottom: 2rem;
+        a{
+          text-decoration: none;
+        }
+      }  
+    }
+  } 
+  

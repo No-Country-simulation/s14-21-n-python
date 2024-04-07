@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 3px solid;
+  width: 900px;
+}
+
+.titleCategory {
+  font-size: 30px;
+}
+
+.inputSearch {
+  border: 2px solid ;
+  border-radius: 15px;
+  padding: 5px 5px 5px 15px;
+  width: 300px;
+}
+
+.productContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+  gap: 10px;
+  width: 900px;
+  border-radius: 15px;
+  height: 180px;
+}
+
+.productInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.informationBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  width: 350px;
+}
+
+.availableBox {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+.textAvailable {
+  font-weight: bold;
+}
+
+.buttonAvailable {
+  background-color: darkgray;
+  width: 100px;
+  color: #f4f4f4;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.select{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  width: 200px;
+  color: darkgray;
+}
+
+.containerComponents {
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

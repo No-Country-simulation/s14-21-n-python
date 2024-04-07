@@ -1,0 +1,60 @@
+/* Pedidos.css */
+
+.pedidos-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pedidos-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.pedidos-input-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.pedidos-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.pedidos-button {
+  padding: 8px 20px;
+  background-color: #74BAA0;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.pedidos-subtitle {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.pedidos-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pedidos-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.pedidos-mark-delivered {
+  padding: 5px 10px;
+  background-color: #216651;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 10px;
+}
