@@ -2,25 +2,26 @@
 
  .dashboard {
   grid-area: Dashboard;
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 5px;
+  padding: 10px;
   background-color: #bdbaba; 
   display:grid;
+  height:max-content;
   
 }
 
 .mainTitle {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .container {
   display: flex;
   justify-content: space-evenly;
   border: 1px solid #ccc;
-  margin-top: 40px;
-  padding: 20px;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 .additionalContainer {
@@ -46,18 +47,22 @@
 }
 
 .dropdown{
-
+border-radius: 30px;
 margin-left: auto;
   
 } 
 
  .titleAndAmount{
   margin-left: auto;
-}
 
+}
+ .titleAndAmount p{
+  margin-left: auto;
+  font-weight: bold;
+  
+}
 .productInfo{
   display: grid;
   grid-template-rows: 1fr 1fr;
-  
   margin-left: auto;
 }

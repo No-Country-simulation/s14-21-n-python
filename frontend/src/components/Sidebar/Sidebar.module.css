@@ -5,15 +5,51 @@
     width: 12rem;
     height: 100vh;
     border-right: 1px solid gainsboro;
-    ul{
-      list-style: none;
-      padding: 1rem 2rem;
-      li{
-        margin-bottom: 2rem;
-        a{
-          text-decoration: none;
-        }
-      }  
-    }
+   
   } 
   
+  
+.sidebar ul {
+  list-style: none;
+  padding: 1rem 2rem;
+}
+
+.sidebar ul li {
+  margin-bottom: 2rem;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+}
+/* Estilos por defecto del botón */
+ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* Redondea los bordes */
+  text-decoration: none; /* Quita la subraya del enlace */
+  color: black;
+}
+
+/* Estilos cuando se coloca el mouse sobre el botón */
+ul li a:hover {
+  background-color: #e0e0e0; /* Cambia el color de fondo */
+}
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  text-align: center; /* Alinea el texto al centro */
+  margin-top: 30px;
+  padding-bottom: 20px; /* Añade un relleno en la parte inferior */
+  border-bottom: 2px solid gainsboro; /* Línea divisoria en la parte inferior */
+  
+}
+
+.sidebarContent h3 {
+  margin-top: 10px; /* Agrega un margen superior al título */
+}
+
+.sidebarContent p {
+  margin-top: 10px; /* Agrega un espacio de 5px arriba del párrafo */
+}

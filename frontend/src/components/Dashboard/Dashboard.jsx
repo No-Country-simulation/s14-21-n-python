@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from './Dashboard.module.css';
-import Card from "./Card"; // Importa el componente Card
+import { CardAccesos, Card } from './Card';
 
 
 
@@ -55,10 +55,11 @@ const Dashboard =() =>{
              {/* Tercer Contenedor */}
              <div className={styles.container}>
                 {/* Cada instancia de Card recibe props para título y contenido */}
-                <Card title="Nueva Venta" content="" />
-                <Card title="Nuevo Producto hoy" content="" />
-                <Card title="Nuevo Proveedor" content="" />
-                <Card title="Nuevo Pedido" content="" />
+                
+                <CardAccesos title="Nueva Venta" content="" />
+                <CardAccesos title="Nuevo Producto hoy" content="" />
+                <CardAccesos title="Nuevo Proveedor" content="" />
+                <CardAccesos title="Nuevo Pedido" content="" />
             </div>
             
         </div>

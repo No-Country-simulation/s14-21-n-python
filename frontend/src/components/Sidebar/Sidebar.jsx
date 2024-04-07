@@ -1,36 +1,37 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Sidebar.module.css';
+import Avatar from '@mui/material/Avatar';
+
 
 const Sidebar = () => {
     return(
         <div className ={styles.sidebar}>
-            <div>
-                <p>Aca va in icono</p>
-                <h1>Tu Empresa </h1>
+            <div className={styles.sidebarContent}>
+                <Avatar>H</Avatar>
+                <h3>Tu Empresa </h3>
                 <p>example@mail.com</p>
             </div>
+            
             <ul>
-            <li>
+            
                 <li>
-                    <Link to={'/'}>Dashboard </ Link>
+                    <Link to={'/'}>Panel de Control </ Link>
                 </li>
-
-                <Link to={'/'}>Categorias </ Link>
+                <li>
+                    <Link to={'/'}>Categorias </ Link>
                 </li>
              
                 <li>
-                <Link to={'/products'}>Productos </ Link>
-
+                    <Link to={'/products'}>Productos </ Link>
                 </li>
                 <li>
-                <Link to={'/'}>Proveedores </ Link>
+                    <Link to={'/'}>Proveedores </ Link>
                 </li>
                 <li>
-                <Link to={'/Sales'}>Ventas </ Link>
+                    <Link to={'/Sales'}>Ventas </ Link>
                 </li>
                 <li>
-                <Link to={'/Order'}>Pedidos </ Link>
+                    <Link to={'/Order'}>Pedidos </ Link>
                 </li>
                 
             </ul>
