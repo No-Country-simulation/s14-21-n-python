@@ -17,9 +17,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <div className="container">
-        
           <Sidebar />
-          <div className="dashboard-container"> 
+          <div className="dashboard-container">
             <div className="content">
               <Routes>
                 <Route path="/" element={<Dashboard />} />
@@ -31,7 +30,6 @@ function App() {
               </Routes>
             </div>
           </div>
-          
         </div>
         <Footer />
       </BrowserRouter>
