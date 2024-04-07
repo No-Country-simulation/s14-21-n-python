@@ -5,7 +5,7 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [newOrder, setNewOrder] = useState("");
 
-  const handleAgregarPedido = () => {
+  const handleAddOrder = () => {
     if (newOrder.trim() !== "") {
       setOrders([
         ...orders,
@@ -41,7 +41,7 @@ const Orders = () => {
           placeholder="Order name"
           className={styles.input}
         />
-        <button onClick={handleAgregarPedido} className={styles.button}>
+        <button onClick={handleAddOrder} className={styles.button}>
           Add Order
         </button>
       </div>
@@ -71,7 +71,10 @@ const Orders = () => {
           ))}
         </ul>
         {deliveredOrders.length > 0 && (
-          <button onClick={handleDeleteDelivered} className={styles.deleteButton}>
+          <button
+            onClick={handleDeleteDelivered}
+            className={styles.deleteButton}
+          >
             Delete Delivered Orders
           </button>
         )}
