@@ -17,7 +17,7 @@ const Orders = () => {
 
   const handleMarkDelivered = (id) => {
     const updatedOrders = orders.map((order) =>
-      order.id === id ? { ...order, delivered: true } : order
+      order.id === id ? { ...order, delivered: true } : order,
     );
     setOrders(updatedOrders);
   };
