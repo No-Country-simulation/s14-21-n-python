@@ -1,70 +1,80 @@
 import React, { useState } from "react";
-import "./Order.module.css";
+import styles from "./Order.module.css";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [newOrder, setNewOrder] = useState("");
 
   const handleAgregarPedido = () => {
-    if (nuevoPedido.trim() !== "") {
-      setPedidos([
-        ...pedidos,
-        { id: pedidos.length + 1, nombre: nuevoPedido, entregado: false },
+    if (newOrder.trim() !== "") {
+      setOrders([
+        ...orders,
+        { id: orders.length + 1, name: newOrder, delivered: false },
       ]);
-      setNuevoPedido("");
+      setNewOrder("");
     }
   };
 
-  const handleMarcarEntregado = (id) => {
-    const updatedPedidos = pedidos.map((pedido) =>
-      pedido.id === id ? { ...pedido, entregado: true } : pedido
+  const handleMarkDelivered = (id) => {
+    const updatedOrders = orders.map((order) =>
+      order.id === id ? { ...order, delivered: true } : order
     );
-    setPedidos(updatedPedidos);
+    setOrders(updatedOrders);
   };
 
-  const pedidosPendientes = pedidos.filter((pedido) => !pedido.entregado);
-  const pedidosEntregados = pedidos.filter((pedido) => pedido.entregado);
+  const handleDeleteDelivered = () => {
+    const filteredOrders = orders.filter((order) => !order.delivered);
+    setOrders(filteredOrders);
+  };
+
+  const pendingOrders = orders.filter((order) => !order.delivered);
+  const deliveredOrders = orders.filter((order) => order.delivered);
 
   return (
-    <div className="pedidos-container">
-      <h2 className="pedidos-title">Pedidos</h2>
-      <div className="pedidos-input-container">
+    <div className={styles.ordersContainer}>
+      <h2 className={styles.ordersTitle}>Orders</h2>
+      <div className={styles.inputContainer}>
         <input
           type="text"
-          value={nuevoPedido}
-          onChange={(e) => setNuevoPedido(e.target.value)}
-          placeholder="Nombre del pedido"
-          className="pedidos-input"
+          value={newOrder}
+          onChange={(e) => setNewOrder(e.target.value)}
+          placeholder="Order name"
+          className={styles.input}
         />
-        <button onClick={handleAgregarPedido} className="pedidos-button">
-          Agregar Pedido
+        <button onClick={handleAgregarPedido} className={styles.button}>
+          Add Order
         </button>
       </div>
       <div>
-        <h3 className="pedidos-subtitle">Hechos</h3>
-        <ul className="pedidos-list">
-          {pedidosPendientes.map((pedido) => (
-            <li key={pedido.id} className="pedidos-item">
-              {pedido.nombre}{" "}
+        <h3 className={styles.subtitle}>Pending Orders</h3>
+        <ul className={styles.list}>
+          {pendingOrders.map((order) => (
+            <li key={order.id} className={styles.item}>
+              {order.name}{" "}
               <button
-                onClick={() => handleMarcarEntregado(pedido.id)}
-                className="pedidos-mark-delivered"
+                onClick={() => handleMarkDelivered(order.id)}
+                className={styles.markDelivered}
               >
-                Marcar entregado
+                Mark Delivered
               </button>
             </li>
           ))}
         </ul>
       </div>
       <div>
-        <h3 className="pedidos-subtitle">Entregados</h3>
-        <ul className="pedidos-list">
-          {pedidosEntregados.map((pedido) => (
-            <li key={pedido.id} className="pedidos-item">
-              {pedido.nombre}
+        <h3 className={styles.subtitle}>Delivered Orders</h3>
+        <ul className={styles.list}>
+          {deliveredOrders.map((order) => (
+            <li key={order.id} className={styles.item}>
+              {order.name}
             </li>
           ))}
         </ul>
+        {deliveredOrders.length > 0 && (
+          <button onClick={handleDeleteDelivered} className={styles.deleteButton}>
+            Delete Delivered Orders
+          </button>
+        )}
       </div>
     </div>
   );
