@@ -17,7 +17,7 @@ const Orders = () => {
 
   const handleMarcarEntregado = (id) => {
     const updatedPedidos = pedidos.map((pedido) =>
-      pedido.id === id ? { ...pedido, entregado: true } : pedido
+      pedido.id === id ? { ...pedido, entregado: true } : pedido,
     );
     setPedidos(updatedPedidos);
   };
