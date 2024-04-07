@@ -2,7 +2,7 @@
 .footer{
     grid-area: Footer;
     height: 60px;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: space-between;
     background-color: azure;
@@ -11,4 +11,5 @@
     text-align: center;
     margin-bottom: 40px;
     width: 100%;
+    
   }

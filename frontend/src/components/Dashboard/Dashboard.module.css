@@ -1,16 +1,63 @@
 /* Dashboard.module.css */
 
  .dashboard {
-  grid-area: Home;
-  width: 100%;
-  /* overflow-y: auto; */
-  margin-top: 40px;
-  padding: 20px 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  grid-area: Dashboard;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #bdbaba; 
+  display:grid;
   
 }
 
+.mainTitle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid #ccc;
+  margin-top: 40px;
+  padding: 20px;
+}
 
+.additionalContainer {
+  margin-top: 20px; /* Espacio entre las tarjetas y el nuevo contenedor */
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  
+}
+
+.card2 {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #eeebeb;
+  justify-content:space-between;
+  flex-direction: column;
+  align-items: flex-start;
+    
+}
+
+.dropdown{
+
+margin-left: auto;
+  
+} 
+
+ .titleAndAmount{
+  margin-left: auto;
+}
+
+.productInfo{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  
+  margin-left: auto;
+}

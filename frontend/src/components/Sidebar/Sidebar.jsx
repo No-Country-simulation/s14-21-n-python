@@ -16,7 +16,7 @@ const Sidebar = () => {
                     <Link to={'/'}>Dashboard </ Link>
                 </li>
 
-                    <a href="/">Categorias</a> 
+                <Link to={'/'}>Categorias </ Link>
                 </li>
              
                 <li>
@@ -24,13 +24,13 @@ const Sidebar = () => {
 
                 </li>
                 <li>
-                    <a href="/">Proveedores</a>
+                <Link to={'/'}>Proveedores </ Link>
                 </li>
                 <li>
-                    <a href="/">Ventas</a> 
+                <Link to={'/Sales'}>Ventas </ Link>
                 </li>
                 <li>
-                    <a href="/">Pedidos</a> 
+                <Link to={'/Order'}>Pedidos </ Link>
                 </li>
                 
             </ul>
