@@ -61,7 +61,7 @@
 
 .deleteButton {
   padding: 8px 20px;
-  background-color: #FF6347; /* Color rojo */
+  background-color: #FF6347; 
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -70,5 +70,5 @@
 }
 
 .deleteButton:hover {
-  background-color: #FF4837; /* Color rojo más oscuro al pasar el mouse */
+  background-color: #FF4837; 
 }
