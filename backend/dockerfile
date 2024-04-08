@@ -1,61 +1,27 @@
-# pull base image
-# the builder image, used to build the virtual environment
-FROM python:3.11-buster as builder
+# Use a slim base image of Python
+FROM python:3.11-slim-buster
 
-# install poetry
+# Install Poetry
 RUN pip install poetry
 
-# ensures our console ouput is not buffered by Docker
+# Ensure that console output is not buffered
 ENV PYTHONUNBUFFERED=1
 
-# python will not write .pyc files
-ENV PYTHONDONTWRITEBYTECODE 1
+# Set the working directory
+WORKDIR /app
 
-# Set work directory 
-WORKDIR /app    
-
-# poetry setup to create a virtual environment and cache_dir
-ENV POETRY_NO_INTERACTION=1 \
-    POETRY_VIRTUALENVS_IN_PROJECT=1 \
-    POETRY_VIRTUALENVS_CREATE=1 \
-    POETRY_CACHE_DIR=/tmp/poetry_cache
-
-# copy the poetry files to the working directory
+# Copy the poetry files to the working directory
 COPY pyproject.toml poetry.lock ./
 
-# install dependencies and remove cache_dir 
-# --no-root option, which instructs Poetry to avoid installing the current project into the virtual environment.
-RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
+# Install dependencies
+RUN poetry install --no-dev --no-root
 
-
-# install dependencies and remove cache_dir.
-# --no-root option, which instructs Poetry to avoid installing the current project into the virtual environment.
-# -without dev instruction is needed to install your project in the virtual environment. 
-# install in virtual environment and remove poetry.
-# we obtain is a fast dependency build phase when building the same image multiple times on the same environment.
-RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root
-
-
-# uses DOCKER_BUILDKIT=1 to activate BuildKit
-# and then performs a build of the container image using the runtime target.
-# the runtime image, used
-FROM python:3.11-slim-buster as runtime
-
-# env path
-ENV VIRTUAL_ENV=/app/.venv \
-    PATH="/app/.venv/bin:$PATH"
-
-# to just run the code provided its virtual environment    
-COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
-
-# Copy all contents of the current directory to the working directory in the container
+# Copy the rest of the application code
 COPY . .
 
-# Expose port 8000 to allow connections to the container from outside 
+# Expose port 8000 to allow connections to the container from outside
 EXPOSE 8000
 
-# fast setup 
-# TODO
-ENTRYPOINT ["sh", "-c", "alembic upgrade head; uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+# Set the entrypoint command to run uvicorn
+CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
-# 150mb
