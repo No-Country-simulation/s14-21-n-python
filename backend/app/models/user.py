@@ -4,6 +4,12 @@ from core.database import Base
 from models import Business
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from backend.app.models import Business
+else:
+    Business = "Business"
 
 
 class User(Base):
@@ -13,6 +19,6 @@ class User(Base):
     name: Mapped[Optional[str]]
     email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
-    business_id: Mapped[Optional["Business"]] = mapped_column(ForeignKey("business.id"))
+    business_id: Mapped[Optional[Business]] = mapped_column(ForeignKey("business.id"))
 
-    business: Mapped[Optional["Business"]] = relationship(back_populates="user")
+    business: Mapped[Optional[Business]] = relationship(back_populates="user")
