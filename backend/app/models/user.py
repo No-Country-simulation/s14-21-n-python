@@ -13,6 +13,6 @@ class User(Base):
     name: Mapped[Optional[str]]
     email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
-    business_id = mapped_column(ForeignKey("business.id"))
+    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
 
     business: Mapped["Business"] = relationship(back_populates="user")
