@@ -1,9 +1,18 @@
-from typing import Optional
+from typing import TYPE_CHECKING, List, Optional
 
 from core.database import Base
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-# Importamos el modelo
-from sqlalchemy.orm import Mapped, mapped_column
+if TYPE_CHECKING:
+    from app.models.product import Product
+    from app.models.transaction import Transaction
+    from app.models.user import User
+    from app.models.supplier import Supplier
+else:
+    Product = "Product"
+    Transaction = "Transaction"
+    User = "User"
+    Supplier = "Supplier"
 
 
 class Business(Base):
@@ -14,14 +23,7 @@ class Business(Base):
     address: Mapped[str]
     phone: Mapped[str]
 
-    # TODO define fields
-
-    # user_id: Mapped[int] =
-    # product_id: Mapped[int] =
-    # transaction_id: Mapped[int] =
-
-    # user: Mapped["User"] = relationship("User", back_populates="business")
-    # product: Mapped["Product"] = relationship("Product", back_populates="business")
-    # transaction: Mapped["Transaction"] = relationship(
-    #     "Transaction", back_populates="business"
-    # )
+    user: Mapped[User] = relationship(back_populates="business")
+    product: Mapped[List[Product]] = relationship(back_populates="business")
+    transaction: Mapped[List[Transaction]] = relationship(back_populates="business")
+    supplier: Mapped[List[Supplier]] = relationship(back_populates="business")
