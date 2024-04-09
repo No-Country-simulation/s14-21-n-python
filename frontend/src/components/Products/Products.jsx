@@ -6,69 +6,119 @@ const Products = () => {
   const testArray = [
     {
       id: "1",
-      name: "fideos",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      date: "fecha",
+      product: "Producto 1",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
     },
     {
       id: "2",
-      name: "arroz",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      date: "fecha",
+      product: "Producto 2",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
     },
     {
       id: "3",
-      name: "polenta",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      date: "fecha",
+      product: "Producto 3",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
     },
     {
       id: "4",
-      name: "aceite",
-      stock: "99",
-      brand: "una marca ahi",
-      provider: "uno tambien ahi",
+      date: "fecha",
+      product: "Producto 4",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
+    },
+    {
+      id: "5",
+      date: "fecha",
+      product: "Producto 5",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
+    },
+    {
+      id: "6",
+      date: "fecha",
+      product: "Producto 6",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
+    },
+    {
+      id: "7",
+      date: "fecha",
+      product: "Producto 7",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
+    },
+    {
+      id: "8",
+      date: "fecha",
+      product: "Producto 8",
+      brand: "Marca",
+      amount: "20",
+      price: "9999",
     },
   ];
 
   const [modifyProds, setModifyProds] = useState(false);
 
   return (
-    <main className={style.container}>
-      <div>
-        <h1>Titulo de la pagina de productos</h1>
+    <main>
+      <div className={style.title}>
+        <h1>Productos</h1>
       </div>
-      <section>
-        <div>
-          <input type="text" />
-          <button>Agregar</button>
-          <button onClick={() => setModifyProds(!modifyProds)}>
-            Administrar
-          </button>
-        </div>
-      </section>
-      <section className={style.layout}>
-        {testArray.map((prod) => {
-          return (
-            <div className={style.card} key={prod.id}>
-              <h3>{prod.name}</h3>
-              <p> {prod.brand}</p>
-              <p> {prod.provider} </p>
-              <p> Stock: {prod.stock}</p>
-              {modifyProds && (
-                <div>
-                  <button>Mod</button>
-                  <button>Elim</button>
-                </div>
-              )}
+      <hr className={style.separateLine} />
+
+      <section className={style.container}>
+        <section className={style.containerFilters}>
+          <div className={style.modifyControls}>
+            <button>Agregar</button>
+            <button onClick={() => setModifyProds(!modifyProds)}>
+              Modificar
+            </button>
+          </div>
+
+          <div className={style.searchAndFilter}>
+            <button>Filtros</button>
+            <input type="text" placeholder="Buscar..." />
+          </div>
+        </section>
+
+        <section>
+          <div className={style.layout}>
+            <div className={style.header}>
+              <div className={style.column}>Fecha</div>
+              <div className={style.column}>Producto</div>
+              <div className={style.column}>Marca</div>
+              <div className={style.column}>Cantidad</div>
+              <div className={style.column}>Precio</div>
             </div>
-          );
-        })}
+            {testArray.map((prod) => {
+              return (
+                <div className={style.row} key={prod.id}>
+                  <div className={style.column}>{prod.date}</div>
+                  <div className={style.column}>{prod.product}</div>
+                  <div className={style.column}>{prod.brand}</div>
+                  <div className={style.column}>{prod.amount}</div>
+                  <div className={style.column}>$ {prod.price}</div>
+                  {modifyProds && <button>E</button>}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+        <AddProd />
       </section>
-      <AddProd />
     </main>
   );
 };
