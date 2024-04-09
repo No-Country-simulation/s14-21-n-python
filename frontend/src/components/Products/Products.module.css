@@ -61,8 +61,8 @@
 .containerFilters {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
+  align-items: flex-start;
+  width: 55%;
 }
 
 .searchAndFilter {
