@@ -1,7 +1,6 @@
 from typing import TYPE_CHECKING, Optional
 
 from core.database import Base
-from models import Business
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
