@@ -2,12 +2,13 @@ from logging.config import fileConfig
 
 from alembic import context
 from core.config import settings
-from models.business import Base as BusinessBase
-from models.category import Base as CategoryBase
-from models.product import Base as ProductBase
-from models.supplier import Base as SupplierBase
-from models.transaction import Base as TransactionBase
-from models.user import Base as UserBase
+from core.database import Base
+from models.business import Business  # noqa: F401
+from models.category import Category  # noqa: F401
+from models.product import Product  # noqa: F401
+from models.supplier import Supplier  # noqa: F401
+from models.transaction import Transaction  # noqa: F401
+from models.user import User  # noqa: F401
 from sqlalchemy import engine_from_config, pool
 
 # this is the Alembic Config object, which provides
@@ -27,14 +28,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = [
-    UserBase.metadata,
-    ProductBase.metadata,
-    TransactionBase.metadata,
-    BusinessBase.metadata,
-    SupplierBase.metadata,
-    CategoryBase.metadata,
-]
+target_metadata = [Base.metadata]
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
