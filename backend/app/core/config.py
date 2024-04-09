@@ -7,8 +7,8 @@ class Settings(BaseSettings):
     database_host: str = "localhost"
     database_port: str = "5432"
     database_name: str = "postgres"
-    secret_key: str
-    algorithm: str
+    secret_key: str = "woops"
+    algorithm: str = "secret"
 
     class Config:
         env_file = "../../.env"
