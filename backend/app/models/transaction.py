@@ -1,8 +1,17 @@
-from core.database import Base
+from typing import TYPE_CHECKING
 
-# Importamos el modelo
-from sqlalchemy import DateTime, Enum, Numeric
-from sqlalchemy.orm import Mapped, mapped_column
+from core.database import Base
+from sqlalchemy import DateTime, Enum, ForeignKey, Numeric
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+if TYPE_CHECKING:
+    from app.models.business import Business
+    from app.models.product import Product
+    from app.models.supplier import Supplier
+else:
+    Business = "Business"
+    Product = "Product"
+    Supplier = "Supplier"
 
 
 class Transaction(Base):
@@ -20,10 +29,10 @@ class Transaction(Base):
         DateTime
     )  # NO ESTOY SEGURO # Yo tampoco, no te preocupes
 
-    # client_id: Mapped[int] # para que se usa esto?
-    # product_id = mapped_column(Integer, ForeignKey('products.id'))
-    # business_id = mapped_column(Integer, ForeignKey('businesses.id'))
-    # supplier_id = mapped_column(Integer, ForeignKey('suppliers.id'))
+    product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
+    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
+    supplier_id: Mapped[int] = mapped_column(ForeignKey("supplier.id"))
 
-    # business: Mapped["Business"] = relationship('Business', back_populates='transactions')
-    # supplier: Mapped["Supplier"] = relationship('Supplier', back_populates='transactions')
+    product: Mapped[Product] = relationship(back_populates="product")
+    business: Mapped[Business] = relationship(back_populates="business")
+    supplier: Mapped[Supplier] = relationship(back_populates="transaction")
