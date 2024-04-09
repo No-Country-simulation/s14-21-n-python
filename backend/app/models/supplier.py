@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from app.models.transaction import Transaction
 else:
     Business = "Business"
+    Transaction = "Transaction"
 
 
 class Supplier(Base):
