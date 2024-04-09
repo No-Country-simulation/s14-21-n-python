@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Order.module.css";
 
-const Order = () => {
+const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [newOrder, setNewOrder] = useState("");
   const [product, setProduct] = useState("");
@@ -40,6 +40,7 @@ const Order = () => {
   return (
     <div className={styles.ordersContainer}>
       <h2 className={styles.ordersTitle}>Pedidos</h2>
+      <hr className={styles.hr}/>
       <form onSubmit={handleAgregarPedido} className={styles.inputContainer}>
         <input
           type="text"
@@ -131,4 +132,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default Orders;

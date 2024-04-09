@@ -9,7 +9,7 @@
 }
 
 .ordersTitle {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
@@ -26,6 +26,12 @@
   border-radius: 5px;
 }
 
+.hr{
+  border: none; 
+  height: 3px; 
+  background-color: black; 
+  margin: 20px 0; 
+}
 .select {
   padding: 8px;
   margin-right: 10px;
