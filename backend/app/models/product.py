@@ -1,6 +1,16 @@
+from typing import TYPE_CHECKING
+
+
 from core.database import Base
 from sqlalchemy import DateTime, ForeignKey, Integer, Numeric, String
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+if TYPE_CHECKING:
+    from app.models.business import Business
+    from app.models.category import Category
+else:
+    Business = "Business"
+    Category = "Category"
 
 
 class Product(Base):
@@ -18,7 +28,6 @@ class Product(Base):
     purchase_date = mapped_column(DateTime)
     expiration_date = mapped_column(DateTime)
 
-    # category_id = mapped_column(Integer, ForeignKey("categories.id"))
-
-    # business: Mapped["Business"] = relationship(back_populates="products")
-    # category: Mapped["Category"] = relationship(back_populates="products")
+    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
+    business: Mapped[Business] = relationship(back_populates="product")
+    category: Mapped[Category] = relationship(back_populates="product")
