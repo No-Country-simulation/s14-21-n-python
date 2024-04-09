@@ -32,4 +32,4 @@ class Product(Base):
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
     business: Mapped[Business] = relationship(back_populates="product")
     category: Mapped[List[Category]] = relationship(back_populates="product")
-    transaction: Mapped[List[Transaction]] = relationship(back_populates="transaction")
+    transaction: Mapped[List[Transaction]] = relationship(back_populates="product")
