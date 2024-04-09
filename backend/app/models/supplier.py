@@ -1,6 +1,14 @@
-from core.database import Base
+from typing import TYPE_CHECKING, List
 
-from sqlalchemy.orm import Mapped, mapped_column
+from core.database import Base
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+if TYPE_CHECKING:
+    from app.models.business import Business
+    from app.models.transaction import Transaction
+else:
+    Business = "Business"
 
 
 class Supplier(Base):
@@ -11,4 +19,7 @@ class Supplier(Base):
     phone: Mapped[str]
     address: Mapped[str]
 
-    # transactions: Mapped["Transaction"] = relationship('Transaction', back_populates='supplier')
+    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
+    business: Mapped[Business] = relationship(back_populates="supplier")
+
+    transaction: Mapped[List[Transaction]] = relationship(back_populates="supplier")
