@@ -1,6 +1,5 @@
 from typing import TYPE_CHECKING, List
 
-
 from core.database import Base
 from sqlalchemy import DateTime, ForeignKey, Integer, Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -8,9 +7,11 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 if TYPE_CHECKING:
     from app.models.business import Business
     from app.models.category import Category
+    from app.models.transaction import Transaction
 else:
     Business = "Business"
     Category = "Category"
+    Transaction = "Transaction"
 
 
 class Product(Base):
@@ -31,3 +32,4 @@ class Product(Base):
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
     business: Mapped[Business] = relationship(back_populates="product")
     category: Mapped[List[Category]] = relationship(back_populates="product")
+    transaction: Mapped[List[Transaction]] = relationship(back_populates="transaction")
