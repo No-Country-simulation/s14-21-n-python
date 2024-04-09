@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, List
 
 
 from core.database import Base
@@ -30,4 +30,4 @@ class Product(Base):
 
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
     business: Mapped[Business] = relationship(back_populates="product")
-    category: Mapped[Category] = relationship(back_populates="product")
+    category: Mapped[List[Category]] = relationship(back_populates="product")
