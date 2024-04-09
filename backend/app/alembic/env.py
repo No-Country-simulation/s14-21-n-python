@@ -1,8 +1,13 @@
 from logging.config import fileConfig
 
 from alembic import context
-from app.core.config import settings
-from backend.app.models.user import Base as UserBase
+from core.config import settings
+from models.business import Base as BusinessBase
+from models.category import Base as CategoryBase
+from models.product import Base as ProductBase
+from models.supplier import Base as SupplierBase
+from models.transaction import Base as TransactionBase
+from models.user import Base as UserBase
 from sqlalchemy import engine_from_config, pool
 
 # this is the Alembic Config object, which provides
@@ -10,7 +15,7 @@ from sqlalchemy import engine_from_config, pool
 config = context.config
 config.set_main_option(
     "sqlalchemy.url",
-    f"postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}",
+    f"postgresql+psycopg://{settings.database_username}:{settings.database_password}@{settings.database_host}:{settings.database_port}/{settings.database_name}",
 )
 
 # Interpret the config file for Python logging.
@@ -22,7 +27,14 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = [UserBase.metada]
+target_metadata = [
+    UserBase.metadata,
+    ProductBase.metadata,
+    TransactionBase.metadata,
+    BusinessBase.metadata,
+    SupplierBase.metadata,
+    CategoryBase.metadata,
+]
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
