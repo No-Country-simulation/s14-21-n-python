@@ -1,7 +1,7 @@
 /* Order.module.css */
 
 .ordersContainer {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -21,8 +21,17 @@
 .input {
   flex: 1;
   padding: 8px;
+  margin-right: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
+}
+
+.select {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .button {
@@ -30,7 +39,7 @@
   background-color: #74BAA0;
   color: #fff;
   border: none;
-  border-radius: 0 5px 5px 0;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -39,14 +48,24 @@
   margin-top: 20px;
 }
 
-.list {
-  list-style-type: none;
-  padding: 0;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
-.item {
-  padding: 8px 0;
-  border-bottom: 1px solid #ccc;
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.table td {
+  text-align: center;
 }
 
 .markDelivered {
@@ -56,8 +75,8 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  margin-left: 10px;
 }
+
 
 .deleteButton {
   padding: 8px 20px;

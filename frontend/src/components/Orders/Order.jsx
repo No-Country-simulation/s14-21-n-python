@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import styles from "./Order.module.css";
 
-const Orders = () => {
+const Order = () => {
   const [orders, setOrders] = useState([]);
   const [newOrder, setNewOrder] = useState("");
+  const [product, setProduct] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [provider, setProvider] = useState("");
+  const [providerList] = useState(["Proveedor 1", "Proveedor 2", "Proveedor 3"]); // Lista de proveedores
 
-  const handleAddOrder = () => {
-    if (newOrder.trim() !== "") {
+  const handleAgregarPedido = (e) => {
+    e.preventDefault();
+    if (product.trim() !== "" && quantity.trim() !== "" && provider.trim() !== "") {
       setOrders([
         ...orders,
-        { id: orders.length + 1, name: newOrder, delivered: false },
+        { id: orders.length + 1, product, quantity, provider, delivered: false },
       ]);
-      setNewOrder("");
+      setProduct("");
+      setQuantity("");
+      setProvider("");
     }
   };
 
@@ -32,50 +39,91 @@ const Orders = () => {
 
   return (
     <div className={styles.ordersContainer}>
-      <h2 className={styles.ordersTitle}>Orders</h2>
-      <div className={styles.inputContainer}>
+      <h2 className={styles.ordersTitle}>Pedidos</h2>
+      <form onSubmit={handleAgregarPedido} className={styles.inputContainer}>
         <input
           type="text"
-          value={newOrder}
-          onChange={(e) => setNewOrder(e.target.value)}
-          placeholder="Order name"
+          value={product}
+          onChange={(e) => setProduct(e.target.value)}
+          placeholder="Producto"
           className={styles.input}
         />
-        <button onClick={handleAddOrder} className={styles.button}>
-          Add Order
+        <input
+          type="text"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          placeholder="Cantidad"
+          className={styles.input}
+        />
+        <select
+          value={provider}
+          onChange={(e) => setProvider(e.target.value)}
+          className={styles.select}
+        >
+          <option value="">Seleccionar Proveedor</option>
+          {providerList.map((provider, index) => (
+            <option key={index} value={provider}>
+              {provider}
+            </option>
+          ))}
+        </select>
+        <button type="submit" className={styles.button}>
+          Agregar Pedido
         </button>
+      </form>
+      <div>
+        <h3 className={styles.subtitle}>Pedidos Pendientes</h3>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Proveedor</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pendingOrders.map((order) => (
+              <tr key={order.id}>
+                <td>{order.product}</td>
+                <td>{order.quantity}</td>
+                <td>{order.provider}</td>
+                <td>
+                  <button
+                    onClick={() => handleMarkDelivered(order.id)}
+                    className={styles.markDelivered}
+                  >
+                    Marcar Entregado
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <div>
-        <h3 className={styles.subtitle}>Pending Orders</h3>
-        <ul className={styles.list}>
-          {pendingOrders.map((order) => (
-            <li key={order.id} className={styles.item}>
-              {order.name}{" "}
-              <button
-                onClick={() => handleMarkDelivered(order.id)}
-                className={styles.markDelivered}
-              >
-                Mark Delivered
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 className={styles.subtitle}>Delivered Orders</h3>
-        <ul className={styles.list}>
-          {deliveredOrders.map((order) => (
-            <li key={order.id} className={styles.item}>
-              {order.name}
-            </li>
-          ))}
-        </ul>
+        <h3 className={styles.subtitle}>Pedidos Entregados</h3>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Proveedor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {deliveredOrders.map((order) => (
+              <tr key={order.id}>
+                <td>{order.product}</td>
+                <td>{order.quantity}</td>
+                <td>{order.provider}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         {deliveredOrders.length > 0 && (
-          <button
-            onClick={handleDeleteDelivered}
-            className={styles.deleteButton}
-          >
-            Delete Delivered Orders
+          <button onClick={handleDeleteDelivered} className={styles.deleteButton}>
+            Eliminar Pedidos Entregados
           </button>
         )}
       </div>
@@ -83,4 +131,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Order;
