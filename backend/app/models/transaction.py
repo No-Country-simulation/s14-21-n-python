@@ -18,7 +18,7 @@ class Transaction(Base):
     __tablename__ = "transaction"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    type: Mapped[Enum] = mapped_column(Enum("Purchase", "Sale"))
+    type: Mapped[Enum] = mapped_column(Enum("Purchase", "Sale", name="payment_type"))
     quantity: Mapped[int]
     price = mapped_column(Numeric(10, 2))
     payment_method: Mapped[Enum] = mapped_column(
