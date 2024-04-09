@@ -17,7 +17,7 @@ else:
 class Product(Base):
     __tablename__ = "product"
 
-    id = mapped_column(Integer, primary_key=True, increment=True)
+    id = mapped_column(Integer, primary_key=True)
     business_id = mapped_column(Integer, ForeignKey("businesses.id"))
     brand: Mapped[str] = mapped_column(String(255))
     name: Mapped[str] = mapped_column(String(255))
