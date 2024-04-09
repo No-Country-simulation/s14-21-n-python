@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     database_name: str = "postgres"
     secret_key: str
     algorithm: str
+    expire_token: int
 
     class Config:
         env_file = "../../.env"
