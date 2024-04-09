@@ -21,9 +21,18 @@ class Transaction(Base):
     type: Mapped[Enum] = mapped_column(Enum("Purchase", "Sale"))
     quantity: Mapped[int]
     price = mapped_column(Numeric(10, 2))
-    payment_method: Mapped[Enum] = mapped_column(Enum("cash", "card", "transfer"))
+    payment_method: Mapped[Enum] = mapped_column(
+        Enum("cash", "card", "transfer", name="payment_method")
+    )
     status: Mapped[Enum] = mapped_column(
-        Enum("Pending", "Approved", "In process", "Completed", "Canceled")
+        Enum(
+            "Pending",
+            "Approved",
+            "In process",
+            "Completed",
+            "Canceled",
+            name="payment_status",
+        )
     )
     transaction_date = mapped_column(
         DateTime
