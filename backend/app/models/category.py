@@ -1,5 +1,14 @@
+from typing import TYPE_CHECKING
+
+from sqlalchemy import ForeignKey
 from core.database import Base
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+
+if TYPE_CHECKING:
+    from app.models.product import Product
+else:
+    Product = "Product"
 
 
 class Category(Base):
@@ -9,4 +18,5 @@ class Category(Base):
     name: Mapped[str]
     description: Mapped[str]
 
-    # products: Mapped["Product"] = relationship('Product', back_populates='category')
+    product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
+    product: Mapped[Product] = relationship("Product", back_populates="category")
