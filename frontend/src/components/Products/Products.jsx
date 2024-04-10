@@ -1,9 +1,10 @@
 import AddProd from "../AddProd/AddProd";
 import style from "./Products.module.css";
 import { useState } from "react";
+import jsonData from "./products.json";
 
 const Products = () => {
-  const testArray = [
+  /* const testArray = [
     {
       id: "1",
       date: "fecha",
@@ -68,7 +69,7 @@ const Products = () => {
       amount: "20",
       price: "9999",
     },
-  ];
+  ]; */
 
   const [modifyProds, setModifyProds] = useState(false);
 
@@ -97,17 +98,20 @@ const Products = () => {
         <section>
           <div className={style.layout}>
             <div className={style.header}>
-              <div className={style.column}>Fecha</div>
+              <div className={style.column}>
+                Fecha
+                <p>compra</p>
+              </div>
               <div className={style.column}>Producto</div>
               <div className={style.column}>Marca</div>
               <div className={style.column}>Cantidad</div>
               <div className={style.column}>Precio</div>
             </div>
-            {testArray.map((prod) => {
+            {jsonData.map((prod) => {
               return (
                 <div className={style.row} key={prod.id}>
-                  <div className={style.column}>{prod.date}</div>
-                  <div className={style.column}>{prod.product}</div>
+                  <div className={style.column}>{prod.datePurchase}</div>
+                  <div className={style.column}>{prod.name}</div>
                   <div className={style.column}>{prod.brand}</div>
                   <div className={style.column}>{prod.amount}</div>
                   <div className={style.column}>$ {prod.price}</div>
