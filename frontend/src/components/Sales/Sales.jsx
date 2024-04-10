@@ -1,8 +1,6 @@
 import style from "./Sales.module.css";
 import { useState } from "react";
 import AddSale from "../AddSale/AddSale";
-import { FaRegEdit } from "react-icons/fa";
-import { MdOutlineDelete } from "react-icons/md";
 
 const Sales = () => {
   const testArray = [

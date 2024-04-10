@@ -1,0 +1,27 @@
+{
+  "id": "1",
+  "date": "fecha",
+  "products": [
+    {
+      "product": "Producto 1",
+      "brand": "Marca",
+      "amount": "20",
+      "supplier": "Proveedor",
+      "state": ["Hecho", "Entregado"]
+    },
+    {
+      "product": "Producto 1",
+      "brand": "Marca",
+      "amount": "20",
+      "supplier": "Proveedor",
+      "state": ["Hecho", "Entregado"]
+    },
+    {
+      "product": "Producto 1",
+      "brand": "Marca",
+      "amount": "20",
+      "supplier": "Proveedor",
+      "state": ["Hecho", "Entregado"]
+    }
+  ]
+}
