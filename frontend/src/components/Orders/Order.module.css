@@ -1,10 +1,8 @@
 /* Order.module.css */
 
 .ordersContainer {
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
@@ -13,87 +11,86 @@
   margin-bottom: 20px;
 }
 
-.inputContainer {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.input {
-  flex: 1;
-  padding: 8px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.hr{
-  border: none; 
-  height: 3px; 
-  background-color: black; 
-  margin: 20px 0; 
-}
-.select {
-  padding: 8px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button {
-  padding: 8px 20px;
-  background-color: #74BAA0;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .subtitle {
   font-size: 18px;
   margin-top: 20px;
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.hr {
+  border: none;
+  height: 3px;
+  background-color: black;
+  margin: 20px 0;
 }
 
-.table th, .table td {
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 10px;
+}
+
+.filterInput{
+  width: 116px;
+  
+}
+
+.searchInput{
+  width: 280px;
+  
+}
+
+.filterInput,
+.searchInput {
+  height: 32px;
+  padding: 8px;
+  margin-right: 10px;
+  border: 2px solid black;
+  border-radius: 16px;
+  padding-left: 20px;
+}
+
+.deliveredButton {
+  justify-items: end;
+  padding: 8px 20px;
+  color: black;
+  border: 2px solid black;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  background-color:  #EEEEEE;
   padding: 8px;
 }
 
-.table th {
-  background-color: #f2f2f2;
-  text-align: left;
-}
-
-.table td {
+.header {
+  background-color: white;
   text-align: center;
+  border-radius: 25px;
 }
 
-.markDelivered {
-  padding: 5px 10px;
-  background-color: #216651;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+.cell {
+  flex: 1;
+  padding: 8px;
 }
 
-
-.deleteButton {
-  padding: 8px 20px;
-  background-color: #FF6347; 
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
+.cell:last-child {
+  border-right: none;
 }
 
-.deleteButton:hover {
-  background-color: #FF4837; 
+.rowWithMargin {
+  margin-top: 12px;
+  text-align: center;
+  margin-bottom: 12px;  
+  border-radius: 16px;
 }
