@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from './Dashboard.module.css';
 import { CardAccesos, Card } from './Card';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Dashboard =() =>{
@@ -10,7 +10,7 @@ const Dashboard =() =>{
         <div className ={styles.dashboard}>
             
             <div className={styles.mainTitle}>
-                <h3>PANEL DE CONTROL</h3>
+                <h3>PANEL PRINCIPAL</h3>
             </div>
                 
            {/* Primer Contenedor */}
@@ -39,7 +39,11 @@ const Dashboard =() =>{
                                         <option value="option3">Opción 3</option>
                                     </select>
                         </div>
+                        
                         <div className={styles.productInfo}>
+                            <div>
+                                <FontAwesomeIcon icon="fa-regular fa-star" />
+                            </div>
                             <h4>Nombre del producto</h4>
                             <p>Precio $</p>
                             <p>Aquí va la descripcion del producto</p>
@@ -53,13 +57,15 @@ const Dashboard =() =>{
                 </div>
             </div>
              {/* Tercer Contenedor */}
-             <div className={styles.container}>
-                {/* Cada instancia de Card recibe props para título y contenido */}
-                
-                <CardAccesos title="Nueva Venta" content="" />
-                <CardAccesos title="Nuevo Producto hoy" content="" />
-                <CardAccesos title="Nuevo Proveedor" content="" />
-                <CardAccesos title="Nuevo Pedido" content="" />
+             <div className={styles.containerAdd}>
+                <h3>Accesos directos</h3>
+                <div className={styles.cardsContainer}>
+                    <CardAccesos title="Nueva Venta" content="" />
+                    <CardAccesos title="Nuevo Producto hoy" content="" />
+                    <CardAccesos title="Nuevo Proveedor" content="" />
+                    <CardAccesos title="Nuevo Pedido" content="" />
+                </div>               
+               
             </div>
             
         </div>

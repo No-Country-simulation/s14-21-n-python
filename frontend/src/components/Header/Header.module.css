@@ -1,13 +1,30 @@
 
   .header{
     grid-area: header;
+    display: grid;
     width: 100%;
     height: auto;
-    /* display: flex; */
     align-items: center;
     justify-content: space-between;
     background-color: azure;
-    padding: 0 30px 0 30px;
-    border-bottom: 1px solid gainsboro;
- 
+    padding: 0 30px ;
+    border-bottom: 1px  gainsboro;
+    grid-template-columns: auto auto;
+    margin-top: 5px;
   } 
+
+
+.icon-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.exitButton {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.icon {
+  margin-right: 10px; /* Espacio entre el ícono y el botón */
+}

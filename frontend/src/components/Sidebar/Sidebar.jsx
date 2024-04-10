@@ -13,7 +13,7 @@ const Sidebar = () => {
 
       <ul>
         <li>
-          <Link to={"/"}>Panel de Control </Link>
+          <Link to={"/"}>Panel Principal</Link>
         </li>
         <li>
           <Link to={"/category"}>Categorias </Link>
@@ -30,6 +30,9 @@ const Sidebar = () => {
         </li>
         <li>
           <Link to={"/orders"}>Pedidos </Link>
+        </li>
+        <li>
+          <Link to={"/"}>Ajustes </Link>
         </li>
       </ul>
     </div>

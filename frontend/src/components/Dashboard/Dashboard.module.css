@@ -2,44 +2,44 @@
 
  .dashboard {
   grid-area: Dashboard;
-  margin-top: 5px;
-  padding: 10px;
-  background-color: #bdbaba; 
+  margin-top: 1px;
+  padding: 4px;
+  background-color: #ffffff; 
   display:grid;
   height:max-content;
-  
+  border-radius: 30px;
 }
 
 .mainTitle {
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 4px;
+  margin-left: 60px;
 }
 
 .container {
   display: flex;
   justify-content: space-evenly;
-  border: 1px solid #ccc;
-  margin-top: 10px;
+   margin-top: 10px;
   padding: 5px;
+  
 }
 
 .additionalContainer {
   margin-top: 20px; /* Espacio entre las tarjetas y el nuevo contenedor */
-  border: 1px solid #ccc;
   display: flex;
   flex-direction: column; /* Organiza los elementos verticalmente */
   
+  border-radius: 20px;
 }
 
 .card2 {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid #ccc;
   border-radius: 20px;
   padding: 20px;
-  background-color: #eeebeb;
+  background-color: #F8F9F9;
   justify-content:space-between;
   flex-direction: column;
   align-items: flex-start;
@@ -65,4 +65,21 @@ margin-left: auto;
   display: grid;
   grid-template-rows: 1fr 1fr;
   margin-left: auto;
+  
+}
+
+.containerAdd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #F8F9F9;
+  border-radius: 20px;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan */
+  justify-content: space-between; /* Distribuye las tarjetas uniformemente */
 }

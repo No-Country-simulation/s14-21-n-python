@@ -4,8 +4,8 @@
     overflow-y: auto;
     width: 12rem;
     height: 100vh;
-    border-right: 1px solid gainsboro;
-   
+    border-right: 1px solid rgb(184, 181, 181);
+   background-color: darkgray;
   } 
   
   
@@ -15,7 +15,7 @@
 }
 
 .sidebar ul li {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sidebar ul li a {
@@ -27,7 +27,7 @@ ul li a {
   padding: 0.5rem 1rem;
   border-radius: 20px; /* Redondea los bordes */
   text-decoration: none; /* Quita la subraya del enlace */
-  color: black;
+  color: rgb(219, 216, 216);
 }
 
 /* Estilos cuando se coloca el mouse sobre el botón */
@@ -41,8 +41,8 @@ ul li a:hover {
   justify-content: center; /* Centra verticalmente */
   text-align: center; /* Alinea el texto al centro */
   margin-top: 30px;
-  padding-bottom: 20px; /* Añade un relleno en la parte inferior */
-  border-bottom: 2px solid gainsboro; /* Línea divisoria en la parte inferior */
+  padding-bottom: 10px; /* Añade un relleno en la parte inferior */
+  border-bottom: 3px solid gainsboro; /* Línea divisoria en la parte inferior */
   
 }
 
@@ -51,5 +51,5 @@ ul li a:hover {
 }
 
 .sidebarContent p {
-  margin-top: 10px; /* Agrega un espacio de 5px arriba del párrafo */
+  margin-top: 5px; /* Agrega un espacio de 5px arriba del párrafo */
 }
