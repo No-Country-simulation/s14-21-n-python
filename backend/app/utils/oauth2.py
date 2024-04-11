@@ -1,13 +1,12 @@
+import os
 from datetime import datetime, timedelta, timezone
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from core.config import settings
 from app.schemas import TokenData  # <- Ver schemas
 
-SECRET_KEY = settings.secret_key
-ALGORITHM = settings.algorithm
-ACCESS_TOKEN_EXPIRE_MINUTES = settings.expire_token
-
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv("ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("EXPIRE_TOKEN")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
