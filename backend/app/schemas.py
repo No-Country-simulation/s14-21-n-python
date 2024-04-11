@@ -31,13 +31,11 @@ class ProductSchema(BaseModel):
     business_id: int
     brand: str
     name: str
-    barcode: str
     stock: int
     minimum_stock: int
     original_price: Decimal
     purchase_date: datetime
     expiration_date: datetime
-    category_id: int
 
     class Config:
         orm_mode = True
