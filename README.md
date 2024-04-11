@@ -1,4 +1,5 @@
 # s14-21-n-python
+
 ## Tabla de Contenidos
 
 1. [Instalación](#instalación)
@@ -7,30 +8,36 @@
 4. [Contribución](#contribución)
 5. [Licencia](#licencia)
 
-
 ## Instalación
 
 ### Backend (FastAPI)
+
 1. Clona el repositorio del backend.
 2. Instala las dependencias utilizando pip:
+
    ```BASH
      pip install -r requirements.txt
+
+   ```
 
 3. Configura la base de datos PostgreSQL en el archivo de configuración.
 4. Inicia el servidor FastAPI:
    ```BASH
       uvicorn main:app --reload
+   ```
 
 ### Frontend (React)
+
 1. Clona el repositorio del frontend.
 2. Instala las dependencias utilizando npm:
-    ```BASH
-      npm install
-4. Configura la URL del backend en los archivos de configuración.
-5. Inicia la aplicación React:
-     ```BASH
-      npm start
-
+   ```BASH
+     npm install
+   ```
+3. Configura la URL del backend en los archivos de configuración.
+4. Inicia la aplicación React:
+   ```BASH
+    npm start
+   ```
 
 ## Uso
 
