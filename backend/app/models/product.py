@@ -21,7 +21,6 @@ class Product(Base):
     business_id = mapped_column(Integer, ForeignKey("businesses.id"))
     brand: Mapped[str] = mapped_column(String(255))
     name: Mapped[str] = mapped_column(String(255))
-    barcode: Mapped[str] = mapped_column(String(255))
     stock: Mapped[int]
     # https://docs.sqlalchemy.org/en/20/tutorial/metadata.html#declaring-mapped-classes can use old style for now. we'll need to figure out the types later
     minimum_stock = mapped_column(Numeric(10, 2))
