@@ -19,6 +19,7 @@ class Supplier(Base):
     name: Mapped[str]
     phone: Mapped[str]
     address: Mapped[str]
+    email: Mapped[str]
     is_active: Mapped[bool] = mapped_column(default=True)
 
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
