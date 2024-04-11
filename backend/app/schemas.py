@@ -45,7 +45,6 @@ class CategorySchema(BaseModel):
     id: int
     name: str
     description: str
-    products: List[ProductSchema] = []
 
     class Config:
         orm_mode = True
