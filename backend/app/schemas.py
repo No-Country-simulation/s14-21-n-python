@@ -44,7 +44,7 @@ class ProductSchema(BaseModel):
 class CategorySchema(BaseModel):
     id: int
     name: str
-    description: str
+    description: str | None
 
     class Config:
         orm_mode = True
