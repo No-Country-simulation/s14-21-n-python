@@ -1,26 +1,29 @@
 # from pydantic import BaseModel
 
 # pydantic based schema based on models go here!
-from pydantic import BaseModel, Field, EmailStr
-from typing import Optional, List
 from datetime import datetime
 from decimal import Decimal
 from enum import Enum
+from typing import List, Optional
+
+from pydantic import BaseModel, EmailStr
 
 # BaseModel, SecretBytes, SecretStr, field_serializer
+
 
 class UserSchema(BaseModel):
     id: int
     name: Optional[str]
-    email: EmailStr         
+    email: EmailStr
     password: str
     business_id: Optional[int]
 
     class Config:
         orm_mode = True
 
-#vease: https://docs.pydantic.dev/latest/api/networks/#pydantic.networks.EmailStr
-#pip install email-validator
+
+# vease: https://docs.pydantic.dev/latest/api/networks/#pydantic.networks.EmailStr
+# pip install email-validator
 
 
 class ProductSchema(BaseModel):
@@ -51,22 +54,23 @@ class CategorySchema(BaseModel):
 
 
 class StatusEnum(str, Enum):
-    Pending = 'Pending'
-    Approved = 'Approved'
-    In_process = 'In process'
-    Completed = 'Completed'
-    Canceled = 'Canceled'
+    Pending = "Pending"
+    Approved = "Approved"
+    In_process = "In process"
+    Completed = "Completed"
+    Canceled = "Canceled"
 
 
 class TypeOpEnum(str, Enum):
-    Purchase = 'Purchase'
-    Sale = 'Sale'
+    Purchase = "Purchase"
+    Sale = "Sale"
 
 
 class PaymentMethodEnum(str, Enum):
-    cash = 'cash'
-    card = 'card'
-    transfer = 'transfer'
+    cash = "cash"
+    card = "card"
+    transfer = "transfer"
+
 
 # Enum
 # vease: https://docs.pydantic.dev/latest/api/standard_library_types/#enumintenum
@@ -94,7 +98,6 @@ class SupplierSchema(BaseModel):
     name: str
     phone: str
     address: str
-    transactions: List[TransactionSchema] = []
 
     class Config:
         orm_mode = True
@@ -111,4 +114,3 @@ class BusinessSchema(BaseModel):
 
     class Config:
         orm_mode = True
-
