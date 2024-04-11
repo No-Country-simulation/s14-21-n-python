@@ -95,6 +95,7 @@ class SupplierSchema(BaseModel):
     name: str
     phone: str
     address: str
+    email: EmailStr
 
     class Config:
         orm_mode = True
