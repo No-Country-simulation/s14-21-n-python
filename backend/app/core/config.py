@@ -28,4 +28,5 @@ settings = {
     "database_name": os.getenv("DATABASE_NAME"),
     "secret_key": os.getenv("SECRET_KEY"),
     "algorithm": os.getenv("ALGORITHM"),
+    "expire_token": os.getenv("EXPIRE_TOKEN"),
 }
