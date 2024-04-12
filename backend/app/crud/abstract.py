@@ -1,4 +1,5 @@
 from abc import ABC
+from typing import Any
 
 from pydantic import BaseModel
 from sqlalchemy import select
@@ -26,6 +27,18 @@ class BaseCrud(ABC):
         result = await self.session.execute(statement)
 
         return result.all()
+
+    async def get_by_attribute(self, attribute: str, value: Any):
+        if hasattr(self.model, attribute):
+            model_attribute = getattr(self.model, attribute)
+            statement = select(self.model).where(model_attribute == value)
+
+            result = await self.session.execute(statement)
+
+            return result.first()
+
+        else:
+            raise AttributeError
 
     async def create(self, data: BaseModel):
         new_instance = self.model(**data.model_dump())
