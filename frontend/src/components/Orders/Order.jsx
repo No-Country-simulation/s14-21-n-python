@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Order.module.css";
-import jsonData from "./orders.json"; 
+import jsonData from "./orders.json";
 
 const Orders = () => {
   const handleDeliveredOrders = () => {
@@ -24,7 +24,10 @@ const Orders = () => {
             className={styles.searchInput}
           />
         </div>
-        <button onClick={handleDeliveredOrders} className={styles.deliveredButton}>
+        <button
+          onClick={handleDeliveredOrders}
+          className={styles.deliveredButton}
+        >
           Pedidos Entregados
         </button>
       </div>
