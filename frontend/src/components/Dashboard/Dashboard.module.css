@@ -26,10 +26,9 @@
 }
 
 .additionalContainer {
-  margin-top: 20px; /* Espacio entre las tarjetas y el nuevo contenedor */
+  margin-top: 10px; /* Espacio entre las tarjetas y el nuevo contenedor */
   display: flex;
   flex-direction: column; /* Organiza los elementos verticalmente */
-  
   border-radius: 20px;
 }
 
@@ -46,13 +45,36 @@
     
 }
 
-.dropdown{
+
+/* .dropdown{
 border-radius: 30px;
 margin-left: auto;
   
-} 
+}  */
 
- .titleAndAmount{
+.dropdown {
+  border-radius: 30px;
+  margin-left: auto;
+  /* border: 1px solid #ccc; Borde gris; */
+  min-width: 200px; /* Ancho mínimo */
+  width: max-content; /* Ancho del contenido */
+  padding: 5px 10px; /* Relleno interno */
+}
+
+.select {
+  width: 100%; /* Ancho del select al 100% del contenedor */
+  padding: 8px; /* Ajusta el relleno interior del select */
+  border: none; /* Quita el borde predeterminado del select */
+  background-color: transparent; /* Fondo transparente */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del select */
+  outline: none; /* Quita el contorno al enfocar el select */
+}
+
+.select:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar por encima */
+}
+
+.titleAndAmount{
   margin-left: auto;
 
 }
@@ -61,12 +83,34 @@ margin-left: auto;
   font-weight: bold;
   
 }
-.productInfo{
+/* .productInfo{
   display: grid;
   grid-template-rows: 1fr 1fr;
   margin-left: auto;
   
+} */
+
+.productInfo {
+  display: flex; /* Utilizamos flexbox para organizar los elementos horizontalmente */
+  align-items: center; /* Centramos verticalmente los elementos */
 }
+
+.productInfo h4 {
+  margin-left: 10px; /* Añadimos un margen izquierdo para separar el ícono del texto */
+}
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; /* Añade un margen entre el icono y el detalle del producto */
+}
+
+.priceAndDescription {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px; /* Ajusta el espacio entre el precio y la descripción */
+  margin-left: 10px;
+}
+
 
 .containerAdd {
   display: flex;
@@ -82,4 +126,26 @@ margin-left: auto;
   display: flex;
   flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan */
   justify-content: space-between; /* Distribuye las tarjetas uniformemente */
+  
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center; /* Centra verticalmente el icono y el contenido */
+  background-color: #eeebeb;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  height: 91px;
+  width: 91px;
+  justify-content: center;
+}
+
+.cardIcon svg {
+  width: 70px; /* Ajusta el ancho del ícono */
+  height: 70px; /* Ajusta la altura del ícono */
+}
+
+.containerAdd h3 {
+  margin: 10px;
+
 }

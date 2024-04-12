@@ -1,15 +1,14 @@
-import { useState } from "react";
 import styles from "./Card.module.css"; 
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import CropDinOutlinedIcon from '@mui/icons-material/CropDinOutlined';
+import { IoMdAddCircle } from "react-icons/io";
 
 
-const Card = ({ title, content }) => {
+const Card = ({ title, content, icon }) => {
+  const IconComponent = icon; // Asigna el ícono dinámicamente
   return (
     
     <div className={styles.card}>
       <div className={styles.cardIcon}>
-        <CropDinOutlinedIcon />
+        <IconComponent  />
         <div>
           <h3>{title}</h3>
           <p>{content}</p>
@@ -20,17 +19,16 @@ const Card = ({ title, content }) => {
 };
 
 
-
-
 const CardAccesos = ({ title }) => {
   return (
     
     <div className={styles.card}>
-      
-      <AddCircleOutlineIcon />
+      <button className={styles.buttonAdd}>
+            <IoMdAddCircle fontSize={45} color={"#C1C1C1"} />
+      </button>
       <h3>{title}</h3>
 
-         </div>
+    </div>
   );
 };
 
