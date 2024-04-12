@@ -68,6 +68,9 @@ class BaseCrud(ABC):
 
         instance = result.first()
 
-        await self.session.delete(instance)
+        if instance:
+            await self.session.delete(instance)
 
-        await self.session.commit()
+            await self.session.commit()
+        else:
+            raise ValueError(f"Instance with id {model_id} not found")
