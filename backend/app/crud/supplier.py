@@ -1,5 +1,5 @@
-from app.crud.abstract import BaseCrud
-from app.models.supplier import Supplier
+from crud.abstract import BaseCrud
+from models.supplier import Supplier
 
 
 class SupplierCrud(BaseCrud):

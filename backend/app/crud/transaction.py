@@ -1,5 +1,5 @@
-from app.crud.abstract import BaseCrud
-from app.models.transaction import Transaction
+from crud.abstract import BaseCrud
+from models.transaction import Transaction
 
 
 class TransactionCrud(BaseCrud):

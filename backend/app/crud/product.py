@@ -1,5 +1,5 @@
-from app.crud.abstract import BaseCrud
-from app.models.product import Product
+from crud.abstract import BaseCrud
+from models.product import Product
 
 
 class ProductCrud(BaseCrud):
