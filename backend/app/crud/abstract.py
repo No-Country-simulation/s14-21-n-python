@@ -56,10 +56,13 @@ class BaseCrud(ABC):
 
         instance = result.first()
 
-        for key, value in data.model_dump().items():
-            setattr(instance, key, value)
+        if instance:
+            for key, value in data.model_dump().items():
+                setattr(instance, key, value)
 
-        await self.session.commit()
+            await self.session.commit()
+        else:
+            raise ValueError(f"Instance with id {model_id} not found")
 
     async def delete(self, model_id: int):
         statement = select(self.model).where(self.model.id == model_id)
