@@ -5,8 +5,6 @@ from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio.session import AsyncSession
 
-# select().where
-
 
 class BaseCrud(ABC):
     model = None
