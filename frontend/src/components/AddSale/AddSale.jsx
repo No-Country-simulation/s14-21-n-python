@@ -4,7 +4,7 @@ const AddSale = () => {
   return (
     <form className={style.container}>
       <div className={style.inputs}>
-        <label>Fecha:</label>
+        <label>Fecha</label>
         <input type="date" />
       </div>
       <div className={style.inputs}>

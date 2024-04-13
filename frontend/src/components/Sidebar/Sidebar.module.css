@@ -1,14 +1,11 @@
+.sidebar {
+  grid-area: sidebar;
+  width: auto;
+  min-height: 85vh;
+  border-right: 1px solid rgb(184, 181, 181);
+  background-color: darkgray;
+}
 
- .sidebar{
-    grid-area: sidebar;
-    overflow-y: auto;
-    width: 12rem;
-    height: 100vh;
-    border-right: 1px solid rgb(184, 181, 181);
-   background-color: darkgray;
-  } 
-  
-  
 .sidebar ul {
   list-style: none;
   padding: 1rem 2rem;
@@ -21,19 +18,21 @@
 .sidebar ul li a {
   text-decoration: none;
 }
+
 /* Estilos por defecto del botón */
 ul li a {
   display: block;
   padding: 0.5rem 1rem;
   border-radius: 20px; /* Redondea los bordes */
   text-decoration: none; /* Quita la subraya del enlace */
-  color: rgb(219, 216, 216);
+  color: black;
 }
 
 /* Estilos cuando se coloca el mouse sobre el botón */
 ul li a:hover {
   background-color: #e0e0e0; /* Cambia el color de fondo */
 }
+
 .sidebarContent {
   display: flex;
   flex-direction: column;
@@ -43,7 +42,6 @@ ul li a:hover {
   margin-top: 30px;
   padding-bottom: 10px; /* Añade un relleno en la parte inferior */
   border-bottom: 3px solid gainsboro; /* Línea divisoria en la parte inferior */
-  
 }
 
 .sidebarContent h3 {

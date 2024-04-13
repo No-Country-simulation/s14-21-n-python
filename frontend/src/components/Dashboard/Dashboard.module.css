@@ -1,13 +1,14 @@
 /* Dashboard.module.css */
 
- .dashboard {
+.dashboard {
   grid-area: Dashboard;
   margin-top: 1px;
-  padding: 4px;
-  background-color: #ffffff; 
-  display:grid;
-  height:max-content;
-  border-radius: 30px;
+  padding: 30px;
+  background-color: #ffffff;
+  display: grid;
+  height: max-content;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .mainTitle {
@@ -20,9 +21,8 @@
 .container {
   display: flex;
   justify-content: space-evenly;
-   margin-top: 10px;
+  margin-top: 10px;
   padding: 5px;
-  
 }
 
 .additionalContainer {
@@ -38,13 +38,11 @@
   grid-template-columns: 1fr 1fr;
   border-radius: 20px;
   padding: 20px;
-  background-color: #F8F9F9;
-  justify-content:space-between;
+  background-color: #f8f9f9;
+  justify-content: space-between;
   flex-direction: column;
   align-items: flex-start;
-    
 }
-
 
 /* .dropdown{
 border-radius: 30px;
@@ -74,14 +72,12 @@ margin-left: auto;
   background-color: #f0f0f0; /* Cambia el color de fondo al pasar por encima */
 }
 
-.titleAndAmount{
+.titleAndAmount {
   margin-left: auto;
-
 }
- .titleAndAmount p{
+.titleAndAmount p {
   margin-left: auto;
   font-weight: bold;
-  
 }
 /* .productInfo{
   display: grid;
@@ -111,14 +107,13 @@ margin-left: auto;
   margin-left: 10px;
 }
 
-
 .containerAdd {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   margin-top: 10px;
   padding: 5px;
-  background-color: #F8F9F9;
+  background-color: #f8f9f9;
   border-radius: 20px;
 }
 
@@ -126,7 +121,6 @@ margin-left: auto;
   display: flex;
   flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan */
   justify-content: space-between; /* Distribuye las tarjetas uniformemente */
-  
 }
 
 .cardIcon {
@@ -147,5 +141,4 @@ margin-left: auto;
 
 .containerAdd h3 {
   margin: 10px;
-
 }

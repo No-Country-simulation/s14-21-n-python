@@ -76,6 +76,7 @@ const Sales = () => {
       <div className={style.title}>
         <h1>Ventas</h1>
       </div>
+      <hr className={style.separateLine} />
       <section>
         <div>
           <button>Generar Reporte</button>

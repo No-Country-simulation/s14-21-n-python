@@ -1,14 +1,16 @@
 /* Order.module.css */
 
 .ordersContainer {
-  margin: 0 auto;
+  min-height: 85vh;
+  background-color: white;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
   padding: 20px;
-  border-radius: 5px;
 }
 
 .ordersTitle {
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 .subtitle {
@@ -17,27 +19,24 @@
 }
 
 .hr {
-  border: none;
-  height: 3px;
+  height: 5px;
   background-color: black;
-  margin: 20px 0;
+  margin: 0px 0px 10px 0px;
 }
 
 .filterContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   margin-bottom: 10px;
 }
 
-.filterInput{
+.filterInput {
   width: 116px;
-  
 }
 
-.searchInput{
+.searchInput {
   width: 280px;
-  
 }
 
 .filterInput,
@@ -69,7 +68,7 @@
 
 .row {
   display: flex;
-  background-color:  #EEEEEE;
+  background-color: #eeeeee;
   padding: 8px;
 }
 
@@ -91,6 +90,6 @@
 .rowWithMargin {
   margin-top: 12px;
   text-align: center;
-  margin-bottom: 12px;  
+  margin-bottom: 12px;
   border-radius: 16px;
 }
