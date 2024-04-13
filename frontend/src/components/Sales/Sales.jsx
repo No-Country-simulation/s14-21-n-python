@@ -1,6 +1,5 @@
 import style from "./Sales.module.css";
 import { useState } from "react";
-import AddSale from "../AddSale/AddSale";
 
 const Sales = () => {
   const testArray = [
@@ -77,9 +76,9 @@ const Sales = () => {
       <div className={style.title}>
         <h1>Ventas</h1>
       </div>
+      <hr className={style.separateLine} />
       <section>
         <div>
-          <button>Agregar</button>
           <button>Generar Reporte</button>
         </div>
       </section>
@@ -105,7 +104,6 @@ const Sales = () => {
           })}
         </div>
       </section>
-      <AddSale />
     </main>
   );
 };

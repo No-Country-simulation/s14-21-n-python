@@ -9,10 +9,10 @@ const Supplier = () => {
       <div className={style.title}>
         <h1>Proveedores</h1>
       </div>
+      <hr className={style.separateLine} />
       <section>
         <div>
           <button>Administrar</button>
-          <button>Agregar</button>
         </div>
       </section>
       <section className={style.layout}>
@@ -33,9 +33,8 @@ const Supplier = () => {
           );
         })}
       </section>
-      <AddSupplier />
     </main>
   );
-}
+};
 
-export default Supplier
+export default Supplier;

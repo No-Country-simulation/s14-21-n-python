@@ -1,57 +1,23 @@
 /* App.css */
 
-.App{
-  
-  background-color: darkgray;
-}
-
 body {
-  margin: 0;
-  padding: 0;
-  background-color: white;
+  background-color: #003c43;
   color: black;
-  font-family: 'Montserrat', sans-serif;
 }
 
-  .container {
-    display: grid;
-    grid-template-columns: 260px 1fr; 
-    grid-template-rows: 0.2fr 1fr 1fr; 
-    grid-template-areas: 
-      'sidebar header'
-      'sidebar Dashboard' 
-      'sidebar Footer';
-    height: 100vh;
-    
-    
-  }
+.container {
+  display: flex;
+  align-items: stretch;
+  min-height: 85vh;
+}
 
-  .dashboard-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; 
-    
-  }
-  
-  .content {
-    padding: 20px;
-    flex-grow: 1; /* El contenido ocupa todo el espacio restante */
-  
-  }
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
-
-/* .container {
-  display: grid;
-  grid-template-columns: 260px 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1fr 1fr;
-  grid-template-areas: 
-  'sidebar header header header'
-  'sidebar Dashboard Dashboard Dashboard'
-  'sidebar Footer Footer Footer';
-  height: 100vh;
-  } */
-
-
-
-
-
+.content {
+  padding: 2px 0px;
+  flex-grow: 1; /* El contenido ocupa todo el espacio restante */
+}

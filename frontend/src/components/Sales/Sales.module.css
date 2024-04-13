@@ -1,10 +1,9 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  background-color: rgb(216, 215, 215);
+  min-height: 85vh;
+  background-color: white;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  padding: 20px;
 }
 
 .title {
@@ -21,6 +20,12 @@
   margin: 30px 15px 15px;
   padding-bottom: 6px;
   max-width: 100%;
+}
+
+.separateLine {
+  height: 5px;
+  background-color: black;
+  margin: 0px 0px 10px 0px;
 }
 
 .header {

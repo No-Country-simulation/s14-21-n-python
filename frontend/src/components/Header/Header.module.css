@@ -1,18 +1,19 @@
+.header {
+  grid-area: header;
+  display: grid;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e3fef7;
+  padding: 5px 30px;
+  border-bottom: 1px gainsboro;
+  grid-template-columns: auto auto;
+}
 
-  .header{
-    grid-area: header;
-    display: grid;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    justify-content: space-between;
-    background-color: azure;
-    padding: 0 30px ;
-    border-bottom: 1px  gainsboro;
-    grid-template-columns: auto auto;
-    margin-top: 5px;
-  } 
-
+.logo {
+  width: 170px;
+}
 
 .icon-button-container {
   display: flex;
@@ -20,9 +21,11 @@
 }
 
 .exitButton {
-  border: none;
+  border: 3px solid;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
+  background-color: #e3fef7;
+  font-weight: 700;
 }
 
 .icon {

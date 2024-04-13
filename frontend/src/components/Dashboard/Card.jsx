@@ -1,15 +1,15 @@
-import { useState } from "react";
-import styles from "./Card.module.css"; 
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import CropDinOutlinedIcon from '@mui/icons-material/CropDinOutlined';
+import React, { useState } from "react";
+import styles from "./Card.module.css";
+import { IoMdAddCircle } from "react-icons/io";
+import Modal from "../Modal/Modal";
 
+const Card = ({ title, content, icon }) => {
+  const Icon = icon; // Asigna el ícono dinámicamente
 
-const Card = ({ title, content }) => {
   return (
-    
     <div className={styles.card}>
       <div className={styles.cardIcon}>
-        <CropDinOutlinedIcon />
+        <Icon styles={{ color: "#003c43" }} />
         <div>
           <h3>{title}</h3>
           <p>{content}</p>
@@ -19,18 +19,27 @@ const Card = ({ title, content }) => {
   );
 };
 
+const CardAccesos = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
+  const openPopup = () => {
+    setIsOpen(true);
+  };
 
+  const closePopup = () => {
+    setIsOpen(false);
+  };
 
-const CardAccesos = ({ title }) => {
   return (
-    
     <div className={styles.card}>
-      
-      <AddCircleOutlineIcon />
+      <button className={styles.buttonAdd} onClick={openPopup}>
+        <IoMdAddCircle fontSize={45} color={"#C1C1C1"} />
+      </button>
       <h3>{title}</h3>
-
-         </div>
+      <Modal isOpen={isOpen} onClose={closePopup}>
+        {children}
+      </Modal>
+    </div>
   );
 };
 
