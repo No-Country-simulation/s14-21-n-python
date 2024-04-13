@@ -1,16 +1,144 @@
 /* Dashboard.module.css */
 
- .dashboard {
-  grid-area: Home;
-  width: 100%;
-  /* overflow-y: auto; */
-  margin-top: 40px;
-  padding: 20px 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  
+.dashboard {
+  grid-area: Dashboard;
+  margin-top: 1px;
+  padding: 30px;
+  background-color: #ffffff;
+  display: grid;
+  height: max-content;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
+.mainTitle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  margin-left: 60px;
+}
 
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  padding: 5px;
+}
 
+.additionalContainer {
+  margin-top: 10px; /* Espacio entre las tarjetas y el nuevo contenedor */
+  display: flex;
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  border-radius: 20px;
+}
+
+.card2 {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #f8f9f9;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* .dropdown{
+border-radius: 30px;
+margin-left: auto;
+  
+}  */
+
+.dropdown {
+  border-radius: 30px;
+  margin-left: auto;
+  /* border: 1px solid #ccc; Borde gris; */
+  min-width: 200px; /* Ancho mínimo */
+  width: max-content; /* Ancho del contenido */
+  padding: 5px 10px; /* Relleno interno */
+}
+
+.select {
+  width: 100%; /* Ancho del select al 100% del contenedor */
+  padding: 8px; /* Ajusta el relleno interior del select */
+  border: none; /* Quita el borde predeterminado del select */
+  background-color: transparent; /* Fondo transparente */
+  cursor: pointer; /* Cambia el cursor al pasar por encima del select */
+  outline: none; /* Quita el contorno al enfocar el select */
+}
+
+.select:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar por encima */
+}
+
+.titleAndAmount {
+  margin-left: auto;
+}
+.titleAndAmount p {
+  margin-left: auto;
+  font-weight: bold;
+}
+/* .productInfo{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin-left: auto;
+  
+} */
+
+.productInfo {
+  display: flex; /* Utilizamos flexbox para organizar los elementos horizontalmente */
+  align-items: center; /* Centramos verticalmente los elementos */
+}
+
+.productInfo h4 {
+  margin-left: 10px; /* Añadimos un margen izquierdo para separar el ícono del texto */
+}
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; /* Añade un margen entre el icono y el detalle del producto */
+}
+
+.priceAndDescription {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px; /* Ajusta el espacio entre el precio y la descripción */
+  margin-left: 10px;
+}
+
+.containerAdd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #f8f9f9;
+  border-radius: 20px;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan */
+  justify-content: space-between; /* Distribuye las tarjetas uniformemente */
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center; /* Centra verticalmente el icono y el contenido */
+  background-color: #eeebeb;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  height: 91px;
+  width: 91px;
+  justify-content: center;
+}
+
+.cardIcon svg {
+  width: 70px; /* Ajusta el ancho del ícono */
+  height: 70px; /* Ajusta la altura del ícono */
+}
+
+.containerAdd h3 {
+  margin: 10px;
+}

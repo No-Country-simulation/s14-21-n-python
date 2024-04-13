@@ -1,82 +1,72 @@
 import React, { useState } from "react";
 import styles from "./Order.module.css";
+import jsonData from "./orders.json";
 
 const Orders = () => {
-  const [orders, setOrders] = useState([]);
-  const [newOrder, setNewOrder] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para almacenar el término de búsqueda
 
-  const handleAddOrder = () => {
-    if (newOrder.trim() !== "") {
-      setOrders([
-        ...orders,
-        { id: orders.length + 1, name: newOrder, delivered: false },
-      ]);
-      setNewOrder("");
-    }
+  const handleDeliveredOrders = () => {
+    console.log("Entregados");
   };
 
-  const handleMarkDelivered = (id) => {
-    const updatedOrders = orders.map((order) =>
-      order.id === id ? { ...order, delivered: true } : order,
-    );
-    setOrders(updatedOrders);
-  };
-
-  const handleDeleteDelivered = () => {
-    const filteredOrders = orders.filter((order) => !order.delivered);
-    setOrders(filteredOrders);
-  };
-
-  const pendingOrders = orders.filter((order) => !order.delivered);
-  const deliveredOrders = orders.filter((order) => order.delivered);
+  // Función para filtrar los productos basados en el término de búsqueda
+  const filteredProducts = jsonData.products.filter((product) =>
+    product.product.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className={styles.ordersContainer}>
-      <h2 className={styles.ordersTitle}>Orders</h2>
-      <div className={styles.inputContainer}>
-        <input
-          type="text"
-          value={newOrder}
-          onChange={(e) => setNewOrder(e.target.value)}
-          placeholder="Order name"
-          className={styles.input}
-        />
-        <button onClick={handleAddOrder} className={styles.button}>
-          Add Order
+      <h2 className={styles.ordersTitle}>Pedidos</h2>
+      <hr className={styles.hr} />
+      <div className={styles.filterContainer}>
+        <div className={styles.inputContainer}>
+          <input
+            type="text"
+            placeholder="Filtros"
+            className={styles.filterInput}
+          />
+          <input
+            type="text"
+            placeholder="Buscar..."
+            className={styles.searchInput}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} // Actualiza el estado del término de búsqueda
+          />
+        </div>
+        <button
+          onClick={handleDeliveredOrders}
+          className={styles.deliveredButton}
+        >
+          Pedidos Entregados
         </button>
       </div>
-      <div>
-        <h3 className={styles.subtitle}>Pending Orders</h3>
-        <ul className={styles.list}>
-          {pendingOrders.map((order) => (
-            <li key={order.id} className={styles.item}>
-              {order.name}{" "}
-              <button
-                onClick={() => handleMarkDelivered(order.id)}
-                className={styles.markDelivered}
-              >
-                Mark Delivered
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 className={styles.subtitle}>Delivered Orders</h3>
-        <ul className={styles.list}>
-          {deliveredOrders.map((order) => (
-            <li key={order.id} className={styles.item}>
-              {order.name}
-            </li>
-          ))}
-        </ul>
-        {deliveredOrders.length > 0 && (
-          <button
-            onClick={handleDeleteDelivered}
-            className={styles.deleteButton}
-          >
-            Delete Delivered Orders
-          </button>
+      <div className={styles.table}>
+        <div className={`${styles.row} ${styles.header}`}>
+          <div className={styles.cell}>Fecha</div>
+          <div className={styles.cell}>Productos</div>
+          <div className={styles.cell}>Cantidad</div>
+          <div className={styles.cell}>Proveedor</div>
+          <div className={styles.cell}>Estado</div>
+        </div>
+        {filteredProducts.length === 0 ? ( // Verifica si no se encontraron productos
+          <div className={styles.row}>
+            <div className={styles.cell} colSpan="5">
+              No se encontró el producto.
+            </div>
+          </div>
+        ) : (
+          filteredProducts.map((product, index) => (
+            <div
+              key={index}
+              className={`${styles.row} ${styles.rowWithMargin}`}
+            >
+              <div className={styles.cell}>{product.date}</div>
+              <div className={styles.cell}>{product.product}</div>
+              <div className={styles.cell}>{product.amount}</div>
+              <div className={styles.cell}>{product.supplier}</div>
+              <div className={styles.cell}><span>{product.state[0]}</span></div>
+            </div>
+          ))
         )}
       </div>
     </div>

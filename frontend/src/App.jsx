@@ -18,20 +18,20 @@ function App() {
         <Header />
         <div className="container">
           <Sidebar />
-
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/sales" element={<Sales />} />
-              <Route path="/suppliers" element={<Supplier />} />
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/category" element={<Category />} />
-            </Routes>
+          <div className="dashboard-container">
+            <div className="content">
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/sales" element={<Sales />} />
+                <Route path="/suppliers" element={<Supplier />} />
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/category" element={<Category />} />
+              </Routes>
+            </div>
           </div>
-
-          <Footer />
         </div>
+        <Footer />
       </BrowserRouter>
     </>
   );

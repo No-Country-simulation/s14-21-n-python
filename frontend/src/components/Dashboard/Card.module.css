@@ -1,0 +1,32 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  background-color: #eeebeb;
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center; /* Centra verticalmente el icono y el contenido */
+  justify-content: center;
+  height: 100%;
+}
+
+.cardIcon h3,
+.cardIcon p {
+  margin-left: 10px; /* Agrega un margen a la izquierda para separar el icono del texto */
+  justify-content: center;
+}
+
+.cardIcon svg {
+  width: 40px; /* Ajusta el ancho del ícono */
+  height: 40px; /* Ajusta la altura del ícono */
+}
+
+.buttonAdd {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
