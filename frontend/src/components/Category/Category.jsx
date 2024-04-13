@@ -41,7 +41,7 @@ export const Category = () => {
   return (
     <main className={styles.container}>
       <div className={styles.searchContainer}>
-        <h1 className={styles.titleCategory}>Categorías</h1>
+        <h1 className={styles.title}>Categorías</h1>
         <input className={styles.inputSearch} placeholder="Buscar..." />
       </div>
 
