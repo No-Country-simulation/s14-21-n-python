@@ -11,7 +11,7 @@ const Orders = () => {
 
   // Función para filtrar los productos basados en el término de búsqueda
   const filteredProducts = jsonData.products.filter((product) =>
-    product.product.toLowerCase().includes(searchTerm.toLowerCase())
+    product.product.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -64,7 +64,9 @@ const Orders = () => {
               <div className={styles.cell}>{product.product}</div>
               <div className={styles.cell}>{product.amount}</div>
               <div className={styles.cell}>{product.supplier}</div>
-              <div className={styles.cell}><span>{product.state[0]}</span></div>
+              <div className={styles.cell}>
+                <span>{product.state[0]}</span>
+              </div>
             </div>
           ))
         )}
