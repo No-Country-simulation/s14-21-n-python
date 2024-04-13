@@ -177,13 +177,15 @@
 
 .deleteCategoryBox {
   position: absolute;
-<<<<<<< HEAD
-=======
   background-color: rgba(169, 169, 169, 0.43);
   width: 100%;
->>>>>>> 67dc95434ede926e7cc28cf97c4988b3862da373
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.buttonTrash {
+  border: none;
+  cursor: pointer;
 
 }

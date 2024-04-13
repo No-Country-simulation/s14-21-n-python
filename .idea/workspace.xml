@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33f8b249-56d1-4679-b5f1-27af475b0bda" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/AddOrder/AddOrder.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Modal/Modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Category/Category.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Category/Category.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Category/DeleteCategory/DeleteCategory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Category/DeleteCategory/DeleteCategory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Category/DeleteCategory/DeleteCategory.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Category/DeleteCategory/DeleteCategory.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Dashboard/Dashboard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Dashboard/Dashboard.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer/Footer.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer/Footer.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Supplier/Supplier.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Supplier/Supplier.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "frontend-setup",
+    "git-widget-placeholder": "Merging frontend-setup",
     "last_opened_file_path": "/Users/solcalderon/Documents/Projects/s14-21-n-python",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -50,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710861962894</updated>
-      <workItem from="1712788190455" duration="7038000" />
+      <workItem from="1712788190455" duration="7684000" />
     </task>
     <servers />
   </component>
