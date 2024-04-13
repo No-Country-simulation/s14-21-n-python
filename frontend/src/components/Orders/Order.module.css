@@ -83,6 +83,12 @@
   padding: 8px;
 }
 
+.cell span{
+  border: 2px solid black;
+  padding: 5px 10px;
+  border-radius: 16px;
+}
+
 .cell:last-child {
   border-right: none;
 }
