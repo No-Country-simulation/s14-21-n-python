@@ -1,18 +1,16 @@
-
-  .header{
-    grid-area: header;
-    display: grid;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    justify-content: space-between;
-    background-color: azure;
-    padding: 0 30px ;
-    border-bottom: 1px  gainsboro;
-    grid-template-columns: auto auto;
-    margin-top: 5px;
-  } 
-
+.header {
+  grid-area: header;
+  display: grid;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(207, 206, 206);
+  padding: 15px 30px;
+  border-bottom: 1px gainsboro;
+  grid-template-columns: auto auto;
+  /* margin-top: 5px; */
+}
 
 .icon-button-container {
   display: flex;

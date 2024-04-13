@@ -1,15 +1,15 @@
-import style from "./AddProd.module.css";
+import style from "./AddOrder.module.css";
 
-const AddProd = () => {
+const AddOrder = () => {
   return (
     <form className={style.container}>
-      <h3>Nuevo producto</h3>
+      <h3>Nuevo pedido</h3>
       <div className={style.inputs}>
-        <label>Nombre</label>
-        <input type="text" />
+        <label>Fecha</label>
+        <input type="date" />
       </div>
       <div className={style.inputs}>
-        <label>Descripcion</label>
+        <label>Producto</label>
         <input type="text" />
       </div>
       <div className={style.inputs}>
@@ -27,28 +27,19 @@ const AddProd = () => {
       </div>
       <div className={style.inputs}>
         <label>Marca</label>
-        <input type="text" />
+        <input type="type" />
+      </div>
+      <div className={style.inputs}>
+        <label>Cantidad</label>
+        <input type="number" min={0} />
       </div>
       <div className={style.inputs}>
         <label>Proveedor</label>
         <input type="text" />
       </div>
-      <div className={style.inputs}>
-        <label>Cantidad</label>
-        <input type="text" />
-      </div>
-      <div className={style.inputs}>
-        <label>Precio compra</label>
-        <input type="number" min={0} />
-      </div>
-      <div className={style.inputs}>
-        <label>Precio venta</label>
-        <input type="number" min={0} />
-      </div>
-
       <input type="submit" value="Agregar" />
     </form>
   );
 };
 
-export default AddProd;
+export default AddOrder;

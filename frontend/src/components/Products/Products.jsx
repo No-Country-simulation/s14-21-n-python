@@ -75,15 +75,13 @@ const Products = () => {
 
   return (
     <main>
-      <div className={style.title}>
-        <h1>Productos</h1>
-      </div>
-      <hr className={style.separateLine} />
-
-      <section className={style.container}>
+      <div className={style.container}>
+        <div className={style.title}>
+          <h1>Productos</h1>
+        </div>
+        <hr className={style.separateLine} />
         <section className={style.containerFilters}>
           <div className={style.modifyControls}>
-            <button>Agregar</button>
             <button onClick={() => setModifyProds(!modifyProds)}>
               Modificar
             </button>
@@ -121,8 +119,7 @@ const Products = () => {
             })}
           </div>
         </section>
-        <AddProd />
-      </section>
+      </div>
     </main>
   );
 };

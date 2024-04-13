@@ -3,9 +3,8 @@ import style from "./AddSale.module.css";
 const AddSale = () => {
   return (
     <form className={style.container}>
-      <h3>Nueva venta</h3>
       <div className={style.inputs}>
-        <label>Fecha:</label>
+        <label>Fecha</label>
         <input type="date" />
       </div>
       <div className={style.inputs}>

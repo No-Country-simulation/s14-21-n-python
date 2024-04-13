@@ -3,6 +3,8 @@ import { IoMdAddCircle } from "react-icons/io";
 import styles from "./Category.module.css";
 import { DeleteCategory } from "./DeleteCategory/DeleteCategory.jsx";
 import { FaTrashAlt } from "react-icons/fa";
+import Modal from "../Modal/Modal.jsx";
+import AddCategory from "../AddCategory/AddCategory.jsx";
 
 export const Category = () => {
   const categoryItems = [
@@ -24,6 +26,16 @@ export const Category = () => {
 
   const handleWarning = () => {
     setShowWarning(!showWarning);
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -54,10 +66,13 @@ export const Category = () => {
           </div>
         ))}
         <div className={styles.addContainer}>
-          <button className={styles.buttonAdd}>
+          <button className={styles.buttonAdd} onClick={openPopup}>
             <IoMdAddCircle fontSize={45} color={"#C1C1C1"} />
           </button>
           <h2>Crear Nueva Categoría</h2>
+          <Modal isOpen={isOpen} onClose={closePopup}>
+            <AddCategory />
+          </Modal>
         </div>
       </section>
 
