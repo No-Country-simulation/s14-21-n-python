@@ -22,7 +22,7 @@
 
 @media (max-width: 1350px) {
   .searchContainer {
-      width: 800px;
+    width: 800px;
   }
 }
 
@@ -32,7 +32,7 @@
   }
 }
 
-.titleCategory {
+.title {
   font-size: 30px;
 }
 
@@ -53,8 +53,8 @@
 
 @media (max-width: 1350px) {
   .productMainContainer {
-    grid-template-rows: repeat(4,200px);
-    grid-template-columns: repeat(4,200px);
+    grid-template-rows: repeat(4, 200px);
+    grid-template-columns: repeat(4, 200px);
     gap: 5px;
     text-align: center;
     font-size: 16px;
@@ -187,5 +187,4 @@
 .buttonTrash {
   border: none;
   cursor: pointer;
-
 }

@@ -4,12 +4,12 @@ import { IoMdAddCircle } from "react-icons/io";
 import Modal from "../Modal/Modal";
 
 const Card = ({ title, content, icon }) => {
-  const IconComponent = icon; // Asigna el ícono dinámicamente
+  const Icon = icon; // Asigna el ícono dinámicamente
 
   return (
     <div className={styles.card}>
       <div className={styles.cardIcon}>
-        <IconComponent />
+        <Icon styles={{ color: "#003c43" }} />
         <div>
           <h3>{title}</h3>
           <p>{content}</p>

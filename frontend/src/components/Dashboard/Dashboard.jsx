@@ -15,9 +15,10 @@ const Dashboard = () => {
 
   return (
     <div className={styles.dashboard}>
-      <div className={styles.mainTitle}>
-        <h3>PANEL PRINCIPAL</h3>
+      <div className={styles.title}>
+        <h1>Panel Principal</h1>
       </div>
+      <hr className={styles.separateLine} />
 
       {/* Primer Contenedor */}
       <div className={styles.container}>
@@ -49,7 +50,7 @@ const Dashboard = () => {
 
           <div className={styles.productInfo}>
             <div className={styles.cardIcon}>
-              <FaRegStar />
+              <FaRegStar color="#e3fef7" />
             </div>
             <div className={styles.productDetails}>
               <h4>Nombre del producto</h4>

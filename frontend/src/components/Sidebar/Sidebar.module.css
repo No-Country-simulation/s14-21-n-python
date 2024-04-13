@@ -3,7 +3,8 @@
   width: auto;
   min-height: 85vh;
   border-right: 1px solid rgb(184, 181, 181);
-  background-color: darkgray;
+  background-color: #003c43;
+  color: #e3fef7;
 }
 
 .sidebar ul {
@@ -17,6 +18,7 @@
 
 .sidebar ul li a {
   text-decoration: none;
+  color: #e3fef7;
 }
 
 /* Estilos por defecto del botón */
@@ -30,7 +32,8 @@ ul li a {
 
 /* Estilos cuando se coloca el mouse sobre el botón */
 ul li a:hover {
-  background-color: #e0e0e0; /* Cambia el color de fondo */
+  background-color: #e3fef7; /* Cambia el color de fondo */
+  color: #003c43;
 }
 
 .sidebarContent {

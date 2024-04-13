@@ -1,4 +1,3 @@
-import AddProd from "../AddProd/AddProd";
 import style from "./Products.module.css";
 import { useState } from "react";
 import jsonData from "./products.json";
