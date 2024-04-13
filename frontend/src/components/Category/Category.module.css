@@ -19,6 +19,18 @@
   width: 100%;
 }
 
+@media (max-width: 1350px) {
+  .searchContainer {
+      width: 800px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .searchContainer {
+    width: 80%;
+  }
+}
+
 .titleCategory {
   font-size: 30px;
 }
@@ -40,6 +52,16 @@
   justify-content: center;
 }
 
+@media (max-width: 1350px) {
+  .productMainContainer {
+    grid-template-rows: repeat(4,200px);
+    grid-template-columns: repeat(4,200px);
+    gap: 5px;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
 .addContainer {
   display: flex;
   background-color: #f4f4f4;
@@ -54,6 +76,14 @@
   text-align: center;
 }
 
+@media (max-width: 1350px) {
+  .addContainer {
+    width: 150px;
+    height: 150px;
+    font-size: 14px;
+  }
+}
+
 .productContainer {
   display: flex;
   justify-content: center;
@@ -64,6 +94,13 @@
   width: 200px;
   border-radius: 15px;
   height: 200px;
+}
+
+@media (max-width: 1350px) {
+  .productContainer {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .productInformation {
@@ -142,11 +179,9 @@
 }
 
 .deleteCategoryBox {
- position: absolute;
-  background-color: rgba(169, 169, 169, 0.43);
-  width: 100%;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+
 }

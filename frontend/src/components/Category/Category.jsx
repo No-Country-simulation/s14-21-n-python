@@ -20,6 +20,11 @@ export const Category = () => {
   ];
 
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [showWarning, setShowWarning] = useState(false);
+
+  const handleWarning = () => {
+    setShowWarning(!showWarning);
+  };
 
   return (
     <main className={styles.container}>
@@ -41,7 +46,7 @@ export const Category = () => {
             )}
             {hoveredItem === item && (
               <div className={styles.deleteOverlay}>
-                <button>
+                <button onClick={handleWarning}>
                   <FaTrashAlt fontSize={30} />
                 </button>
               </div>
@@ -56,9 +61,11 @@ export const Category = () => {
         </div>
       </section>
 
-      {/*<div className={styles.deleteCategoryBox}>
-        <DeleteCategory/>
-      </div>*/}
+      {showWarning && (
+        <div className={styles.deleteCategoryBox}>
+          <DeleteCategory />
+        </div>
+      )}
     </main>
   );
 };
