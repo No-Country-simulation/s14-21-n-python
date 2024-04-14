@@ -44,6 +44,7 @@ export const Category = () => {
         <h1 className={styles.title}>Categorías</h1>
         <input className={styles.inputSearch} placeholder="Buscar..." />
       </div>
+      <hr className={styles.separateLine} />
 
       <section className={styles.productMainContainer}>
         {categoryItems.map((item) => (

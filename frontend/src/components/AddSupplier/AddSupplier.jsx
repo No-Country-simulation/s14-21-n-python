@@ -3,7 +3,6 @@ import style from "./AddSupplier.module.css";
 const AddSupplier = () => {
   return (
     <form className={style.container}>
-      <h3>Nuevo Proveedor</h3>
       <div className={style.inputs}>
         <label>Nombre</label>
         <input type="name" />
@@ -23,10 +22,10 @@ const AddSupplier = () => {
       </div>
       <div className={style.inputs}>
         <label>CUIT</label>
-        <input type="number" minLength={11} maxLength={11} />
+        <input type="text" />
       </div>
 
-      <input type="submit" value="Agregar" />
+      <input className={style.button} type="submit" value="Agregar" />
     </form>
   );
 };

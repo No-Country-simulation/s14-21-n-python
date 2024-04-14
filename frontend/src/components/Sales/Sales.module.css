@@ -1,31 +1,56 @@
 .container {
-  min-height: 85vh;
-  background-color: white;
-  border-top-right-radius: 30px;
+  min-height: 100%;
+  background-color: #fffffb;
   border-top-left-radius: 30px;
-  padding: 20px;
+  padding: 10px 50px 10px 50px;
 }
 
 .title {
-  margin-top: 15px;
+  margin: 15px 0 10px 0;
+  font-size: 30px;
 }
 
-.title h1 {
-  text-align: left;
+.separateLine {
+  height: 2px;
+  background-color: #161717;
+  margin: 0px 0px 10px 0px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .layout {
-  background-color: rgb(234, 234, 234);
+  background-color: #d6fff5;
   border-radius: 20px;
   margin: 30px 15px 15px;
   padding-bottom: 6px;
   max-width: 100%;
 }
 
-.separateLine {
-  height: 5px;
-  background-color: black;
-  margin: 0px 0px 10px 0px;
+.reports {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  gap: 20px;
+}
+
+.reports button {
+  background-color: #d6fff5;
+  color: #161717;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px 0 #161717;
+  cursor: pointer;
+}
+
+.reports button:hover {
+  background-color: #b78eb9;
+  color: #fffffb;
 }
 
 .header {
@@ -38,7 +63,7 @@
 }
 
 .row {
-  background-color: white;
+  background-color: #e7d9e8;
   display: flex;
   width: 99%;
   border: 1px solid #e7e7e7;
@@ -46,12 +71,11 @@
   padding: 10px;
   gap: 80px;
   text-align: center;
-  margin: 4px 6px 4px 6px;
+  margin: 7px 6px 7px 6px;
 }
 
 .column {
   flex: 1;
-  font-size: 20px;
   width: 100px;
   margin: auto 0;
 }

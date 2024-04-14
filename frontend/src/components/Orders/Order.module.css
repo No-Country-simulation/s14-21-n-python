@@ -1,27 +1,26 @@
 /* Order.module.css */
 
-.ordersContainer {
-  min-height: 85vh;
-  background-color: white;
-  border-top-right-radius: 30px;
+.container {
+  min-height: 100%;
+  background-color: #fffffb;
   border-top-left-radius: 30px;
-  padding: 20px;
+  padding: 10px 50px 10px 50px;
 }
 
-.ordersTitle {
+.title {
+  margin: 15px 0 10px 0;
   font-size: 30px;
-  margin-top: 15px;
+}
+
+.separateLine {
+  height: 2px;
+  background-color: #161717;
+  margin: 0px 0px 10px 0px;
 }
 
 .subtitle {
   font-size: 18px;
   margin-top: 20px;
-}
-
-.hr {
-  height: 5px;
-  background-color: black;
-  margin: 0px 0px 10px 0px;
 }
 
 .filterContainer {
@@ -83,7 +82,7 @@
   padding: 8px;
 }
 
-.cell span{
+.cell span {
   border: 2px solid black;
   padding: 5px 10px;
   border-radius: 16px;
