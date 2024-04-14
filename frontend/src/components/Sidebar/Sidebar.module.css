@@ -2,9 +2,8 @@
   grid-area: sidebar;
   width: auto;
   min-height: 85vh;
-  border-right: 1px solid rgb(184, 181, 181);
-  background-color: #003c43;
-  color: #e3fef7;
+  background-color: #7a4d7c;
+  color: #d6fff5;
 }
 
 .sidebar ul {
@@ -18,7 +17,7 @@
 
 .sidebar ul li a {
   text-decoration: none;
-  color: #e3fef7;
+  color: #d6fff5;
 }
 
 /* Estilos por defecto del botón */
@@ -28,7 +27,8 @@ ul li a {
   margin: 5px 0;
   border-radius: 20px; /* Redondea los bordes */
   text-decoration: none; /* Quita la subraya del enlace */
-  color: black;
+  color: #d6fff5;
+  font-weight: bold;
 }
 
 /* Estilos cuando se coloca el mouse sobre el botón */

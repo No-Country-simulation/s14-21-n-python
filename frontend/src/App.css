@@ -1,8 +1,8 @@
 /* App.css */
 
 body {
-  background-color: #003c43;
-  color: black;
+  background-color: #7a4d7c;
+  color: #003c43;
 }
 
 .container {
@@ -18,6 +18,5 @@ body {
 }
 
 .content {
-  padding: 2px 0px;
   flex-grow: 1; /* El contenido ocupa todo el espacio restante */
 }
