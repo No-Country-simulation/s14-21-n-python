@@ -26,7 +26,7 @@ const Supplier = () => {
 
   const handleSave = () => {
     const updatedData = jsonDataState.map((prov) =>
-      prov.id === editingId ? { ...prov, ...editedValues } : prov
+      prov.id === editingId ? { ...prov, ...editedValues } : prov,
     );
 
     setJsonData(updatedData); // Update jsonDataState with the new edited values
