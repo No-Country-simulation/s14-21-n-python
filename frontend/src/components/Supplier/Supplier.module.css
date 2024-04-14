@@ -13,14 +13,14 @@
 .layout {
   background-color: #ecfefd;
   border-radius: 20px;
-  margin: 30px 15px 15px;
+  margin: 30px 0 15px;
   padding-bottom: 6px;
-  max-width: 100%;
+  width: 80%;
 }
 
 .separateLine {
   height: 2px;
-  background-color: black;
+  background-color: #161717;
   margin: 0px 0px 10px 0px;
 }
 
@@ -30,26 +30,29 @@
   width: 99%;
   border: 1px solid #e7e7e7;
   border-radius: 10px;
-  padding: 10px;
-  gap: 80px;
+  padding: 10px 5px;
+  gap: 20px;
   text-align: center;
-  margin: 4px 6px 4px 6px;
+  margin: 7px 6px 7px 6px;
 }
 
 .header {
   display: flex;
   flex-wrap: nowrap;
-  padding: 20px;
-  gap: 80px;
+  padding: 20px 5px;
+  gap: 20px;
   text-align: center;
   font-weight: 500;
 }
 
 .column {
   flex: 1;
-  font-size: 20px;
-  width: 100px;
+  width: 75px;
   margin: auto 0;
+}
+
+.column button {
+  margin-left: 10px;
 }
 
 .editBtn {

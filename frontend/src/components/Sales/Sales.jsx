@@ -75,12 +75,7 @@ const Sales = () => {
     <main className={style.container}>
       <h1 className={style.title}>Ventas</h1>
       <hr className={style.separateLine} />
-      <section>
-        <div>
-          <button>Generar Reporte</button>
-        </div>
-      </section>
-      <section>
+      <section className={style.content}>
         <div className={style.layout}>
           <div className={style.header}>
             <div className={style.column}>Fecha</div>
@@ -100,6 +95,22 @@ const Sales = () => {
               </div>
             );
           })}
+        </div>
+        <div className={style.reports}>
+          <button>
+            Reporte de Venta
+            <br /> por Producto
+          </button>
+          <button>
+            Reporte de Venta
+            <br />
+            por Categoría
+          </button>
+          <button>
+            Reporte de Venta
+            <br />
+            por Mes
+          </button>
         </div>
       </section>
     </main>
