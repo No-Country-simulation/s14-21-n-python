@@ -1,17 +1,13 @@
 .container {
-  min-height: 85vh;
-  background-color: white;
-  border-top-right-radius: 30px;
+  min-height: 100%;
+  background-color: #fffffb;
   border-top-left-radius: 30px;
-  padding: 20px;
+  padding: 10px 50px 10px 50px;
 }
 
 .title {
-  margin-top: 15px;
-}
-
-.title h1 {
-  text-align: left;
+  margin: 15px 0 10px 0;
+  font-size: 30px;
 }
 
 .layout {
@@ -23,7 +19,7 @@
 }
 
 .separateLine {
-  height: 5px;
+  height: 2px;
   background-color: black;
   margin: 0px 0px 10px 0px;
 }

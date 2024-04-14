@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./Dashboard.module.css";
+import style from "./Dashboard.module.css";
 import { CardAccesos, Card } from "./Card";
 import { FiPackage } from "react-icons/fi";
 import { FiShoppingBag } from "react-icons/fi";
@@ -14,14 +14,14 @@ const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState("");
 
   return (
-    <div className={styles.dashboard}>
-      <div className={styles.title}>
-        <h1>Panel Principal</h1>
+    <div className={style.dashboard}>
+      <div>
+        <h1 className={style.title}>Panel Principal</h1>
       </div>
-      <hr className={styles.separateLine} />
+      <hr className={style.separateLine} />
 
       {/* Primer Contenedor */}
-      <div className={styles.container}>
+      <div className={style.container}>
         {/* Cada instancia de Card recibe props para título y contenido */}
 
         <Card icon={FiPackage} title="Productos" content="253" />
@@ -31,13 +31,13 @@ const Dashboard = () => {
 
       {/* Segundo Contenedor */}
 
-      <div className={styles.additionalContainer}>
-        <div className={styles.card2}>
+      <div className={style.additionalContainer}>
+        <div className={style.card2}>
           <h3>Producto Más vendido</h3>
 
-          <div className={styles.dropdown}>
+          <div className={style.dropdown}>
             <select
-              className={styles.select}
+              className={style.select}
               value={selectedOption}
               onChange={(e) => setSelectedOption(e.target.value)}
             >
@@ -48,29 +48,29 @@ const Dashboard = () => {
             </select>
           </div>
 
-          <div className={styles.productInfo}>
-            <div className={styles.cardIcon}>
+          <div className={style.productInfo}>
+            <div className={style.cardIcon}>
               <FaRegStar color="#e3fef7" />
             </div>
-            <div className={styles.productDetails}>
+            <div className={style.productDetails}>
               <h4>Nombre del producto</h4>
-              <div className={styles.priceAndDescription}>
+              <div className={style.priceAndDescription}>
                 <p>Precio $</p>
                 <p>Aquí va la descripción del producto</p>
               </div>
             </div>
           </div>
 
-          <div className={styles.titleAndAmount}>
+          <div className={style.titleAndAmount}>
             <p>Disponibles</p>
             <p>10</p>
           </div>
         </div>
       </div>
       {/* Tercer Contenedor */}
-      <div className={styles.containerAdd}>
+      <div className={style.containerAdd}>
         <h3>Accesos directos</h3>
-        <div className={styles.cardsContainer}>
+        <div className={style.cardsContainer}>
           <CardAccesos title="Nueva Venta" content="">
             <AddSale />
           </CardAccesos>

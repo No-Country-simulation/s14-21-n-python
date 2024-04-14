@@ -8,7 +8,7 @@ body {
 .container {
   display: flex;
   align-items: stretch;
-  min-height: 85vh;
+  min-height: 100%;
 }
 
 .dashboard-container {

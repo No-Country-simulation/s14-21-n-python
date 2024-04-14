@@ -73,9 +73,7 @@ const Sales = () => {
 
   return (
     <main className={style.container}>
-      <div className={style.title}>
-        <h1>Ventas</h1>
-      </div>
+      <h1 className={style.title}>Ventas</h1>
       <hr className={style.separateLine} />
       <section>
         <div>
