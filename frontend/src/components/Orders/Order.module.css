@@ -60,6 +60,8 @@
 .table {
   display: flex;
   flex-direction: column;
+  
+  background-color: #e3fef7;
   border: 1px solid #ccc;
   border-radius: 25px;
   padding: 20px;
@@ -67,12 +69,21 @@
 
 .row {
   display: flex;
-  background-color: #eeeeee;
+  background-color: #e7d9e8;
+  align-items: center;
   padding: 8px;
 }
 
+.row2 {
+  display: flex;
+  background-color: #e7d9e8;
+  align-items: center;
+  padding: 14px 8px;
+}
+
 .header {
-  background-color: white;
+  
+  background-color: #e3fef7;
   text-align: center;
   border-radius: 25px;
 }
@@ -82,11 +93,33 @@
   padding: 8px;
 }
 
-.cell span {
+.cell button {
   border: 2px solid black;
   padding: 5px 10px;
   border-radius: 16px;
+  cursor: pointer;
 }
+
+.btnDeleteOrders{
+  border: 2px solid black;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  color: #666;
+}
+
 
 .cell:last-child {
   border-right: none;
