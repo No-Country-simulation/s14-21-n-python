@@ -6,7 +6,7 @@ from decimal import Decimal
 from enum import Enum
 from typing import List, Optional
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr
 
 # BaseModel, SecretBytes, SecretStr, field_serializer
 
@@ -18,8 +18,7 @@ class UserSchema(BaseModel):
     password: str
     business_id: Optional[int]
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # vease: https://docs.pydantic.dev/latest/api/networks/#pydantic.networks.EmailStr
@@ -37,8 +36,7 @@ class ProductSchema(BaseModel):
     purchase_date: datetime
     expiration_date: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CategorySchema(BaseModel):
@@ -46,8 +44,7 @@ class CategorySchema(BaseModel):
     name: str
     description: str | None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class StatusEnum(str, Enum):
@@ -86,8 +83,7 @@ class TransactionSchema(BaseModel):
     status: StatusEnum
     transaction_date: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class SupplierSchema(BaseModel):
@@ -97,8 +93,7 @@ class SupplierSchema(BaseModel):
     address: str
     email: EmailStr
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class BusinessSchema(BaseModel):
@@ -110,5 +105,4 @@ class BusinessSchema(BaseModel):
     products: List[ProductSchema] = []
     transactions: List[TransactionSchema] = []
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
