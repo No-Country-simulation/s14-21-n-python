@@ -75,9 +75,7 @@ const Products = () => {
   return (
     <main>
       <div className={style.container}>
-        <div className={style.title}>
-          <h1>Productos</h1>
-        </div>
+        <h1 className={style.title}>Productos</h1>
         <hr className={style.separateLine} />
         <section className={style.containerFilters}>
           <div className={style.modifyControls}>

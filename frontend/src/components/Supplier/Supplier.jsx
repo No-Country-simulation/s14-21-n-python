@@ -20,7 +20,7 @@ const Supplier = () => {
     const { name, value } = e.target;
     setEditedValues((prevValues) => ({
       ...prevValues,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -44,9 +44,7 @@ const Supplier = () => {
 
   return (
     <main className={style.container}>
-      <div className={style.title}>
-        <h1>Proveedores</h1>
-      </div>
+      <h1 className={style.title}>Proveedores</h1>
       <hr className={style.separateLine} />
       <section>
         <div>

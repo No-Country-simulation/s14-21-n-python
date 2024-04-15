@@ -3,7 +3,6 @@ import style from "./AddOrder.module.css";
 const AddOrder = () => {
   return (
     <form className={style.container}>
-      <h3>Nuevo pedido</h3>
       <div className={style.inputs}>
         <label>Fecha</label>
         <input type="date" />
@@ -13,7 +12,7 @@ const AddOrder = () => {
         <input type="text" />
       </div>
       <div className={style.inputs}>
-        <label>Categoria</label>
+        <label>Categoría</label>
         <select name="Categorias" id="cat">
           <option value="categoria1">Categoría 1</option>
           <option value="categoria2">Categoría 2</option>
@@ -31,13 +30,13 @@ const AddOrder = () => {
       </div>
       <div className={style.inputs}>
         <label>Cantidad</label>
-        <input type="number" min={0} />
+        <input type="text" />
       </div>
       <div className={style.inputs}>
         <label>Proveedor</label>
         <input type="text" />
       </div>
-      <input type="submit" value="Agregar" />
+      <input className={style.button} type="submit" value="Agregar" />
     </form>
   );
 };

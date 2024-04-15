@@ -1,5 +1,5 @@
 import style from "./Sales.module.css";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Sales = () => {
   const testArray = [
@@ -69,20 +69,11 @@ const Sales = () => {
     },
   ];
 
-  const [modifySales, setModifySales] = useState(false);
-
   return (
     <main className={style.container}>
-      <div className={style.title}>
-        <h1>Ventas</h1>
-      </div>
+      <h1 className={style.title}>Ventas</h1>
       <hr className={style.separateLine} />
-      <section>
-        <div>
-          <button>Generar Reporte</button>
-        </div>
-      </section>
-      <section>
+      <section className={style.content}>
         <div className={style.layout}>
           <div className={style.header}>
             <div className={style.column}>Fecha</div>
@@ -102,6 +93,28 @@ const Sales = () => {
               </div>
             );
           })}
+        </div>
+        <div className={style.reports}>
+          <Link to={"/byProduct"}>
+            <button>
+              Reporte de Venta
+              <br /> por Producto
+            </button>
+          </Link>
+          <Link to={"/byCategory"}>
+            <button>
+              Reporte de Venta
+              <br />
+              por Categoría
+            </button>
+          </Link>
+          <Link to={"/byMonth"}>
+            <button>
+              Reporte de Venta
+              <br />
+              por Mes
+            </button>
+          </Link>
         </div>
       </section>
     </main>

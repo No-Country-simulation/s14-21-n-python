@@ -9,7 +9,6 @@ const Header = () => {
     <div className={styles.header}>
       <img className={styles.logo} src={Logo} alt="" />
       <div className={styles.iconButtonContainer}>
-        <FontAwesomeIcon icon={faCog} className={styles.icon} />
         <button className={styles.exitButton}>Salir</button>
       </div>
     </div>

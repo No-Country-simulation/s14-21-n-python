@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import styles from "./Sidebar.module.css";
-import Avatar from "@mui/material/Avatar";
+import LogoEmpresa from "../../assets/logoEmpresa.jpg";
 
 const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebarContent}>
-        <Avatar>H</Avatar>
+        <img className={styles.image} src={LogoEmpresa} alt="" />
         <h3>Tu Empresa </h3>
         <p>example@mail.com</p>
       </div>
-
+      <hr className={styles.separateLine} />
       <ul>
         <li>
           <Link to={"/"}>Panel Principal</Link>
@@ -30,9 +30,6 @@ const Sidebar = () => {
         </li>
         <li>
           <Link to={"/orders"}>Pedidos </Link>
-        </li>
-        <li>
-          <Link to={"/"}>Ajustes </Link>
         </li>
       </ul>
     </div>

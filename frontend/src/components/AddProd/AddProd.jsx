@@ -3,7 +3,6 @@ import style from "./AddProd.module.css";
 const AddProd = () => {
   return (
     <form className={style.container}>
-      <h3>Nuevo producto</h3>
       <div className={style.inputs}>
         <label>Nombre</label>
         <input type="text" />
@@ -38,15 +37,11 @@ const AddProd = () => {
         <input type="text" />
       </div>
       <div className={style.inputs}>
-        <label>Precio compra</label>
-        <input type="number" min={0} />
-      </div>
-      <div className={style.inputs}>
-        <label>Precio venta</label>
-        <input type="number" min={0} />
+        <label>Precio</label>
+        <input type="text" />
       </div>
 
-      <input type="submit" value="Agregar" />
+      <input className={style.button} type="submit" value="Agregar" />
     </form>
   );
 };

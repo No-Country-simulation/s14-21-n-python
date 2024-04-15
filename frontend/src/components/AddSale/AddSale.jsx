@@ -25,15 +25,15 @@ const AddSale = () => {
         <input type="text" />
       </div>
       <div className={style.inputs}>
-        <label>Cantidad:</label>
+        <label>Cantidad</label>
         <input type="text" />
       </div>
       <div className={style.inputs}>
-        <label>Precio Total:</label>
-        <input type="number" />
+        <label>Total</label>
+        <input type="text" />
       </div>
 
-      <input type="submit" value="Agregar" />
+      <input className={style.button} type="submit" value="Agregar" />
     </form>
   );
 };
