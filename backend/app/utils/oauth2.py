@@ -11,7 +11,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("EXPIRE_TOKEN")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
-def create_access_token(data: dict, expires_delta: timedelta | None = None):
+async def create_access_token(data: dict, expires_delta: timedelta | None = None):
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
@@ -30,11 +30,11 @@ async def verify_token(token: str, credentials_exception):
 
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("sub")  # <- puede ser con el id tambien
-        if username is None:
+        email: str = payload.get("sub")  # <- puede ser con el id tambien
+        if email is None:
             raise credentials_exception
         token_data = TokenData(
-            username=username
+            email=email
         )  # <-viene del schema(cambiar cuando este creado)
     except JWTError:
         raise credentials_exception
