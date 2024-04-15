@@ -2,7 +2,7 @@ import os
 from datetime import datetime, timedelta, timezone
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from app.schemas import TokenData  # <- Ver schemas
+from schemas import TokenData  # <- Ver schemas
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
