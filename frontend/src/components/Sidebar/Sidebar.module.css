@@ -1,19 +1,70 @@
+.sidebar {
+  grid-area: sidebar;
+  width: auto;
+  min-height: 85vh;
+  background-color: #7a4d7c;
+  color: #d6fff5;
+}
 
- .sidebar{
-    grid-area: sidebar;
-    overflow-y: auto;
-    width: 12rem;
-    height: 100vh;
-    border-right: 1px solid gainsboro;
-    ul{
-      list-style: none;
-      padding: 1rem 2rem;
-      li{
-        margin-bottom: 2rem;
-        a{
-          text-decoration: none;
-        }
-      }  
-    }
-  } 
-  
+.sidebar ul {
+  list-style: none;
+  padding: 1rem 2rem;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #d6fff5;
+}
+
+/* Estilos por defecto del botón */
+ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  border-radius: 20px; /* Redondea los bordes */
+  text-decoration: none; /* Quita la subraya del enlace */
+  color: #d6fff5;
+  font-weight: bold;
+}
+
+/* Estilos cuando se coloca el mouse sobre el botón */
+ul li a:hover {
+  background-color: #e3fef7; /* Cambia el color de fondo */
+  color: #003c43;
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  text-align: center; /* Alinea el texto al centro */
+  margin: 30px 0 20px 0;
+  gap: 10px;
+  padding-bottom: 10px; /* Añade un relleno en la parte inferior */
+}
+
+.sidebarContent h3 {
+  margin-top: 10px; /* Agrega un margen superior al título */
+}
+
+.sidebarContent p {
+  margin-top: 5px; /* Agrega un espacio de 5px arriba del párrafo */
+}
+
+.image {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.separateLine {
+  height: 3px;
+  background-color: #d6fff5;
+  margin: 10px auto;
+  width: 50%;
+  text-align: center;
+}

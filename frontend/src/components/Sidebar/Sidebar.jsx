@@ -1,35 +1,35 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Sidebar.module.css";
+import LogoEmpresa from "../../assets/logoEmpresa.jpg";
 
 const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
-      <div>
-        <p>Aca va in icono</p>
-        <h1>Tu Empresa </h1>
+      <div className={styles.sidebarContent}>
+        <img className={styles.image} src={LogoEmpresa} alt="" />
+        <h3>Tu Empresa </h3>
         <p>example@mail.com</p>
       </div>
+      <hr className={styles.separateLine} />
       <ul>
         <li>
-          <li>
-            <Link to={"/"}>Dashboard </Link>
-          </li>
-
-          <a href="/">Categorias</a>
+          <Link to={"/"}>Panel Principal</Link>
+        </li>
+        <li>
+          <Link to={"/category"}>Categorias </Link>
         </li>
 
         <li>
           <Link to={"/products"}>Productos </Link>
         </li>
         <li>
-          <a href="/">Proveedores</a>
+          <Link to={"/suppliers"}>Proveedores </Link>
         </li>
         <li>
-          <a href="/">Ventas</a>
+          <Link to={"/sales"}>Ventas </Link>
         </li>
         <li>
-          <a href="/">Pedidos</a>
+          <Link to={"/orders"}>Pedidos </Link>
         </li>
       </ul>
     </div>

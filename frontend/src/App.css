@@ -1,38 +1,22 @@
 /* App.css */
 
-.App{
-  h1 {
-    color: red;
-  }
-  background-color: aqua;
+body {
+  background-color: #7a4d7c;
+  color: #003c43;
 }
-
-.body {
-  padding: 0;
-  margin: 0;
-}
-
 
 .container {
-  display: grid;
-  grid-template-columns: 260px 1fr 1 fr 1fr;
-  grid-template-rows: 0.2fr 3fr;
-  grid-template-areas: 
-  'sidebar header header header'
-  'sidebar Home Home Home'
-  'sidebar Footer Footer Footer';
-  height: 100vh;
-  }
-
-
-
-.content {
-  flex: 1;
-  padding: 20px;
+  display: flex;
+  align-items: stretch;
+  min-height: 100%;
 }
 
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
-
-
-
-
+.content {
+  flex-grow: 1; /* El contenido ocupa todo el espacio restante */
+}

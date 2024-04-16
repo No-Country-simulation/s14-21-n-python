@@ -1,14 +1,14 @@
-
-.footer{
-    grid-area: Footer;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: azure;
-    padding: 0 30px 0 30px;
-    border-bottom: 1px solid gainsboro;
-    text-align: center;
-    margin-bottom: 40px;
-    width: 100%;
-  }
+.footer {
+  /* position: fixed;
+  bottom: 0;
+  left: 0; */
+  width: 100%;
+  height: auto;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(207, 206, 206);
+  padding: 15px 30px;
+  border-top: 1px solid gainsboro; /* Cambiado a border-top para evitar que el borde se solape con el contenido */
+  text-align: center;
+}
