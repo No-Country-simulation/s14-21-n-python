@@ -22,7 +22,11 @@ class UserSchema(BaseModel):
     name: str | None = None
     email: EmailStr
     password: str
-    business_id: int | None = None
+    # business_id: int | None = None
+class UserUpdate(BaseModel):
+    name: str | None = None
+    email: EmailStr | None = None
+    # business_id: int | None = None
 
     model_config = ConfigDict(from_attributes=True)
 
