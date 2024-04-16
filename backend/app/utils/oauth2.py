@@ -1,12 +1,12 @@
 import os
-from datetime import datetime, timedelta, timezone
 from fastapi.security import OAuth2PasswordBearer
+from datetime import datetime, timedelta, timezone
 from jose import JWTError, jwt
-from schemas import TokenData  # <- Ver schemas
+from schemas import TokenData
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
-ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("EXPIRE_TOKEN")
+TOKEN_EXPIRE = os.getenv("EXPIRE_TOKEN")
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -16,9 +16,7 @@ async def create_access_token(data: dict, expires_delta: timedelta | None = None
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
     else:
-        expire = datetime.now(timezone.utc) + timedelta(
-            minutes=ACCESS_TOKEN_EXPIRE_MINUTES
-        )
+        expire = datetime.now(timezone.utc) + timedelta(minutes=TOKEN_EXPIRE)
     to_encode.update({"exp": expire})
 
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
@@ -27,15 +25,12 @@ async def create_access_token(data: dict, expires_delta: timedelta | None = None
 
 
 async def verify_token(token: str, credentials_exception):
-
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        email: str = payload.get("sub")  # <- puede ser con el id tambien
+        email: str = payload.get("sub")
         if email is None:
             raise credentials_exception
-        token_data = TokenData(
-            email=email
-        )  # <-viene del schema(cambiar cuando este creado)
+        token_data = TokenData(email=email)
     except JWTError:
         raise credentials_exception
 
