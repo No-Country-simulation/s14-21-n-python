@@ -20,28 +20,28 @@ export const Category = () => {
     "Juguetes",
     "Enlatados",
   ];
-  
+
   const [hoveredItem, setHoveredItem] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  
+  const [searchTerm, setSearchTerm] = useState("");
+
   const handleWarning = () => {
     setShowWarning(!showWarning);
   };
-  
+
   const openPopup = () => {
     setIsOpen(true);
   };
-  
+
   const closePopup = () => {
     setIsOpen(false);
   };
-  
-  const filteredCategories = categoryItems.filter(item =>
-    item.toLowerCase().includes(searchTerm.toLowerCase())
+
+  const filteredCategories = categoryItems.filter((item) =>
+    item.toLowerCase().includes(searchTerm.toLowerCase()),
   );
-  
+
   return (
     <main className={styles.container}>
       <div className={styles.searchContainer}>
@@ -54,7 +54,7 @@ export const Category = () => {
         />
       </div>
       <hr className={styles.separateLine} />
-      
+
       <section className={styles.productMainContainer}>
         {filteredCategories.map((item) => (
           <div
@@ -85,7 +85,7 @@ export const Category = () => {
           </Modal>
         </div>
       </section>
-      
+
       {showWarning && (
         <div className={styles.deleteCategoryBox}>
           <DeleteCategory />
