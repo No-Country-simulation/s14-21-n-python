@@ -11,7 +11,7 @@
 }
 
 .layout {
-  background-color: rgb(234, 234, 234);
+  background-color: #ecfefd;
   border-radius: 20px;
   margin: 30px 15px 15px;
   padding-bottom: 6px;
@@ -28,7 +28,7 @@
 }
 
 .row {
-  background-color: white;
+  background-color: #e7d9e8;
   display: flex;
   width: 99%;
   border: 1px solid #e7e7e7;
@@ -57,13 +57,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 55%;
 }
 
 .searchAndFilter {
   margin: 5px;
   padding: 5px;
-  width: 250px;
+  width: 450px;
 }
 
 .searchAndFilter input {

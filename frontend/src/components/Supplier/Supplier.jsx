@@ -33,6 +33,11 @@ const Supplier = () => {
     setEditingId(null); // Exit editing mode
   };
 
+  const handleDelete = (id) => {
+    const updatedData = jsonDataState.filter((prov) => prov.id !== id);
+    setJsonData(updatedData); // Update jsonDataState by filtering out the supplier with the given id
+  };
+
   const toggleAdminColumn = () => {
     setShowAdminColumn(!showAdminColumn);
   };
@@ -41,9 +46,13 @@ const Supplier = () => {
     <main className={style.container}>
       <h1 className={style.title}>Proveedores</h1>
       <hr className={style.separateLine} />
-      <button className={style.admBtn} onClick={toggleAdminColumn}>
-        Administrar
-      </button>
+      <section>
+        <div>
+          <button className={style.admBtn} onClick={toggleAdminColumn}>
+            Administrar
+          </button>
+        </div>
+      </section>
       <section className={style.layout}>
         <div className={style.header}>
           <div className={style.column}>Nombre</div>
@@ -105,8 +114,8 @@ const Supplier = () => {
                       <SlPencil />
                     </button>
                     <button
-                      className={style.editBtn}
-                      onClick={() => handleEdit(prov.id)}
+                      className={style.deleteBtn}
+                      onClick={() => handleDelete(prov.id)}
                     >
                       <FaRegTrashAlt />
                     </button>

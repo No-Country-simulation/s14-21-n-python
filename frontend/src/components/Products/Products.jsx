@@ -93,23 +93,27 @@ const Products = () => {
         <section>
           <div className={style.layout}>
             <div className={style.header}>
+              <div className={style.column}>Producto</div>
+              <div className={style.column}>Descripcion</div>
+              <div className={style.column}>Marca</div>
+              <div className={style.column}>Categoria</div>
+              <div className={style.column}>Stock</div>
               <div className={style.column}>
-                Fecha
+                Precio
                 <p>compra</p>
               </div>
-              <div className={style.column}>Producto</div>
-              <div className={style.column}>Marca</div>
-              <div className={style.column}>Cantidad</div>
-              <div className={style.column}>Precio</div>
+              <div className={style.column}>Proveedor</div>
             </div>
             {jsonData.map((prod) => {
               return (
                 <div className={style.row} key={prod.id}>
-                  <div className={style.column}>{prod.datePurchase}</div>
                   <div className={style.column}>{prod.name}</div>
+                  <div className={style.column}>{prod.description}</div>
                   <div className={style.column}>{prod.brand}</div>
+                  <div className={style.column}>{prod.category}</div>
                   <div className={style.column}>{prod.amount}</div>
                   <div className={style.column}>$ {prod.price}</div>
+                  <div className={style.column}> {prod.provider}</div>
                   {modifyProds && <button>E</button>}
                 </div>
               );
