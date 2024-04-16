@@ -1,31 +1,16 @@
-from typing import Annotated
-from fastapi import Depends, status, HTTPException
+from fastapi import Depends
 from .password import verify
-from api.deps import get_db
-from .oauth2 import oauth2_scheme
+from api.dependencies.db import get_session
 from sqlalchemy.ext.asyncio.session import AsyncSession
+from crud.user import UserCrud
 
 
-async def get_current_user(
-    token: Annotated[str, Depends(oauth2_scheme)], db: AsyncSession = Depends(get_db)
+async def is_authenticate(
+    email: str, password: str, db: AsyncSession = Depends(get_session)
 ):
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Invalid authentication credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    user = await UserCrud.get_by_attribute(db, User.email, token.email)
-    if user is None:
-        raise credentials_exception
-    return user
-
-
-async def authenticate_user(
-    email: str, password: str, db: AsyncSession = Depends(get_db)
-):
-    user = await UserCrud.get_by_attribute(db, User.email, email)
+    user = await UserCrud(db).get_by_attribute("email", email)
     if not user:
         return False
-    if not await verify(password, user.hashed_password):
+    if not await verify(password, user.password):
         return False
     return user
