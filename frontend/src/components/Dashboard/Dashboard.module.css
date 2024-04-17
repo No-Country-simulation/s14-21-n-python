@@ -33,8 +33,9 @@
   display: flex;
   flex-direction: column; /* Organiza los elementos verticalmente */
   border-radius: 20px;
-  background-color: #77b0aa99;
+  background-color: #B78EB9;
   color: #003c43;
+  font-size: 18px;
 }
 
 .card2 {
@@ -48,16 +49,9 @@
   align-items: flex-start;
 }
 
-/* .dropdown{
-border-radius: 30px;
-margin-left: auto;
-  
-}  */
-
 .dropdown {
   border-radius: 30px;
   margin-left: auto;
-  /* border: 1px solid #ccc; Borde gris; */
   min-width: 200px; /* Ancho mínimo */
   width: max-content; /* Ancho del contenido */
   padding: 5px 10px; /* Relleno interno */
@@ -70,6 +64,7 @@ margin-left: auto;
   background-color: transparent; /* Fondo transparente */
   cursor: pointer; /* Cambia el cursor al pasar por encima del select */
   outline: none; /* Quita el contorno al enfocar el select */
+  border-radius: 30px;
 }
 
 .select:hover {
@@ -82,13 +77,9 @@ margin-left: auto;
 .titleAndAmount p {
   margin-left: auto;
   font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 4px;
 }
-/* .productInfo{
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  margin-left: auto;
-  
-} */
 
 .productInfo {
   display: flex; /* Utilizamos flexbox para organizar los elementos horizontalmente */
@@ -117,7 +108,6 @@ margin-left: auto;
   justify-content: space-evenly;
   margin-top: 10px;
   padding: 5px;
-  background-color: #f8f9f9;
   border-radius: 20px;
 }
 
@@ -130,12 +120,13 @@ margin-left: auto;
 .cardIcon {
   display: flex;
   align-items: center; /* Centra verticalmente el icono y el contenido */
-  background-color: #eeebeb;
+  background-color: #D6FFF5;
   border: 1px solid #ccc;
   border-radius: 20px;
   height: 91px;
   width: 91px;
   justify-content: center;
+  color:#003C43;
 }
 
 .cardIcon svg {
@@ -145,4 +136,23 @@ margin-left: auto;
 
 .containerAdd h3 {
   margin: 10px;
+}
+
+.cantidad{
+  display: flex;
+  align-items: center; /* Centra verticalmente el icono y el contenido */
+  background-color: #D6FFF5;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 40px;
+  width: 100px;
+  justify-content: center;
+  color:#003C43 ;   
+  
+}
+
+.cantidad p {
+  margin: 10px;
+  text-align: center;
+  font-size: 24px;
 }

@@ -4,7 +4,7 @@
   padding: 20px;
   margin: 0 10px 10px 10px;
   text-align: center;
-  background-color: #77b0aa99;
+  background-color: #D6FFF5;
   color: #003c43;
 }
 
@@ -24,7 +24,7 @@
 .cardIcon svg {
   width: 40px; /* Ajusta el ancho del ícono */
   height: 40px; /* Ajusta la altura del ícono */
-  color: #e3fef7;
+  color: #003C43;
 }
 
 .buttonAdd {
