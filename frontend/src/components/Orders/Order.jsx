@@ -59,9 +59,7 @@ const Orders = () => {
     console.log("Estado actualizado:", updatedProducts[index].state[0]);
   };
 
-  const deleteOrders = () =>{
-    setDeliveredProducts([]);
-  }
+ 
 
   return (
     <div className={styles.container}>
@@ -70,11 +68,7 @@ const Orders = () => {
       <div className={styles.filterContainer}>
         <div className={styles.inputContainer}> 
          <div className={styles.searchContainer}>
-          <input
-            type="text"
-            placeholder="Filtros"
-            className={styles.filterInput}
-          />
+          
           <input
             type="text"
             placeholder="Buscar..."
@@ -149,7 +143,6 @@ const Orders = () => {
               </div>
             ))
           )}
-          <button className={styles.btnDeleteOrders} onClick={deleteOrders}>Eliminar pedidos</button>
         </div>
     </div>
   );
