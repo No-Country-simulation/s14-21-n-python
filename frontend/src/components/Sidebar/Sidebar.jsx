@@ -16,7 +16,7 @@ const Sidebar = () => {
           <Link to={"/"}>Panel Principal</Link>
         </li>
         <li>
-          <Link to={"/category"}>Categorias </Link>
+          <Link to={"/category"}>Categorías </Link>
         </li>
 
         <li>

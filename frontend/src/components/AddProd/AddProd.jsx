@@ -8,11 +8,11 @@ const AddProd = () => {
         <input type="text" />
       </div>
       <div className={style.inputs}>
-        <label>Descripcion</label>
+        <label>Descripción</label>
         <input type="text" />
       </div>
       <div className={style.inputs}>
-        <label>Categoria</label>
+        <label>Categoría</label>
         <select name="Categorias" id="cat">
           <option value="categoria1">Categoría 1</option>
           <option value="categoria2">Categoría 2</option>

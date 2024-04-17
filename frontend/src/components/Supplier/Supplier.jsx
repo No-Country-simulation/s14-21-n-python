@@ -57,7 +57,7 @@ const Supplier = () => {
         <div className={style.header}>
           <div className={style.column}>Nombre</div>
           <div className={style.column}>Mail</div>
-          <div className={style.column}>Telefono</div>
+          <div className={style.column}>Teléfono</div>
           <div className={style.column}>Dirección</div>
           <div className={style.column}>Cuit</div>
           {showAdminColumn && <div className={style.column}>Administrar</div>}
