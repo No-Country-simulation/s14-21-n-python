@@ -18,7 +18,7 @@
 <br>
 <h1>Acerca del Proyecto</h1>
 
-Stock Ease es una solución innovadora diseñada para simplificar la gestión de inventarios para dueños de negocios. Nuestra plataforma centralizada permite registrar, rastrear y analizar todas las actividades relacionadas con el inventario, proveedores, pedidos y ventas de manera eficiente. 
+Stock Ease es una solución innovadora diseñada para simplificar la gestión de inventarios para dueños de negocios. Nuestra plataforma centralizada permite registrar, rastrear y analizar todas las actividades relacionadas con el inventario, proveedores, pedidos y ventas de manera eficiente.
 
 Con un enfoque en la usabilidad y la funcionalidad básica, Stock Ease proporciona las herramientas esenciales para optimizar la administración de inventarios y mejorar la eficiencia operativa.
 
@@ -34,7 +34,7 @@ Con un enfoque en la usabilidad y la funcionalidad básica, Stock Ease proporcio
 <h3>Back-End</h3>
 
 ![Skills](https://skillicons.dev/icons?i=python,fastapi,postgresql,docker,aws)
- 
+
 <h3>QA</h3>
 
 ![Skills](https://skillicons.dev/icons?i=selenium,postman&theme=light)
@@ -75,6 +75,7 @@ Configura la base de datos PostgreSQL en el archivo de configuración.
 ```
 
 Inicia el servidor FastAPI:
+
 ```BASH
   uvicorn main:app --reload
 ```
@@ -82,34 +83,39 @@ Inicia el servidor FastAPI:
 <h3>Front-End (React)</h3>
 
 Clona el repositorio del frontend.
+
 ```BASH
   git clone https://github.com/No-Country/s14-21-n-python
 ```
 
 Instala las dependencias utilizando npm:
+
 ```BASH
   npm install
 ```
 
 Configura la URL del backend en los archivos de configuración.
+
 ```BASH
   npm install
 ```
 
 Inicia la aplicación React:
+
 ```BASH
   npm start
 ```
+
 <br>
 
 <!-- USAGE EXAMPLES -->
 <h1>Uso</h1>
 
-Los usuarios acceden al Dashboard desde la Página de Bienvenida para navegar fácilmente. 
+Los usuarios acceden al Dashboard desde la Página de Bienvenida para navegar fácilmente.
 
-En Gestión de Inventarios, pueden agregar, editar y eliminar productos. La Administración de Proveedores simplifica el manejo de información de proveedores. 
+En Gestión de Inventarios, pueden agregar, editar y eliminar productos. La Administración de Proveedores simplifica el manejo de información de proveedores.
 
-El sistema facilita el Registro y Seguimiento de Pedidos para una gestión eficiente del abastecimiento. 
+El sistema facilita el Registro y Seguimiento de Pedidos para una gestión eficiente del abastecimiento.
 
 Además, el Registro y Análisis de Ventas permite capturar transacciones y generar informes para mejorar el rendimiento del negocio.
 
@@ -118,7 +124,7 @@ Además, el Registro y Análisis de Ventas permite capturar transacciones y gene
 <!-- DEMO -->
 <h1>Demo en Línea</h1>
 
-Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_DE_LA_DEMO_FRONTEND). 
+Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_DE_LA_DEMO_FRONTEND).
 
 ¡Explora todas las funcionalidades y familiarízate con la aplicación antes de descargarla o contribuir al proyecto!
 
@@ -309,7 +315,6 @@ Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_D
     </dl>
   </dd>
 
-  
   <dd> 
     <h3>👨🏻‍💻 QA</h3>
     <dl>
@@ -388,8 +393,7 @@ Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_D
     </dl>
   </dd>
 </dl>
-<br> 
-
+<br>
 
 <!-- Contribution -->
 <h1>Contribución</h1>
@@ -406,7 +410,6 @@ Si deseas contribuir a este proyecto, puedes seguir los siguientes pasos:
 <!-- License -->
 <h1>Licencia</h1>
 
-
 <br>
 <br>
 
@@ -417,6 +420,5 @@ Si deseas contribuir a este proyecto, puedes seguir los siguientes pasos:
     <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
   </a>
 </div>
-
 
 [def]: https://img.shields.io/badge/?style=for-the-badge&logo=JSON%20web%20tokens
