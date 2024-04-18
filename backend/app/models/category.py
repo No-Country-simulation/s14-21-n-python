@@ -5,9 +5,11 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 if TYPE_CHECKING:
+    from app.models.business import Business
     from app.models.product import Product
 else:
     Product = "Product"
+    Business = "Business"
 
 
 class Category(Base):
@@ -20,5 +22,10 @@ class Category(Base):
     product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
     product: Mapped[Product] = relationship(
         "Product",
+        back_populates="category",
+    )
+
+    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
+    business: Mapped[Business] = relationship(
         back_populates="category",
     )
