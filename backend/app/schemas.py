@@ -19,11 +19,11 @@ class TokenData(BaseModel):
 
 
 class CreateUserSchema(BaseModel):
-
     name: str | None = None
     email: EmailStr
     password: str
-    business_id: int | None = None
+
+
 class UserUpdate(BaseModel):
     name: str | None = None
     email: EmailStr | None = None
