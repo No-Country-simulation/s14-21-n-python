@@ -1,8 +1,9 @@
-from fastapi import Depends
-from .password import verify
 from api.dependencies.db import get_session
-from sqlalchemy.ext.asyncio.session import AsyncSession
 from crud.user import UserCrud
+from fastapi import Depends
+from sqlalchemy.ext.asyncio.session import AsyncSession
+
+from .password import verify
 
 
 async def is_authenticate(
