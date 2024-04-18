@@ -8,9 +8,8 @@ from .db import get_session
 
 
 async def get_current_user(
-    token: Annotated[str, Depends(oauth2_scheme)],
-    db: AsyncSession = Depends(get_session),
-) -> User:
+    token: str = Depends(oauth2_scheme), db: AsyncSession = Depends(get_session)
+):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Invalid authentication credentials",
