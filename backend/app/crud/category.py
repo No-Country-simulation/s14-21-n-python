@@ -1,5 +1,5 @@
 from crud.abstract import BaseCrud
-from models.category import Category
+from models.models import Category
 
 
 class CategoryCrud(BaseCrud):

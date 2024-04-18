@@ -1,5 +1,5 @@
 from crud.abstract import BaseCrud
-from models.business import Business
+from models.models import Business
 
 
 class BusinessCrud(BaseCrud):
