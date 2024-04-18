@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import style from './AddCategory.module.css';
+import { useState } from "react";
+import style from "./AddCategory.module.css";
 
 const AddCategory = () => {
-  const [name, setName] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  
+  const [name, setName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleInputChange = (event) => {
     if (!/^[a-zA-Z\s]*$/.test(event.target.value)) {
-      setErrorMessage('¡No se aceptan números ni símbolos!');
+      setErrorMessage("¡No se aceptan números ni símbolos!");
     } else {
-      setErrorMessage('');
+      setErrorMessage("");
       setName(event.target.value);
     }
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Nombre a agregar:', name);
-    setName('');
+    console.log("Nombre a agregar:", name);
+    setName("");
   };
-  
+
   return (
     <form className={style.container} onSubmit={handleSubmit}>
       <div className={style.inputs}>

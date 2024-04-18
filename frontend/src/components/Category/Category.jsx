@@ -39,7 +39,7 @@ export const Category = () => {
   };
 
   const filteredCategories = categoryItems.filter((item) =>
-    item.toLowerCase().includes(searchTerm.toLowerCase())
+    item.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (

@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import style from "./AddOrder.module.css";
 
 const AddOrder = () => {
-  
   const [formData, setFormData] = useState({
     date: "",
     product: "",
     category: "",
     brand: "",
     quantity: "",
-    supplier: ""
+    supplier: "",
   });
 
   // Función para manejar cambios en los campos del formulario
@@ -17,14 +16,14 @@ const AddOrder = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     alert("¡Pedido agregado con éxito!");
     setFormData({
       date: "",
@@ -32,7 +31,7 @@ const AddOrder = () => {
       category: "",
       brand: "",
       quantity: "",
-      supplier: ""
+      supplier: "",
     });
   };
 
@@ -95,7 +94,7 @@ const AddOrder = () => {
           value={formData.quantity}
           onChange={handleInputChange}
           required
-          min="1" 
+          min="1"
         />
       </div>
       <div className={style.inputs}>

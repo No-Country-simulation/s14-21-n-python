@@ -17,10 +17,10 @@ const Orders = () => {
   // Función para filtrar los productos basados en el término de búsqueda
   const filteredProducts = showDeliveredOrders
     ? deliveredProducts.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase())
+        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
       )
     : jsonData.products.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase())
+        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
       );
 
   // Función para obtener el estado de un producto dado su índice
@@ -59,34 +59,31 @@ const Orders = () => {
     console.log("Estado actualizado:", updatedProducts[index].state[0]);
   };
 
- 
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Pedidos</h1>
       <hr className={styles.separateLine} />
       <div className={styles.filterContainer}>
-        <div className={styles.inputContainer}> 
-         <div className={styles.searchContainer}>
-          
-          <input
-            type="text"
-            placeholder="Buscar..."
-            className={styles.searchInput}
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
-        </div>
+        <div className={styles.inputContainer}>
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              placeholder="Buscar..."
+              className={styles.searchInput}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
+          </div>
         </div>
         <button onClick={handleOrdersToggle} className={styles.deliveredButton}>
           {showDeliveredOrders ? "Pedidos Hechos" : "Pedidos Entregados"}
         </button>
       </div>
-        <div
+      <div
         className={styles.table}
         style={{ display: showDeliveredOrders ? "none" : "block" }}
-        >
+      >
         <div className={`${styles.row} ${styles.header}`}>
           <div className={styles.cell}>Fecha</div>
           <div className={styles.cell}>Producto</div>
@@ -116,34 +113,37 @@ const Orders = () => {
         )}
       </div>
       <div
-          className={styles.table}
-          style={{ display: showDeliveredOrders ? "block" : "none" }}
-        >
-          <div className={`${styles.row} ${styles.header}`}>
-            <div className={styles.cell}>Fecha</div>
-            <div className={styles.cell}>Producto</div>
-            <div className={styles.cell}>Cantidad</div>
-            <div className={styles.cell}>Proveedor</div>
-            <div className={styles.cell}>Estado</div>
-          </div>
-          {filteredProducts.length === 0 ? (
-            <div className={`${styles.row} ${styles.rowWithMargin}`}>
-              <div className={styles.cell} colSpan="5">
-                No se encontró el pedido.
-              </div>
-            </div>
-          ) : (
-            filteredProducts.map((product, index) => (
-              <div key={index} className={`${styles.row2} ${styles.rowWithMargin}`}>
-                <div className={styles.cell}>{product.date}</div>
-                <div className={styles.cell}>{product.product}</div>
-                <div className={styles.cell}>{product.amount}</div>
-                <div className={styles.cell}>{product.supplier}</div>
-                <div className={styles.cell}>Entregado</div>
-              </div>
-            ))
-          )}
+        className={styles.table}
+        style={{ display: showDeliveredOrders ? "block" : "none" }}
+      >
+        <div className={`${styles.row} ${styles.header}`}>
+          <div className={styles.cell}>Fecha</div>
+          <div className={styles.cell}>Producto</div>
+          <div className={styles.cell}>Cantidad</div>
+          <div className={styles.cell}>Proveedor</div>
+          <div className={styles.cell}>Estado</div>
         </div>
+        {filteredProducts.length === 0 ? (
+          <div className={`${styles.row} ${styles.rowWithMargin}`}>
+            <div className={styles.cell} colSpan="5">
+              No se encontró el pedido.
+            </div>
+          </div>
+        ) : (
+          filteredProducts.map((product, index) => (
+            <div
+              key={index}
+              className={`${styles.row2} ${styles.rowWithMargin}`}
+            >
+              <div className={styles.cell}>{product.date}</div>
+              <div className={styles.cell}>{product.product}</div>
+              <div className={styles.cell}>{product.amount}</div>
+              <div className={styles.cell}>{product.supplier}</div>
+              <div className={styles.cell}>Entregado</div>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };
