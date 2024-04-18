@@ -19,8 +19,7 @@ async def create_user(
     user_create.password = hashed_password
 
     new_user = await UserCrud(db).create(user_create)
-    print(new_user)
-    print(new_user.business)
+
     return new_user
 
 
