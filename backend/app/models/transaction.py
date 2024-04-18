@@ -42,6 +42,10 @@ class Transaction(Base):
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
     supplier_id: Mapped[int] = mapped_column(ForeignKey("supplier.id"))
 
-    product: Mapped[Product] = relationship(back_populates="transaction")
-    business: Mapped[Business] = relationship(back_populates="transaction")
-    supplier: Mapped[Supplier] = relationship(back_populates="transaction")
+    product: Mapped[Product] = relationship(back_populates="transaction", lazy="joined")
+    business: Mapped[Business] = relationship(
+        back_populates="transaction", lazy="joined"
+    )
+    supplier: Mapped[Supplier] = relationship(
+        back_populates="transaction", lazy="joined"
+    )

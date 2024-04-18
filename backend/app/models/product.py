@@ -29,6 +29,10 @@ class Product(Base):
     expiration_date = mapped_column(DateTime)
 
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
-    business: Mapped[Business] = relationship(back_populates="product")
-    category: Mapped[List[Category]] = relationship(back_populates="product")
-    transaction: Mapped[List[Transaction]] = relationship(back_populates="product")
+    business: Mapped[Business] = relationship(back_populates="product", lazy="joined")
+    category: Mapped[List[Category]] = relationship(
+        back_populates="product", lazy="joined"
+    )
+    transaction: Mapped[List[Transaction]] = relationship(
+        back_populates="product", lazy="joined"
+    )

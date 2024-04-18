@@ -44,6 +44,7 @@ class BaseCrud(ABC):
         self.session.add(new_instance)
 
         await self.session.commit()
+        await self.session.refresh(new_instance)
 
         return new_instance
 
