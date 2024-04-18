@@ -23,12 +23,12 @@ export const Category = () => {
 
   const [hoveredItem, setHoveredItem] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleWarning = () => {
     setShowWarning(!showWarning);
   };
-
-  const [isOpen, setIsOpen] = useState(false);
 
   const openPopup = () => {
     setIsOpen(true);
@@ -38,16 +38,25 @@ export const Category = () => {
     setIsOpen(false);
   };
 
+  const filteredCategories = categoryItems.filter((item) =>
+    item.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
     <main className={styles.container}>
       <div className={styles.searchContainer}>
         <h1 className={styles.title}>Categorías</h1>
-        <input className={styles.inputSearch} placeholder="Buscar..." />
+        <input
+          className={styles.inputSearch}
+          placeholder="Buscar..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
       <hr className={styles.separateLine} />
 
       <section className={styles.productMainContainer}>
-        {categoryItems.map((item) => (
+        {filteredCategories.map((item) => (
           <div
             key={item}
             className={styles.productContainer}
@@ -68,7 +77,7 @@ export const Category = () => {
         ))}
         <div className={styles.addContainer}>
           <button className={styles.buttonAdd} onClick={openPopup}>
-            <IoMdAddCircle fontSize={45} color={"#C1C1C1"} />
+            <IoMdAddCircle fontSize={100} color={"#C1C1C1"} />
           </button>
           <h2>Crear Nueva Categoría</h2>
           <Modal isOpen={isOpen} onClose={closePopup}>

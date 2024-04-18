@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Order.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import jsonData from "./orders.json";
 
 const Orders = () => {
@@ -57,24 +59,31 @@ const Orders = () => {
     console.log("Estado actualizado:", updatedProducts[index].state[0]);
   };
 
+  const deleteOrders = () => {
+    setDeliveredProducts([]);
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Pedidos</h1>
       <hr className={styles.separateLine} />
       <div className={styles.filterContainer}>
         <div className={styles.inputContainer}>
-          <input
-            type="text"
-            placeholder="Filtros"
-            className={styles.filterInput}
-          />
-          <input
-            type="text"
-            placeholder="Buscar..."
-            className={styles.searchInput}
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div className={styles.searchContainer}>
+            <input
+              type="text"
+              placeholder="Filtros"
+              className={styles.filterInput}
+            />
+            <input
+              type="text"
+              placeholder="Buscar..."
+              className={styles.searchInput}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
+          </div>
         </div>
         <button onClick={handleOrdersToggle} className={styles.deliveredButton}>
           {showDeliveredOrders ? "Pedidos Hechos" : "Pedidos Entregados"}
@@ -86,15 +95,15 @@ const Orders = () => {
       >
         <div className={`${styles.row} ${styles.header}`}>
           <div className={styles.cell}>Fecha</div>
-          <div className={styles.cell}>Productos</div>
+          <div className={styles.cell}>Producto</div>
           <div className={styles.cell}>Cantidad</div>
           <div className={styles.cell}>Proveedor</div>
           <div className={styles.cell}>Estado</div>
         </div>
         {filteredProducts.length === 0 ? (
-          <div className={styles.row}>
+          <div className={`${styles.row} ${styles.rowWithMargin}`}>
             <div className={styles.cell} colSpan="5">
-              No se encontró el producto.
+              No se encontró el pedido.
             </div>
           </div>
         ) : (
@@ -107,9 +116,7 @@ const Orders = () => {
               <div className={styles.cell}>{product.product}</div>
               <div className={styles.cell}>{product.amount}</div>
               <div className={styles.cell}>{product.supplier}</div>
-              <div className={styles.cell}>
-                <span>{getProductState(index)}</span>
-              </div>
+              <div className={styles.cell}>{getProductState(index)}</div>
             </div>
           ))
         )}
@@ -120,20 +127,34 @@ const Orders = () => {
       >
         <div className={`${styles.row} ${styles.header}`}>
           <div className={styles.cell}>Fecha</div>
-          <div className={styles.cell}>Productos</div>
+          <div className={styles.cell}>Producto</div>
           <div className={styles.cell}>Cantidad</div>
           <div className={styles.cell}>Proveedor</div>
           <div className={styles.cell}>Estado</div>
         </div>
-        {filteredProducts.map((product, index) => (
-          <div key={index} className={`${styles.row} ${styles.rowWithMargin}`}>
-            <div className={styles.cell}>{product.date}</div>
-            <div className={styles.cell}>{product.product}</div>
-            <div className={styles.cell}>{product.amount}</div>
-            <div className={styles.cell}>{product.supplier}</div>
-            <div className={styles.cell}>Entregado</div>
+        {filteredProducts.length === 0 ? (
+          <div className={`${styles.row} ${styles.rowWithMargin}`}>
+            <div className={styles.cell} colSpan="5">
+              No se encontró el pedido.
+            </div>
           </div>
-        ))}
+        ) : (
+          filteredProducts.map((product, index) => (
+            <div
+              key={index}
+              className={`${styles.row2} ${styles.rowWithMargin}`}
+            >
+              <div className={styles.cell}>{product.date}</div>
+              <div className={styles.cell}>{product.product}</div>
+              <div className={styles.cell}>{product.amount}</div>
+              <div className={styles.cell}>{product.supplier}</div>
+              <div className={styles.cell}>Entregado</div>
+            </div>
+          ))
+        )}
+        <button className={styles.btnDeleteOrders} onClick={deleteOrders}>
+          Eliminar pedidos
+        </button>
       </div>
     </div>
   );
