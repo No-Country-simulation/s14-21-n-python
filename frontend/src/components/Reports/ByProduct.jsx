@@ -1,4 +1,6 @@
 import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import {
   CartesianGrid,
   BarChart,
@@ -68,6 +70,11 @@ const ByProduct = () => {
       <hr className={style.separateLine} />
       <div className={style.center}>
         <ResponsiveContainer width="90%" aspect={2}>
+          <Link to={"/sales"}>
+            <div className={style.closeButton}>
+              <AiOutlineClose />
+            </div>
+          </Link>
           <BarChart data={data} width={200} height={400}>
             <CartesianGrid strokeDasharray="4 1 2" />
             <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />

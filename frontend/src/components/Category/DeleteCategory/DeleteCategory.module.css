@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   gap: 25px;
-  background-color: #7A4D7C;
+  background-color: #7a4d7c;
   padding: 20px;
   border-radius: 10px;
   width: 430px;
@@ -16,7 +16,7 @@
 }
 
 .buttonCancel {
-  background-color: #D6FFF5;
+  background-color: #d6fff5;
   padding: 10px;
   border: none;
   width: 150px;
@@ -27,7 +27,7 @@
 }
 
 .buttonDelete {
-  background-color: #D6FFF5;
+  background-color: #d6fff5;
   padding: 10px;
   border: none;
   width: 150px;

@@ -20,35 +20,33 @@ export const Category = () => {
     "Juguetes",
     "Enlatados",
   ];
-  
+
   const [hoveredItem, setHoveredItem] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  
+  const [searchTerm, setSearchTerm] = useState("");
+
   const handleWarning = () => {
     setShowWarning(!showWarning);
   };
-  
+
   const openPopup = () => {
     setIsOpen(true);
   };
-  
+
   const closePopup = () => {
     setIsOpen(false);
   };
-  
-  const filteredCategories = categoryItems.filter(item =>
+
+  const filteredCategories = categoryItems.filter((item) =>
     item.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  
+
   return (
     <main className={styles.container}>
-      <div className={styles.searchContainer}>
-        <h1 className={styles.title}>Categorías</h1>
-      </div>
+      <h1 className={styles.title}>Categorías</h1>
       <hr className={styles.separateLine} />
-      
+
       <section className={styles.productMainContainer}>
         {filteredCategories.map((item) => (
           <div
@@ -63,7 +61,7 @@ export const Category = () => {
             {hoveredItem === item && (
               <div className={styles.deleteOverlay}>
                 <button className={styles.buttonTrash} onClick={handleWarning}>
-                  <FaTrashAlt fontSize={100} />
+                  <FaTrashAlt fontSize={60} />
                 </button>
               </div>
             )}
@@ -79,7 +77,7 @@ export const Category = () => {
           </Modal>
         </div>
       </section>
-      
+
       {showWarning && (
         <div className={styles.deleteCategoryBox}>
           <DeleteCategory />
