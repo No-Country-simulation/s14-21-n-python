@@ -39,20 +39,12 @@ export const Category = () => {
   };
 
   const filteredCategories = categoryItems.filter((item) =>
-    item.toLowerCase().includes(searchTerm.toLowerCase()),
+    item.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <main className={styles.container}>
-      <div className={styles.searchContainer}>
-        <h1 className={styles.title}>Categorías</h1>
-        <input
-          className={styles.inputSearch}
-          placeholder="Buscar..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+      <h1 className={styles.title}>Categorías</h1>
       <hr className={styles.separateLine} />
 
       <section className={styles.productMainContainer}>
@@ -69,7 +61,7 @@ export const Category = () => {
             {hoveredItem === item && (
               <div className={styles.deleteOverlay}>
                 <button className={styles.buttonTrash} onClick={handleWarning}>
-                  <FaTrashAlt fontSize={30} />
+                  <FaTrashAlt fontSize={60} />
                 </button>
               </div>
             )}
@@ -77,7 +69,7 @@ export const Category = () => {
         ))}
         <div className={styles.addContainer}>
           <button className={styles.buttonAdd} onClick={openPopup}>
-            <IoMdAddCircle fontSize={100} color={"#C1C1C1"} />
+            <IoMdAddCircle fontSize={50} color={"#00B389"} />
           </button>
           <h2>Crear Nueva Categoría</h2>
           <Modal isOpen={isOpen} onClose={closePopup}>

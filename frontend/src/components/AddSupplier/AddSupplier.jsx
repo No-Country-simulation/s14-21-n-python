@@ -17,7 +17,7 @@ const AddSupplier = () => {
         <input type="tel" />
       </div>
       <div className={style.inputs}>
-        <label>Direccion</label>
+        <label>Dirección</label>
         <input type="adress" />
       </div>
       <div className={style.inputs}>

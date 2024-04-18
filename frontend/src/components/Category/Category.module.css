@@ -1,31 +1,12 @@
 .container {
-  min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 70px;
+  right: 0;
+  max-height: calc(100vh - 120px);
+  width: calc(100% - 220px);
+  overflow-y: auto;
   padding: 10px 50px 10px 50px;
-  flex-direction: column;
   background-color: #fffffb;
-  border-top-left-radius: 30px;
-}
-
-.searchContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-@media (max-width: 1350px) {
-  .searchContainer {
-    width: 800px;
-  }
-}
-
-@media (max-width: 1250px) {
-  .searchContainer {
-    width: 80%;
-  }
 }
 
 .title {
@@ -40,25 +21,19 @@
   margin: 0px 0px 10px 0px;
 }
 
-.inputSearch {
-  border: 2px solid;
-  border-radius: 15px;
-  padding: 10px 10px 10px 15px;
-  width: 300px;
-}
-
 .productMainContainer {
   display: grid;
   grid-template-rows: repeat(3, 250px);
-  grid-template-columns: repeat(4, 250px);
+  grid-template-columns: repeat(4, 25%);
   gap: 15px;
+  margin: 20px;
   justify-content: center;
 }
 
 @media (max-width: 1350px) {
   .productMainContainer {
     grid-template-rows: repeat(4, 200px);
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(5, 200px);
     gap: 5px;
     text-align: center;
     font-size: 16px;
@@ -67,7 +42,7 @@
 
 .addContainer {
   display: flex;
-  background-color: #f4f4f4;
+  background-color: #d6fff5;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -91,12 +66,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f4f4f4;
   padding: 20px;
   gap: 10px;
   width: 200px;
   border-radius: 15px;
   height: 200px;
+  background-color: #d6fff5;
+  text-align: center;
 }
 
 @media (max-width: 1350px) {
@@ -104,73 +80,6 @@
     width: 150px;
     height: 150px;
   }
-}
-
-.productInformation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-}
-
-.informationBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.information {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-  width: 350px;
-}
-
-.availableBox {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.textAvailable {
-  font-weight: bold;
-}
-
-.buttonAvailable {
-  background-color: darkgray;
-  width: 100px;
-  color: #f4f4f4;
-  font-size: 20px;
-  padding: 5px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.select {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 5px;
-  width: 200px;
-  color: darkgray;
-}
-
-.containerComponents {
-  width: 900px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .buttonAdd {
@@ -182,13 +91,24 @@
 .deleteCategoryBox {
   position: absolute;
   background-color: rgba(169, 169, 169, 0.43);
+  top: 30%;
+  left: 0;
   width: 100%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .buttonTrash {
+  background-color: transparent;
   border: none;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
   cursor: pointer;
+}
+
+.buttonTrash:hover {
+  background-color: #7a4d7c;
 }

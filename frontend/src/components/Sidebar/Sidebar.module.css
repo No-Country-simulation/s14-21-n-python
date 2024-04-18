@@ -1,7 +1,9 @@
 .sidebar {
-  grid-area: sidebar;
-  width: auto;
-  min-height: 85vh;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 220px;
+  height: calc(100% - 70px);
   background-color: #7a4d7c;
   color: #d6fff5;
 }

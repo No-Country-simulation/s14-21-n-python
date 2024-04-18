@@ -1,5 +1,4 @@
 import style from "./Products.module.css";
-import { useState } from "react";
 import jsonData from "./products.json";
 
 const Products = () => {
@@ -70,22 +69,13 @@ const Products = () => {
     },
   ]; */
 
-  const [modifyProds, setModifyProds] = useState(false);
-
   return (
     <main>
       <div className={style.container}>
         <h1 className={style.title}>Productos</h1>
         <hr className={style.separateLine} />
         <section className={style.containerFilters}>
-          <div className={style.modifyControls}>
-            <button onClick={() => setModifyProds(!modifyProds)}>
-              Modificar
-            </button>
-          </div>
-
           <div className={style.searchAndFilter}>
-            <button>Filtros</button>
             <input type="text" placeholder="Buscar..." />
           </div>
         </section>

@@ -4,34 +4,35 @@
   align-items: center;
   flex-direction: column;
   gap: 25px;
-  background-color: lightblue;
+  background-color: #7a4d7c;
   padding: 20px;
   border-radius: 10px;
   width: 430px;
   height: 240px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
+  color: white;
 }
 
 .buttonCancel {
-  background-color: darkgray;
+  background-color: #d6fff5;
   padding: 10px;
   border: none;
   width: 150px;
   border-radius: 20px;
-  color: white;
   font-weight: bold;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .buttonDelete {
-  background-color: darkgray;
+  background-color: #d6fff5;
   padding: 10px;
   border: none;
   width: 150px;
   border-radius: 20px;
-  color: white;
   font-weight: bold;
   cursor: pointer;
+  font-size: 18px;
 }

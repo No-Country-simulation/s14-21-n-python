@@ -1,10 +1,14 @@
 /* Order.module.css */
 
 .container {
-  min-height: 100%;
-  background-color: #fffffb;
-  border-top-left-radius: 30px;
+  position: fixed;
+  top: 70px;
+  right: 0;
+  max-height: calc(100vh - 120px);
+  width: calc(100% - 220px);
+  overflow-y: auto;
   padding: 10px 50px 10px 50px;
+  background-color: #fffffb;
 }
 
 .title {
@@ -60,7 +64,6 @@
 .table {
   display: flex;
   flex-direction: column;
-  
   background-color: #e3fef7;
   border: 1px solid #ccc;
   border-radius: 25px;
@@ -82,7 +85,6 @@
 }
 
 .header {
-  
   background-color: #e3fef7;
   text-align: center;
   border-radius: 25px;
@@ -100,7 +102,7 @@
   cursor: pointer;
 }
 
-.btnDeleteOrders{
+.btnDeleteOrders {
   border: 2px solid black;
   padding: 5px 10px;
   margin-top: 10px;
@@ -119,7 +121,6 @@
   transform: translateY(-50%);
   color: #666;
 }
-
 
 .cell:last-child {
   border-right: none;

@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
 import styles from "./Modal.module.css";
 
 const Modal = ({ isOpen, onClose, children }) => {
@@ -8,7 +9,7 @@ const Modal = ({ isOpen, onClose, children }) => {
     <div className={styles.modalOverlay}>
       <div className={styles.modal}>
         <div className={styles.closeButton} onClick={onClose}>
-          x
+          <AiOutlineClose />
         </div>
         <div className={styles.modalContent}>
           {children}
