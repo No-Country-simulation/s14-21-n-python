@@ -1,15 +1,13 @@
-from core.config import settings
 from datetime import timedelta
-from fastapi import APIRouter, Depends, status, HTTPException
+
+from api.dependencies.db import get_session
+from core.config import settings
+from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from schemas import Token, UserLogin
+from sqlalchemy.ext.asyncio.session import AsyncSession
 from utils import oauth2
 from utils.user import is_authenticate
-
-
-from sqlalchemy.ext.asyncio.session import AsyncSession
-from api.dependencies.db import get_session
-
 
 router = APIRouter()
 

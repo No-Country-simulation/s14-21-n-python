@@ -17,14 +17,14 @@ class BaseCrud(ABC):
 
         result = await self.session.execute(statement)
 
-        return result.first()
+        return result.scalars().first()
 
     async def get_all(self):
         statement = select(self.model)
 
         result = await self.session.execute(statement)
 
-        return result.all()
+        return result.scalars().all()
 
     async def get_by_attribute(self, attribute: str, value: Any):
         if hasattr(self.model, attribute):
@@ -33,7 +33,7 @@ class BaseCrud(ABC):
 
             result = await self.session.execute(statement)
 
-            return result.first()
+            return result.scalars().first()
 
         else:
             raise AttributeError
@@ -44,6 +44,7 @@ class BaseCrud(ABC):
         self.session.add(new_instance)
 
         await self.session.commit()
+        await self.session.refresh(new_instance)
 
         return new_instance
 

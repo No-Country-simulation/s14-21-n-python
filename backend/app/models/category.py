@@ -18,4 +18,7 @@ class Category(Base):
     description: Mapped[str | None]
 
     product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
-    product: Mapped[Product] = relationship("Product", back_populates="category")
+    product: Mapped[Product] = relationship(
+        "Product",
+        back_populates="category",
+    )
