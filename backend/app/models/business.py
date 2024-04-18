@@ -25,11 +25,11 @@ class Business(Base):
 
     user: Mapped[User] = relationship(back_populates="business")
     product: Mapped[List[Product]] = relationship(
-        back_populates="business", lazy="joined"
+        back_populates="business",
     )
     transaction: Mapped[List[Transaction]] = relationship(
-        back_populates="business", lazy="joined"
+        back_populates="business",
     )
     supplier: Mapped[List[Supplier]] = relationship(
-        back_populates="business", lazy="joined"
+        back_populates="business",
     )

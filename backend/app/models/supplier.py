@@ -23,8 +23,10 @@ class Supplier(Base):
     is_active: Mapped[bool] = mapped_column(default=True)
 
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
-    business: Mapped[Business] = relationship(back_populates="supplier", lazy="joined")
+    business: Mapped[Business] = relationship(
+        back_populates="supplier",
+    )
 
     transaction: Mapped[List[Transaction]] = relationship(
-        back_populates="supplier", lazy="joined"
+        back_populates="supplier",
     )

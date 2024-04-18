@@ -20,5 +20,5 @@ class User(Base):
 
     business_id: Mapped[Optional[int]] = mapped_column(ForeignKey("business.id"))
     business: Mapped[Optional[Business]] = relationship(
-        back_populates="user", lazy="joined"
+        back_populates="user",
     )
