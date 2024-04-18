@@ -1,5 +1,6 @@
+from typing import List
 from fastapi import APIRouter, Depends, status
-from schemas import UserSchema, UserUpdate, UserOut
+from schemas import CreateUserSchema, UserUpdate, UserSchema
 from utils.password import hash
 from api.dependencies.db import get_session
 
@@ -12,7 +13,9 @@ router = APIRouter()
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
-async def create_user(user_create: UserSchema, db: AsyncSession = Depends(get_session)):
+async def create_user(
+    user_create: CreateUserSchema, db: AsyncSession = Depends(get_session)
+):
 
     hashed_password = await hash(user_create.password)
     user_create.password = hashed_password
@@ -22,7 +25,7 @@ async def create_user(user_create: UserSchema, db: AsyncSession = Depends(get_se
     return new_user
 
 
-@router.get("/{user_id}/", status_code=status.HTTP_200_OK)
+@router.get("/{user_id}/", status_code=status.HTTP_200_OK, response_model=UserSchema)
 async def get_user_id(
     user_id: int,
     db: AsyncSession = Depends(get_session),
@@ -37,6 +40,7 @@ async def get_user_id(
 @router.get(
     "/",
     status_code=status.HTTP_200_OK,
+    response_model=List[UserSchema],
 )
 async def get_all_users(
     db: AsyncSession = Depends(get_session),
