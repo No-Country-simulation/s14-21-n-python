@@ -44,6 +44,7 @@ class BaseCrud(ABC):
         self.session.add(new_instance)
 
         await self.session.commit()
+        await self.session.refresh(new_instance)
 
         return new_instance
 
@@ -52,7 +53,7 @@ class BaseCrud(ABC):
 
         result = await self.session.execute(statement)
 
-        instance = result.first()
+        instance = result.scalars().first()
 
         if instance:
             for key, value in data.model_dump().items():
@@ -66,7 +67,7 @@ class BaseCrud(ABC):
         statement = select(self.model).where(self.model.id == model_id)
         result = await self.session.execute(statement)
 
-        instance = result.first()
+        instance = result.scalars().first()
 
         if instance:
             await self.session.delete(instance)

@@ -1,6 +1,7 @@
 import os
 
 from dotenv import load_dotenv
+
 # from pydantic_settings import BaseSettings
 
 
@@ -9,9 +10,10 @@ from dotenv import load_dotenv
 #     database_username: str = "postgres"
 #     database_host: str = "localhost"
 #     database_port: str = "5432"
-#     database_name: str
-#     secret_key: str = "woops"
-#     algorithm: str = "secret"
+#     database_name: str = "postgres"
+#     secret_key: str
+#     algorithm: str
+#     expire_token: int
 
 #     class Config:
 #         env_file = "../../.env"
@@ -26,4 +28,5 @@ settings = {
     "database_name": os.getenv("DATABASE_NAME"),
     "secret_key": os.getenv("SECRET_KEY"),
     "algorithm": os.getenv("ALGORITHM"),
+    "expire_token": os.getenv("EXPIRE_TOKEN"),
 }
