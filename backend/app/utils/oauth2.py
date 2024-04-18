@@ -8,7 +8,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 TOKEN_EXPIRE = os.getenv("EXPIRE_TOKEN")
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/token")
 
 
 async def create_access_token(data: dict, expires_delta: timedelta | None = None):
@@ -27,7 +27,7 @@ async def create_access_token(data: dict, expires_delta: timedelta | None = None
 async def verify_token(token: str, credentials_exception):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        email: str = payload.get("sub")
+        email: str = payload.get("email")
         if email is None:
             raise credentials_exception
         token_data = TokenData(email=email)
