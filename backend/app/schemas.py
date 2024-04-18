@@ -19,7 +19,7 @@ class TokenData(BaseModel):
 
 
 class CreateUserSchema(BaseModel):
-    id: int
+
     name: str | None = None
     email: EmailStr
     password: str
@@ -41,7 +41,7 @@ class UserSchema(BaseModel):
     id: int
     name: str
     email: EmailStr
-    business_id: int
+    business_id: int | None = None
 
     class Config:
         from_attributes = True
