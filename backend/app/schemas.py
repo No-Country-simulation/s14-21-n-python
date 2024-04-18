@@ -36,8 +36,13 @@ class UserLogin(BaseModel):
     password: str
 
 
-class UserInDB(UserSchema):
-    hashed_password: str
+class UserOut(UserSchema):
+    name: str
+    email: EmailStr
+    business_id: int
+
+    class Config:
+        from_attributes = True
 
 
 # vease: https://docs.pydantic.dev/latest/api/networks/#pydantic.networks.EmailStr
