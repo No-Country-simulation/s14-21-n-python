@@ -8,11 +8,13 @@ if TYPE_CHECKING:
     from app.models.supplier import Supplier
     from app.models.transaction import Transaction
     from app.models.user import User
+    from app.models.category import Category
 else:
     Product = "Product"
     Transaction = "Transaction"
     User = "User"
     Supplier = "Supplier"
+    Category = "Category"
 
 
 class Business(Base):
@@ -31,5 +33,8 @@ class Business(Base):
         back_populates="business",
     )
     supplier: Mapped[List[Supplier]] = relationship(
+        back_populates="business",
+    )
+    category: Mapped[List[Category]] = relationship(
         back_populates="business",
     )
