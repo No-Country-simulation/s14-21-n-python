@@ -18,11 +18,12 @@ class TokenData(BaseModel):
     email: EmailStr
 
 
-class UserSchema(BaseModel):
+class CreateUserSchema(BaseModel):
+    id: int
     name: str | None = None
     email: EmailStr
     password: str
-    # business_id: int | None = None
+    business_id: int | None = None
 class UserUpdate(BaseModel):
     name: str | None = None
     email: EmailStr | None = None
@@ -36,7 +37,8 @@ class UserLogin(BaseModel):
     password: str
 
 
-class UserOut(UserSchema):
+class UserSchema(BaseModel):
+    id: int
     name: str
     email: EmailStr
     business_id: int
