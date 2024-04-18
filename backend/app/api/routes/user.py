@@ -12,7 +12,7 @@ from crud.user import UserCrud
 router = APIRouter()
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED)
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=UserSchema)
 async def create_user(
     user_create: CreateUserSchema, db: AsyncSession = Depends(get_session)
 ):
