@@ -103,7 +103,7 @@ Configura la URL del backend en los archivos de configuración.
 Inicia la aplicación React:
 
 ```BASH
-  npm start
+  npm run dev
 ```
 
 <br>
