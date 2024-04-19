@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "name": "Producto 1",
+    "brand": "Marca",
+    "description": "lorem ipsum",
+    "amount": 20,
+    "price": 9999,
+    "category": "category",
+    "datePurchase": "01-01-2024",
+    "expiration": "25-01-2025",
+    "provider":"proveedor"
+  }
+]

@@ -1,48 +1,111 @@
 import style from "./AddProd.module.css";
+import { useState } from "react";
 
 const AddProd = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    category: "",
+    brand: "",
+    provider: "",
+    amount: "",
+    price: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
   return (
     <form className={style.container}>
-      <h3>Nuevo producto</h3>
       <div className={style.inputs}>
-        <label>Nombre:</label>
-        <input type="text" />
+        <label>Nombre</label>
+        <input
+          type="text"
+          required
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
       </div>
       <div className={style.inputs}>
-        <label>Descripcion:</label>
-        <input type="text" />
+        <label>Descripción</label>
+        <input
+          type="text"
+          required
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+        />
       </div>
       <div className={style.inputs}>
-        <label>Categoria</label>
-        <select name="Categorias" id="cat">
-          <option value="javascript">JavaScript</option>
-          <option value="php">PHP</option>
-          <option value="java">Java</option>
-          <option value="golang">Golang</option>
-          <option value="python">Python</option>
-          <option value="c#">C#</option>
-          <option value="C++">C++</option>
-          <option value="erlang">Erlang</option>
+        <label>Categoría</label>
+        <select
+          name="Categoria"
+          id="categoria"
+          required
+          value={formData.category}
+          onChange={handleChange}
+        >
+          <option value="categoria1">Categoría 1</option>
+          <option value="categoria2">Categoría 2</option>
+          <option value="categoria3">Categoría 3</option>
+          <option value="categoria4">Categoría 4</option>
+          <option value="categoria5">Categoría 5</option>
+          <option value="categoria6">Categoría 6</option>
+          <option value="categoria7">Categoría 7</option>
+          <option value="categoria8">Categoría 8</option>
         </select>
       </div>
       <div className={style.inputs}>
         <label>Marca</label>
-        <input type="text" />
+        <input
+          type="text"
+          required
+          name="brand"
+          value={formData.brand}
+          onChange={handleChange}
+        />
       </div>
       <div className={style.inputs}>
-        <label>Cantidad:</label>
-        <input type="text" />
+        <label>Proveedor</label>
+        <input
+          type="text"
+          required
+          name="provider"
+          value={formData.provider}
+          onChange={handleChange}
+        />
       </div>
       <div className={style.inputs}>
-        <label>Precio compra:</label>
-        <input type="number" />
+        <label>Cantidad</label>
+        <input
+          type="number"
+          inputMode="numeric"
+          min="0"
+          pattern="[0-9]*"
+          required
+          name="amount"
+          value={formData.amount}
+          onChange={handleChange}
+        />
       </div>
       <div className={style.inputs}>
-        <label>Precio venta:</label>
-        <input type="number" />
+        <label>Precio</label>
+        <input
+          type="number"
+          inputMode="numeric"
+          min="0"
+          pattern="[0-9]+(\.[0-9]{1,2})?"
+          step="0.01"
+          required
+          name="price"
+          value={formData.price}
+          onChange={handleChange}
+        />
       </div>
 
-      <input type="submit" value="Agregar" />
+      <input className={style.button} type="submit" value="Agregar" />
     </form>
   );
 };

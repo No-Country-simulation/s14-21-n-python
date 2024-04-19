@@ -1,10 +1,14 @@
 import React from "react";
 import styles from "./Header.module.css";
+import Logo from "../../assets/logo.png";
 
 const Header = () => {
   return (
     <div className={styles.header}>
-      <h1> "StockEase" -La mejor plataforma para Inventarios</h1>
+      <img className={styles.logo} src={Logo} alt="" />
+      <div className={styles.iconButtonContainer}>
+        <button className={styles.exitButton}>Salir</button>
+      </div>
     </div>
   );
 };

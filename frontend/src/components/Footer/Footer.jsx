@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className={styles.footer}>
       <footer>
-        <p>Este es el pie de página de mi aplicación.</p>
+        <p>No Country - Grupo s14-21-n-python.</p>
       </footer>
     </div>
   );

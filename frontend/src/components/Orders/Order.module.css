@@ -1,37 +1,25 @@
 /* Order.module.css */
 
-.ordersContainer {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.container {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  max-height: calc(100vh - 120px);
+  width: calc(100% - 220px);
+  overflow-y: auto;
+  padding: 10px 50px 10px 50px;
+  background-color: #fffffb;
 }
 
-.ordersTitle {
-  font-size: 24px;
-  margin-bottom: 20px;
+.title {
+  margin: 15px 0 10px 0;
+  font-size: 30px;
 }
 
-.inputContainer {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-}
-
-.button {
-  padding: 8px 20px;
-  background-color: #74BAA0;
-  color: #fff;
-  border: none;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
+.separateLine {
+  height: 2px;
+  background-color: #161717;
+  margin: 0px 0px 10px 0px;
 }
 
 .subtitle {
@@ -39,36 +27,108 @@
   margin-top: 20px;
 }
 
-.list {
-  list-style-type: none;
-  padding: 0;
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.item {
-  padding: 8px 0;
-  border-bottom: 1px solid #ccc;
+.filterInput {
+  width: 116px;
 }
 
-.markDelivered {
-  padding: 5px 10px;
-  background-color: #216651;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-left: 10px;
+.searchInput {
+  width: 280px;
 }
 
-.deleteButton {
+.filterInput,
+.searchInput {
+  height: 32px;
+  padding: 8px;
+  margin-right: 10px;
+  border: 2px solid black;
+  border-radius: 16px;
+  padding-left: 20px;
+}
+
+.deliveredButton {
+  justify-items: end;
   padding: 8px 20px;
-  background-color: #FF6347; 
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+  color: black;
+  border: 2px solid black;
+  border-radius: 16px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
-.deleteButton:hover {
-  background-color: #FF4837; 
+.table {
+  display: flex;
+  flex-direction: column;
+  background-color: #e3fef7;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  background-color: #e7d9e8;
+  align-items: center;
+  padding: 8px;
+}
+
+.row2 {
+  display: flex;
+  background-color: #e7d9e8;
+  align-items: center;
+  padding: 14px 8px;
+}
+
+.header {
+  background-color: #e3fef7;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.cell {
+  flex: 1;
+  padding: 8px;
+}
+
+.cell button {
+  border: 2px solid black;
+  padding: 5px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.btnDeleteOrders {
+  border: 2px solid black;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.cell:last-child {
+  border-right: none;
+}
+
+.rowWithMargin {
+  margin-top: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+  border-radius: 16px;
 }
