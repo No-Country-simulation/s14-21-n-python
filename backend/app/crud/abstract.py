@@ -38,6 +38,18 @@ class BaseCrud(ABC):
         else:
             raise AttributeError
 
+    async def get_all_by_attribute(self, attribute: str, value: Any):
+        if hasattr(self.model, attribute):
+            model_attribute = getattr(self.model, attribute)
+            statement = select(self.model).where(model_attribute == value)
+
+            result = await self.session.execute(statement)
+
+            return result.scalars().all()
+
+        else:
+            raise AttributeError
+
     async def create(self, data: BaseModel):
         new_instance = self.model(**data.model_dump())
 
