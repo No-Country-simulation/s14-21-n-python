@@ -62,16 +62,26 @@ Clona el repositorio del Back-End.
   git clone https://github.com/No-Country/s14-21-n-python
 ```
 
-Instala las dependencias utilizando pip:
+Instala poetry:
+
+```bash
+pip install pipx
+pipx ensurepath
+pipx install poetry
+```
+
+Instala las dependencias utilizando poetry:
 
 ```BASH
-  pip install -r requirements.txt
+poetry install
 ```
 
 Configura la base de datos PostgreSQL en el archivo de configuración.
 
-```bash
+Aplica las migraciones:
 
+```bash
+alembic upgrade head
 ```
 
 Inicia el servidor FastAPI:
