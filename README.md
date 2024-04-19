@@ -4,7 +4,7 @@
 <br />
 <div align='center'>
   <a href="https://github.com/No-Country/s14-21-n-python" target="_blank">
-  <img src="img/logo.png" alt="Banner" width="50%">
+  <img src="frontend/src/assets/logo.png" alt="Banner" width="40%">
   </a>
   <h3>Bienvenidos a StockEasy</h3>
 </div>
@@ -103,7 +103,7 @@ Configura la URL del backend en los archivos de configuración.
 Inicia la aplicación React:
 
 ```BASH
-  npm start
+  npm run dev
 ```
 
 <br>

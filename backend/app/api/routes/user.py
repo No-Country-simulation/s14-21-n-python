@@ -4,7 +4,7 @@ from api.dependencies.auth import validate_authenticate_user
 from api.dependencies.db import get_session
 from crud.user import UserCrud
 from fastapi import APIRouter, Depends, status
-from schemas import CreateUserSchema, UserSchema, UserUpdate
+from schemas.user import CreateUserSchema, UserSchema, UserUpdate
 from sqlalchemy.ext.asyncio.session import AsyncSession
 from utils.password import hash
 
