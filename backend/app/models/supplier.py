@@ -20,6 +20,7 @@ class Supplier(Base):
     phone: Mapped[str]
     address: Mapped[str]
     email: Mapped[str]
+    cuit: Mapped[int]
     is_active: Mapped[bool] = mapped_column(default=True)
 
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
