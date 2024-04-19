@@ -61,7 +61,9 @@ Clona el repositorio del Back-End.
 ```bash
   git clone https://github.com/No-Country/s14-21-n-python
 ```
+
 Instala poetry:
+
 ```bash
 pip install pipx
 pipx ensurepath
