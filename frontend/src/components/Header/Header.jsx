@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "../../assets/logo.png";
-import { faEnvelope, faCog } from "@fortawesome/free-solid-svg-icons"; // Importa el icono de la manera correcta
 
 const Header = () => {
   return (

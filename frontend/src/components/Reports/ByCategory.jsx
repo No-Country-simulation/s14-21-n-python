@@ -1,5 +1,7 @@
 import React from "react";
 import { PieChart, ResponsiveContainer, Pie, Tooltip, Cell } from "recharts";
+import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import style from "./ByCategory.module.css";
 
 const data = [
@@ -50,6 +52,11 @@ const ByCategory = () => {
       <hr className={style.separateLine} />
       <div className={style.center}>
         <ResponsiveContainer>
+          <Link to={"/sales"}>
+            <div className={style.closeButton}>
+              <AiOutlineClose />
+            </div>
+          </Link>
           <PieChart>
             <Pie
               dataKey="count"

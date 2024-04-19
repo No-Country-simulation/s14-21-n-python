@@ -1,19 +1,14 @@
 .footer {
-  /* position: fixed;
+  position: fixed;
   bottom: 0;
-  left: 0; */
+  left: 0;
   width: 100%;
-  height: auto;
-  display: grid;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #B78EB9;
+  height: 50px;
+  background-color: rgb(207, 206, 206);
   padding: 15px 30px;
-  border-top: 1px solid #B78EB9;/* Cambiado a border-top para evitar que el borde se solape con el contenido */
- 
+  text-align: center;
 }
 
-.footer p{
-  color:#FFFFFB;
-  text-align: center;
+.footer p {
+  color: #fffffb;
 }

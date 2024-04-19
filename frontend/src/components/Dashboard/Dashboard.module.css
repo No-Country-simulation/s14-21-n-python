@@ -1,12 +1,15 @@
 /* Dashboard.module.css */
 
 .dashboard {
-  grid-area: Dashboard;
+  position: fixed;
+  top: 70px;
+  right: 0;
+  max-height: calc(100vh - 120px);
+  width: calc(100% - 220px);
+  overflow-y: auto;
   padding: 10px 50px 10px 50px;
   background-color: #fffffb;
   display: grid;
-  min-height: 100%;
-  border-top-left-radius: 30px;
 }
 
 .title {
@@ -33,7 +36,7 @@
   display: flex;
   flex-direction: column; /* Organiza los elementos verticalmente */
   border-radius: 20px;
-  background-color: #B78EB9;
+  background-color: #b78eb9;
   color: #003c43;
   font-size: 18px;
 }
@@ -120,13 +123,13 @@
 .cardIcon {
   display: flex;
   align-items: center; /* Centra verticalmente el icono y el contenido */
-  background-color: #D6FFF5;
+  background-color: #d6fff5;
   border: 1px solid #ccc;
   border-radius: 20px;
   height: 91px;
   width: 91px;
   justify-content: center;
-  color:#003C43;
+  color: #003c43;
 }
 
 .cardIcon svg {
@@ -138,17 +141,16 @@
   margin: 10px;
 }
 
-.cantidad{
+.cantidad {
   display: flex;
   align-items: center; /* Centra verticalmente el icono y el contenido */
-  background-color: #D6FFF5;
+  background-color: #d6fff5;
   border: 1px solid #ccc;
   border-radius: 10px;
   height: 40px;
   width: 100px;
   justify-content: center;
-  color:#003C43 ;   
-  
+  color: #003c43;
 }
 
 .cantidad p {
