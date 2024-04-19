@@ -162,5 +162,6 @@ node_modules
 
 # Editor directories and files
 .idea
+/backend/app/.env
 backend/dist
 key-backend-server.pem
