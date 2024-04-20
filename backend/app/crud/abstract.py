@@ -72,6 +72,8 @@ class BaseCrud(ABC):
                 setattr(instance, key, value)
 
             await self.session.commit()
+            await self.session.refresh(instance)
+            return instance
         else:
             raise ValueError(f"Instance with id {model_id} not found")
 
