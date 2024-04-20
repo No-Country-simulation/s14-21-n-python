@@ -11,6 +11,7 @@ class ProductSchema(BaseModel):
     brand: str
     name: str
     stock: int
+    description: str
     minimum_stock: int | None = None
     original_price: Decimal
     purchase_date: datetime | None = None
