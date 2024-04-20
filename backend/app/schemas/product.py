@@ -21,7 +21,7 @@ class ProductSchema(BaseModel):
 
 
 class CreateProductSchema(BaseModel):
-    business_id: int | None = None
+    category_id: int | None = None
     brand: str
     name: str
     stock: int
