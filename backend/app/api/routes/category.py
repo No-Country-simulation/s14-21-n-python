@@ -22,7 +22,7 @@ async def create_category(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
-    new_category = await CategoryCrud(db).create(category_create)
+    new_category = CategoryCrud(db).create(category_create)
 
     return new_category
 
