@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio.session import AsyncSession
 router = APIRouter()
 
 
-@router.get("/", status_code=status.HTTP_200_OK, response_model=BusinessSchema)
+@router.get("/", status_code=status.HTTP_200_OK, response_model=List[BusinessSchema])
 async def get_all_business(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
