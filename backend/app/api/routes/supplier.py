@@ -21,7 +21,9 @@ async def create_supplier(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
-    new_supplier = await SupplierCrud(db).create(supplier_create)
+    new_supplier = await SupplierCrud(db).create(
+        supplier_create.model_copy(update={"business_id": business_id})
+    )
 
     return new_supplier
 
