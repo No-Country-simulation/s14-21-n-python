@@ -23,7 +23,6 @@ class TransactionSchema(BaseModel):
 
 
 class CreateTransaction(BaseModel):
-    business_id: int | None = None
     product_id: int | None = None
     client_id: Optional[int]
     supplier_id: int | None = None

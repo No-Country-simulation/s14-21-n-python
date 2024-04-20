@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, List, Text
+from typing import TYPE_CHECKING, List
 
 from core.database import Base
 from sqlalchemy import DateTime, ForeignKey, Integer, Numeric, String
@@ -33,7 +33,8 @@ class Product(Base):
     business: Mapped[Business] = relationship(
         back_populates="product",
     )
-    category: Mapped[List[Category]] = relationship(
+    category_id: Mapped[int] = mapped_column(ForeignKey("category.id"))
+    category: Mapped[Category] = relationship(
         back_populates="product",
     )
     transaction: Mapped[List[Transaction]] = relationship(

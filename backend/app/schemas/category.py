@@ -4,7 +4,6 @@ from pydantic import BaseModel, ConfigDict
 class CategorySchema(BaseModel):
     id: int
     business_id: int | None = None
-    product_id: int | None = None
     name: str
     description: str | None = None
 
@@ -12,8 +11,6 @@ class CategorySchema(BaseModel):
 
 
 class CreateCategory(BaseModel):
-    business_id: int | None = None
-    product_id: int | None = None
     name: str
     description: str | None
 
@@ -21,7 +18,5 @@ class CreateCategory(BaseModel):
 
 
 class UpdateCategory(BaseModel):
-    business_id: int | None = None
-    product_id: int | None = None
     name: str | None = None
     description: str | None

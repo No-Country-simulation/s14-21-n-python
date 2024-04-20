@@ -21,7 +21,9 @@ async def create_transaction(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
-    new_transaction = await TransactionCrud(db).create(transaction_create)
+    new_transaction = await TransactionCrud(db).create(
+        transaction_create.model_copy(update={"business_id": business_id})
+    )
 
     return new_transaction
 
