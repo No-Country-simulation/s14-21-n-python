@@ -29,6 +29,21 @@ async def create_category(
 
 
 @router.get(
+    "/{business_id}/categories/{category_id}/",
+    status_code=status.HTTP_200_OK,
+    response_model=CategorySchema,
+)
+async def get_category_id(
+    category_id: int,
+    db: AsyncSession = Depends(get_session),
+    current_user: str = Depends(validate_authenticate_user),
+):
+    category = await CategoryCrud(db).get(category_id)
+
+    return category
+
+
+@router.get(
     "/{business_id}/categories/",
     status_code=status.HTTP_200_OK,
     response_model=List[CategorySchema],
