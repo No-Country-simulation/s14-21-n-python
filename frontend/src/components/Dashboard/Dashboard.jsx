@@ -50,7 +50,7 @@ const Dashboard = () => {
 
           <div className={style.productInfo}>
             <div className={style.cardIcon}>
-              <FaRegStar color="#e3fef7" />
+              <FaRegStar />
             </div>
             <div className={style.productDetails}>
               <h4>Nombre del producto</h4>

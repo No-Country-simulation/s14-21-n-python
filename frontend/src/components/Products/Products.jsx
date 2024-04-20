@@ -1,5 +1,6 @@
 import style from "./Products.module.css";
 import jsonData from "./products.json";
+import { FaSearch } from "react-icons/fa";
 
 const Products = () => {
   /* const testArray = [
@@ -75,8 +76,13 @@ const Products = () => {
         <h1 className={style.title}>Productos</h1>
         <hr className={style.separateLine} />
         <section className={style.containerFilters}>
-          <div className={style.searchAndFilter}>
-            <input type="text" placeholder="Buscar..." />
+          <div className={style.searchContainer}>
+            <input
+              type="search"
+              placeholder="Buscar..."
+              className={style.searchInput}
+            />
+            <FaSearch className={style.searchIcon} />
           </div>
         </section>
 
@@ -84,9 +90,9 @@ const Products = () => {
           <div className={style.layout}>
             <div className={style.header}>
               <div className={style.column}>Producto</div>
-              <div className={style.column}>Descripcion</div>
+              <div className={style.column}>Descripción</div>
               <div className={style.column}>Marca</div>
-              <div className={style.column}>Categoria</div>
+              <div className={style.column}>Categoría</div>
               <div className={style.column}>Stock</div>
               <div className={style.column}>
                 Precio
@@ -104,7 +110,6 @@ const Products = () => {
                   <div className={style.column}>{prod.amount}</div>
                   <div className={style.column}>$ {prod.price}</div>
                   <div className={style.column}> {prod.provider}</div>
-                  {modifyProds && <button>E</button>}
                 </div>
               );
             })}

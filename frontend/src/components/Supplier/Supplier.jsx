@@ -5,16 +5,11 @@ import { SlPencil } from "react-icons/sl";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 
-
-
 const Supplier = () => {
   const [editingId, setEditingId] = useState(null);
   const [jsonDataState, setJsonData] = useState(jsonData); // State to manage supplier data
   const [editedValues, setEditedValues] = useState({});
   const [showAdminColumn, setShowAdminColumn] = useState(false); // State to manage column visibility
-
-
-
 
   const handleEdit = (id) => {
     setEditingId(id);
@@ -54,14 +49,13 @@ const Supplier = () => {
       <hr className={style.separateLine} />
       <section>
         <div className={style.admCont}>
-        <div className={style.searchContainer}>
+          <div className={style.searchContainer}>
             <input
               type="search"
               placeholder="Buscar..."
               className={style.searchInput}
             />
-           <FaSearch className={style.searchIcon} />
-
+            <FaSearch className={style.searchIcon} />
           </div>
 
           <button className={style.admBtn} onClick={toggleAdminColumn}>

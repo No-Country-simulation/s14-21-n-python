@@ -61,14 +61,19 @@ export const Category = () => {
             {hoveredItem === item && (
               <div className={styles.deleteOverlay}>
                 <button className={styles.buttonTrash} onClick={handleWarning}>
-                  <FaTrashAlt fontSize={60} />
+                  <FaTrashAlt fontSize={40} />
                 </button>
               </div>
             )}
           </div>
         ))}
         <div className={styles.addContainer}>
-          <button className={styles.buttonAdd} onClick={openPopup}>
+          <button
+            className={styles.buttonAdd}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={openPopup}
+          >
             <IoMdAddCircle fontSize={50} color={"#00B389"} />
           </button>
           <h2>Crear Nueva Categoría</h2>

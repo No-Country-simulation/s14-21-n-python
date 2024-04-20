@@ -88,6 +88,10 @@
   border: none;
 }
 
+.icono-hovered {
+  color: #b78eb9;
+}
+
 .deleteCategoryBox {
   position: absolute;
   background-color: rgba(169, 169, 169, 0.43);
