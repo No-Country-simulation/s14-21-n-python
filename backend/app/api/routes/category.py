@@ -22,7 +22,7 @@ async def create_category(
     current_user: str = Depends(validate_authenticate_user),
 ):
     new_category = await CategoryCrud(db).create(
-        category_create.model_copy(update={"business": business_id})
+        category_create.model_copy(update={"business_id": business_id})
     )
 
     return new_category
