@@ -72,10 +72,10 @@ class BaseCrud(ABC):
                 setattr(instance, key, value)
 
             await self.session.commit()
+            await self.session.refresh(instance)
+            return instance
         else:
             raise ValueError(f"Instance with id {model_id} not found")
-
-        return instance
 
     async def delete(self, model_id: int):
         statement = select(self.model).where(self.model.id == model_id)
