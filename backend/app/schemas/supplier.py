@@ -10,3 +10,23 @@ class SupplierSchema(BaseModel):
     cuit: int
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class CreateSupplierSchema(BaseModel):
+    name: str
+    phone: str
+    address: str
+    email: EmailStr
+    cuit: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class UpdateSupplierSchema(BaseModel):
+    name: str
+    phone: str
+    address: str
+    email: EmailStr
+    cuit: int
+
+    model_config = ConfigDict(from_attributes=True)
