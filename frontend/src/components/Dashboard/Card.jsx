@@ -33,7 +33,7 @@ const CardAccesos = ({ title, children }) => {
   return (
     <div className={styles.card}>
       <button className={styles.buttonAdd} onClick={openPopup}>
-        <IoMdAddCircle fontSize={45} color={"#C1C1C1"} />
+        <IoMdAddCircle fontSize={45} color={"#d6fff5"} />
       </button>
       <h3>{title}</h3>
       <Modal isOpen={isOpen} onClose={closePopup}>

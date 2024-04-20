@@ -3,6 +3,9 @@ import style from "./Supplier.module.css";
 import jsonData from "./suppliers.json";
 import { SlPencil } from "react-icons/sl";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import Modal from "../Modal/Modal";
+import AddSupplier from "../AddSupplier/AddSupplier";
 
 const Supplier = () => {
   const [editingId, setEditingId] = useState(null);
@@ -42,15 +45,41 @@ const Supplier = () => {
     setShowAdminColumn(!showAdminColumn);
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+  };
+
   return (
     <main className={style.container}>
       <h1 className={style.title}>Proveedores</h1>
       <hr className={style.separateLine} />
       <section>
-        <div>
-          <button className={style.admBtn} onClick={toggleAdminColumn}>
-            Administrar
-          </button>
+        <div className={style.admCont}>
+          <div className={style.searchContainer}>
+            <input
+              type="search"
+              placeholder="Buscar..."
+              className={style.searchInput}
+            />
+            <FaSearch className={style.searchIcon} />
+          </div>
+          <div className={style.buttons}>
+            <button className={style.admBtn} onClick={openPopup}>
+              Agregar
+            </button>
+            <Modal isOpen={isOpen} onClose={closePopup}>
+              <AddSupplier />
+            </Modal>
+            <button className={style.admBtn} onClick={toggleAdminColumn}>
+              Administrar
+            </button>
+          </div>
         </div>
       </section>
       <section className={style.layout}>

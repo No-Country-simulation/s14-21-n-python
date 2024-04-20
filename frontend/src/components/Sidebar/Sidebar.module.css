@@ -5,7 +5,7 @@
   width: 220px;
   height: calc(100% - 70px);
   background-color: #7a4d7c;
-  color: #d6fff5;
+  color: #f5f2f6;
 }
 
 .sidebar ul {
@@ -19,7 +19,8 @@
 
 .sidebar ul li a {
   text-decoration: none;
-  color: #d6fff5;
+  text-align: center;
+  color: #f5f2f6;
 }
 
 /* Estilos por defecto del botón */
@@ -29,7 +30,7 @@ ul li a {
   margin: 5px 0;
   border-radius: 20px; /* Redondea los bordes */
   text-decoration: none; /* Quita la subraya del enlace */
-  color: #d6fff5;
+  color: #f5f2f6;
   font-weight: bold;
 }
 
@@ -65,7 +66,7 @@ ul li a:hover {
 
 .separateLine {
   height: 3px;
-  background-color: #d6fff5;
+  background-color: #f5f2f6;
   margin: 10px auto;
   width: 50%;
   text-align: center;

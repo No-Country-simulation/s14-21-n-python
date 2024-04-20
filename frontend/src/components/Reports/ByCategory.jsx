@@ -50,31 +50,50 @@ const ByCategory = () => {
     <main className={style.container}>
       <h1 className={style.title}>Ventas por Categoría</h1>
       <hr className={style.separateLine} />
-      <div className={style.center}>
-        <ResponsiveContainer>
-          <Link to={"/sales"}>
-            <div className={style.closeButton}>
-              <AiOutlineClose />
-            </div>
-          </Link>
-          <PieChart>
-            <Pie
-              dataKey="count"
-              data={data}
-              innerRadius={150}
-              outerRadius={250}
-              fill="#b78eb9"
-            >
+      <div className={style.flex}>
+        <div className={style.col}>
+          <table className={style.table}>
+            <tbody>
               {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={colors[index % colors.length]}
-                />
+                <tr key={index} style={{ marginBottom: "5px" }}>
+                  <td
+                    style={{
+                      width: 40,
+                      backgroundColor: colors[index % colors.length],
+                    }}
+                  ></td>
+                  <td>{entry.name}</td>
+                </tr>
               ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
+            </tbody>
+          </table>
+        </div>
+        <div className={style.center}>
+          <ResponsiveContainer>
+            <Link to={"/sales"}>
+              <div className={style.closeButton}>
+                <AiOutlineClose />
+              </div>
+            </Link>
+            <PieChart>
+              <Pie
+                dataKey="count"
+                data={data}
+                innerRadius={150}
+                outerRadius={250}
+                fill="#b78eb9"
+              >
+                {data.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={colors[index % colors.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
       </div>
     </main>
   );
