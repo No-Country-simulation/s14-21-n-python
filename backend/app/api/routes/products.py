@@ -15,10 +15,11 @@ router = APIRouter()
     status_code=status.HTTP_201_CREATED,
     response_model=ProductSchema,
 )
-async def create_user(
+async def create_product(
     business_id: int,
     product_create: CreateProductSchema,
     db: AsyncSession = Depends(get_session),
+    current_user: str = Depends(validate_authenticate_user),
 ):
     new_product = await ProductCrud(db).create(
         product_create.model_copy(update={"business_id": business_id})
@@ -48,7 +49,7 @@ async def get_product_id(
     status_code=status.HTTP_200_OK,
     response_model=List[ProductSchema],
 )
-async def get_all_users(
+async def get_all_products(
     business_id: int,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
