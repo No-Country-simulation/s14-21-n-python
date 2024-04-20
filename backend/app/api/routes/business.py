@@ -31,7 +31,7 @@ async def get_business(
     return business
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED)
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=BusinessSchema)
 async def create_business(
     business_data: CreateBusinessSchema,
     db: AsyncSession = Depends(get_session),
