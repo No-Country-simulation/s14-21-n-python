@@ -6,6 +6,18 @@
   text-align: center;
   background-color: #d6fff5;
   color: #003c43;
+  width: 180px;
+}
+
+.card1 {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 10px 10px 10px;
+  text-align: center;
+  background-color: #d6fff5;
+  color: #003c43;
+  height: 120px;
 }
 
 .cardIcon {
