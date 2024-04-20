@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, List, Text
+from typing import TYPE_CHECKING, List
 
 from core.database import Base
 from sqlalchemy import DateTime, ForeignKey, Integer, Numeric, String
