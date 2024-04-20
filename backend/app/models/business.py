@@ -27,14 +27,14 @@ class Business(Base):
 
     user: Mapped[User] = relationship(back_populates="business")
     product: Mapped[List[Product]] = relationship(
-        back_populates="business",
+        back_populates="business", lazy="selectin"
     )
     transaction: Mapped[List[Transaction]] = relationship(
-        back_populates="business",
+        back_populates="business", lazy="selectin"
     )
     supplier: Mapped[List[Supplier]] = relationship(
-        back_populates="business",
+        back_populates="business", lazy="selectin"
     )
     category: Mapped[List[Category]] = relationship(
-        back_populates="business",
+        back_populates="business", lazy="selectin"
     )
