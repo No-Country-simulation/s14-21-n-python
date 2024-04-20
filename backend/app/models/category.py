@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, List
 
 from core.database import Base
 from sqlalchemy import ForeignKey
@@ -19,8 +19,7 @@ class Category(Base):
     name: Mapped[str]
     description: Mapped[str | None]
 
-    product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
-    product: Mapped[Product] = relationship(
+    product: Mapped[List[Product]] = relationship(
         "Product",
         back_populates="category",
     )

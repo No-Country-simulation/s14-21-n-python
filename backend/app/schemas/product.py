@@ -1,13 +1,13 @@
 from datetime import datetime
 from decimal import Decimal
 
-
 from pydantic import BaseModel, ConfigDict
 
 
 class ProductSchema(BaseModel):
     id: int
     business_id: int
+    category_id: int
     brand: str
     name: str
     stock: int
