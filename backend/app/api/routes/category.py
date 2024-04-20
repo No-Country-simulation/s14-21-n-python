@@ -11,8 +11,13 @@ from sqlalchemy.ext.asyncio.session import AsyncSession
 router = APIRouter()
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED, response_model=CategorySchema)
+@router.post(
+    "/{business_id}/categories/",
+    status_code=status.HTTP_201_CREATED,
+    response_model=CategorySchema,
+)
 async def create_category(
+    business_id: int,
     category_create: CreateCategory,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
@@ -23,11 +28,12 @@ async def create_category(
 
 
 @router.get(
-    "/",
+    "/{business_id}/categories/",
     status_code=status.HTTP_200_OK,
     response_model=List[CategorySchema],
 )
 async def get_all_categories(
+    business_id: int,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
@@ -36,8 +42,11 @@ async def get_all_categories(
     return categories
 
 
-@router.delete("/{category_id}/", status_code=status.HTTP_200_OK)
+@router.delete(
+    "/{business_id}/categories/{category_id}/", status_code=status.HTTP_200_OK
+)
 async def delete_category(
+    business_id: int,
     category_id: int,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
@@ -45,8 +54,9 @@ async def delete_category(
     await CategoryCrud(db).delete(category_id)
 
 
-@router.put("/{category_id}/", status_code=status.HTTP_200_OK)
+@router.put("/{business_id}/categories/{category_id}/", status_code=status.HTTP_200_OK)
 async def update_user(
+    business_id: int,
     category_id: int,
     update_category: UpdateCategory,
     db: AsyncSession = Depends(get_session),

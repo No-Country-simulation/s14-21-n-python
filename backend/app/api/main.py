@@ -27,15 +27,14 @@ api_router.include_router(
 
 api_router.include_router(
     transaction.router,
-    prefix="/api/transactions",
+    prefix="/api/businesses",
     tags=["Transaction"],
     responses={404: {"description": "Not found"}},
 )
 
 api_router.include_router(
     category.router,
-    prefix="/api/categories",
+    prefix="/api/businesses",
     tags=["Category"],
     responses={404: {"description": "Not found"}},
 )
-
