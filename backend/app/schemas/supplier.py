@@ -3,6 +3,7 @@ from pydantic import BaseModel, ConfigDict, EmailStr
 
 class SupplierSchema(BaseModel):
     id: int
+    business_id: int
     name: str
     phone: str
     address: str
