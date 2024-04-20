@@ -5,7 +5,6 @@ from api.dependencies.db import get_session
 from crud.transaction import TransactionCrud
 from fastapi import APIRouter, Depends, status
 from schemas.transaction import CreateTransaction, TransactionSchema, UpdateTransaction
-from schemas.transaction import CreateTransaction, TransactionSchema, UpdateTransaction
 from sqlalchemy.ext.asyncio.session import AsyncSession
 
 router = APIRouter()
