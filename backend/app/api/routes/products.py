@@ -20,9 +20,8 @@ async def create_user(
     product_create: CreateProductSchema,
     db: AsyncSession = Depends(get_session),
 ):
-    product_create.business_id = business_id
     new_product = await ProductCrud(db).create(
-        product_create.model_copy(update={"business": business_id})
+        product_create.model_copy(update={"business_id": business_id})
     )
 
     return new_product
