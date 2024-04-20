@@ -1,4 +1,4 @@
-from api.routes import auth, business, hello, user, transaction, category
+from api.routes import auth, business, hello, user, transaction, category, products
 from fastapi import APIRouter
 from api.routes import hello, auth, user
 

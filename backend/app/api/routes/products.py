@@ -6,24 +6,35 @@ from crud.product import ProductCrud
 from fastapi import APIRouter, Depends, status
 from schemas.product import ProductSchema, CreateProductSchema, UpdateProduct
 from sqlalchemy.ext.asyncio.session import AsyncSession
-from utils.password import hash
 
 router = APIRouter()
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED, response_model=ProductSchema)
+@router.post(
+    "/{business_id}/products/",
+    status_code=status.HTTP_201_CREATED,
+    response_model=ProductSchema,
+)
 async def create_user(
-    product_create: CreateProductSchema, db: AsyncSession = Depends(get_session)
+    business_id: int,
+    product_create: CreateProductSchema,
+    db: AsyncSession = Depends(get_session),
 ):
-    new_product = await ProductCrud(db).create(product_create)
+    product_create.business_id = business_id
+    new_product = await ProductCrud(db).create(
+        product_create.model_copy(update={"business": business_id})
+    )
 
     return new_product
 
 
 @router.get(
-    "/{product_id}/", status_code=status.HTTP_200_OK, response_model=ProductSchema
+    "/{business_id}/products/{product_id}/",
+    status_code=status.HTTP_200_OK,
+    response_model=ProductSchema,
 )
 async def get_product_id(
+    business_id: int,
     product_id: int,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
@@ -34,11 +45,12 @@ async def get_product_id(
 
 
 @router.get(
-    "/",
+    "/{business_id}/products/",
     status_code=status.HTTP_200_OK,
     response_model=List[ProductSchema],
 )
 async def get_all_users(
+    business_id: int,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
@@ -47,8 +59,9 @@ async def get_all_users(
     return products
 
 
-@router.delete("/{product_id}/", status_code=status.HTTP_200_OK)
+@router.delete("/{business_id}/products/{product_id}/", status_code=status.HTTP_200_OK)
 async def delete_product(
+    business_id: int,
     product_id: int,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
@@ -56,8 +69,13 @@ async def delete_product(
     await ProductCrud(db).delete(product_id)
 
 
-@router.put("/{product_id}/", status_code=status.HTTP_200_OK)
+@router.put(
+    "/{business_id}/products/{product_id}/",
+    status_code=status.HTTP_200_OK,
+    response_model=ProductSchema,
+)
 async def update_product(
+    business_id: int,
     product_id: int,
     update_product: UpdateProduct,
     db: AsyncSession = Depends(get_session),

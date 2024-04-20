@@ -18,6 +18,8 @@ class ProductSchema(BaseModel):
     expiration_date: datetime | None = None
 
     model_config = ConfigDict(from_attributes=True)
+
+
 class CreateProductSchema(BaseModel):
     business_id: int | None = None
     brand: str
