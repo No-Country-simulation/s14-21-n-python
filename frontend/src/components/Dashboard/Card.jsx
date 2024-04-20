@@ -7,7 +7,7 @@ const Card = ({ title, content, icon }) => {
   const Icon = icon; // Asigna el ícono dinámicamente
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card1}>
       <div className={styles.cardIcon}>
         <Icon styles={{ color: "#003c43" }} />
         <div>

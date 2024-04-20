@@ -3,6 +3,8 @@ import styles from "./Order.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import jsonData from "./orders.json";
+import AddOrder from "../AddOrder/AddOrder";
+import Modal from "../Modal/Modal";
 
 const Orders = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,10 +19,10 @@ const Orders = () => {
   // Función para filtrar los productos basados en el término de búsqueda
   const filteredProducts = showDeliveredOrders
     ? deliveredProducts.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
+        product.product.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : jsonData.products.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
+        product.product.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
   // Función para obtener el estado de un producto dado su índice
@@ -58,6 +60,15 @@ const Orders = () => {
 
     console.log("Estado actualizado:", updatedProducts[index].state[0]);
   };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -76,9 +87,17 @@ const Orders = () => {
             <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
           </div>
         </div>
-        <button onClick={handleOrdersToggle} className={styles.deliveredButton}>
-          {showDeliveredOrders ? "Pedidos Hechos" : "Pedidos Entregados"}
-        </button>
+        <div className={styles.buttons}>
+          <button className={styles.admBtn} onClick={openPopup}>
+            Agregar
+          </button>
+          <Modal isOpen={isOpen} onClose={closePopup}>
+            <AddOrder />
+          </Modal>
+          <button onClick={handleOrdersToggle} className={styles.admBtn}>
+            {showDeliveredOrders ? "Pedidos Hechos" : "Pedidos Entregados"}
+          </button>
+        </div>
       </div>
       <div
         className={styles.table}
@@ -139,7 +158,9 @@ const Orders = () => {
               <div className={styles.cell}>{product.product}</div>
               <div className={styles.cell}>{product.amount}</div>
               <div className={styles.cell}>{product.supplier}</div>
-              <div className={styles.cell}>Entregado</div>
+              <div className={styles.cell}>
+                <button className={styles.stateButton}>Entregado</button>
+              </div>
             </div>
           ))
         )}

@@ -87,57 +87,53 @@ const Sales = () => {
       <h1 className={style.title}>Ventas</h1>
       <hr className={style.separateLine} />
       <section className={style.content}>
-        <div className={style.col}>
-          <div>
-            <button className={style.admBtn} onClick={openPopup}>
-              Agregar
-            </button>
-            <Modal isOpen={isOpen} onClose={closePopup}>
-              <AddSale />
-            </Modal>
-          </div>
-          <div className={style.layout}>
-            <div className={style.header}>
-              <div className={style.column}>Fecha</div>
-              <div className={style.column}>Producto</div>
-              <div className={style.column}>Marca</div>
-              <div className={style.column}>Cantidad</div>
-              <div className={style.column}>Precio</div>
-            </div>
-            {testArray.map((sale) => {
-              return (
-                <div className={style.row} key={sale.id}>
-                  <div className={style.column}>{sale.date}</div>
-                  <div className={style.column}>{sale.product}</div>
-                  <div className={style.column}>{sale.brand}</div>
-                  <div className={style.column}>{sale.amount}</div>
-                  <div className={style.column}>$ {sale.price}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
         <div className={style.reports}>
           <Link to={"/byProduct"}>
-            <button>
+            <button className={style.admBtn}>
               Reporte de Venta
               <br /> por Producto
             </button>
           </Link>
           <Link to={"/byCategory"}>
-            <button>
+            <button className={style.admBtn}>
               Reporte de Venta
               <br />
               por Categoría
             </button>
           </Link>
           <Link to={"/byMonth"}>
-            <button>
+            <button className={style.admBtn}>
               Reporte de Venta
               <br />
               por Mes
             </button>
           </Link>
+          <button className={style.admBtn} onClick={openPopup}>
+            Agregar
+          </button>
+          <Modal isOpen={isOpen} onClose={closePopup}>
+            <AddSale />
+          </Modal>
+        </div>
+        <div className={style.layout}>
+          <div className={style.header}>
+            <div className={style.column}>Fecha</div>
+            <div className={style.column}>Producto</div>
+            <div className={style.column}>Marca</div>
+            <div className={style.column}>Cantidad</div>
+            <div className={style.column}>Precio</div>
+          </div>
+          {testArray.map((sale) => {
+            return (
+              <div className={style.row} key={sale.id}>
+                <div className={style.column}>{sale.date}</div>
+                <div className={style.column}>{sale.product}</div>
+                <div className={style.column}>{sale.brand}</div>
+                <div className={style.column}>{sale.amount}</div>
+                <div className={style.column}>$ {sale.price}</div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </main>
