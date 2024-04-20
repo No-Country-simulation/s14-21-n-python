@@ -1,5 +1,9 @@
 import style from "./Products.module.css";
+import { useState } from "react";
 import jsonData from "./products.json";
+import { FaSearch } from "react-icons/fa";
+import Modal from "../Modal/Modal";
+import AddProd from "../AddProd/AddProd";
 
 const Products = () => {
   /* const testArray = [
@@ -69,24 +73,46 @@ const Products = () => {
     },
   ]; */
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+  };
+
   return (
     <main>
       <div className={style.container}>
         <h1 className={style.title}>Productos</h1>
         <hr className={style.separateLine} />
         <section className={style.containerFilters}>
-          <div className={style.searchAndFilter}>
-            <input type="text" placeholder="Buscar..." />
+          <div className={style.searchContainer}>
+            <input
+              type="search"
+              placeholder="Buscar..."
+              className={style.searchInput}
+            />
+            <FaSearch className={style.searchIcon} />
           </div>
+
+          <button className={style.admBtn} onClick={openPopup}>
+            Agregar
+          </button>
+          <Modal isOpen={isOpen} onClose={closePopup}>
+            <AddProd />
+          </Modal>
         </section>
 
         <section>
           <div className={style.layout}>
             <div className={style.header}>
               <div className={style.column}>Producto</div>
-              <div className={style.column}>Descripcion</div>
+              <div className={style.column}>Descripción</div>
               <div className={style.column}>Marca</div>
-              <div className={style.column}>Categoria</div>
+              <div className={style.column}>Categoría</div>
               <div className={style.column}>Stock</div>
               <div className={style.column}>
                 Precio
@@ -104,7 +130,6 @@ const Products = () => {
                   <div className={style.column}>{prod.amount}</div>
                   <div className={style.column}>$ {prod.price}</div>
                   <div className={style.column}> {prod.provider}</div>
-                  {modifyProds && <button>E</button>}
                 </div>
               );
             })}

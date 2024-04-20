@@ -4,11 +4,11 @@
   position: fixed;
   top: 70px;
   right: 0;
-  max-height: calc(100vh - 120px);
+  height: calc(100vh - 120px);
   width: calc(100% - 220px);
   overflow-y: auto;
   padding: 10px 50px 10px 50px;
-  background-color: #fffffb;
+  background-color: #fafefe;
   display: grid;
 }
 
@@ -67,7 +67,9 @@
   background-color: transparent; /* Fondo transparente */
   cursor: pointer; /* Cambia el cursor al pasar por encima del select */
   outline: none; /* Quita el contorno al enfocar el select */
-  border-radius: 30px;
+  border: 2px solid;
+  border-radius: 10px;
+  color: #003c43;
 }
 
 .select:hover {
@@ -101,7 +103,7 @@
 .priceAndDescription {
   display: flex;
   flex-direction: column;
-  margin-top: 10px; /* Ajusta el espacio entre el precio y la descripción */
+  margin-top: 10px;
   margin-left: 10px;
 }
 
@@ -116,25 +118,25 @@
 
 .cardsContainer {
   display: flex;
-  flex-wrap: wrap; /* Asegura que las tarjetas se envuelvan */
-  justify-content: space-between; /* Distribuye las tarjetas uniformemente */
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .cardIcon {
   display: flex;
-  align-items: center; /* Centra verticalmente el icono y el contenido */
+  align-items: center;
   background-color: #d6fff5;
+  color: #003c43;
   border: 1px solid #ccc;
   border-radius: 20px;
   height: 91px;
   width: 91px;
   justify-content: center;
-  color: #003c43;
 }
 
 .cardIcon svg {
-  width: 70px; /* Ajusta el ancho del ícono */
-  height: 70px; /* Ajusta la altura del ícono */
+  width: 70px;
+  height: 70px;
 }
 
 .containerAdd h3 {
@@ -143,7 +145,7 @@
 
 .cantidad {
   display: flex;
-  align-items: center; /* Centra verticalmente el icono y el contenido */
+  align-items: center;
   background-color: #d6fff5;
   border: 1px solid #ccc;
   border-radius: 10px;

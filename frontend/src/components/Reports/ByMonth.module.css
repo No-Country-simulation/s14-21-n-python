@@ -2,11 +2,11 @@
   position: fixed;
   top: 70px;
   right: 0;
-  max-height: calc(100vh - 120px);
+  height: calc(100vh - 120px);
   width: calc(100% - 220px);
   overflow-y: auto;
   padding: 10px 50px 10px 50px;
-  background-color: #fffffb;
+  background-color: #fafefe;
 }
 
 .title {

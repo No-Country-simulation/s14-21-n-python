@@ -32,3 +32,12 @@
   cursor: pointer;
   border: none;
 }
+
+.buttonAdd svg {
+  background-color: #003c43;
+  border-radius: 50%;
+}
+
+.buttonAdd svg:hover {
+  background-color: #7a4d7c;
+}
