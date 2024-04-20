@@ -45,11 +45,13 @@ async def create_business(
     "/{business_id}/", status_code=status.HTTP_200_OK, response_model=BusinessSchema
 )
 async def update_business(
+    business_id: int,
     business_data: UpdateBusinessSchema,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
-    pass
+    business = await BusinessCrud(db).update(business_id, business_data)
+    return business
 
 
 @router.delete("/{business_id}/", status_code=status.HTTP_200_OK)
