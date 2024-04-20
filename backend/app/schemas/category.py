@@ -11,7 +11,6 @@ class CategorySchema(BaseModel):
 
 
 class CreateCategory(BaseModel):
-    business_id: int | None = None
     name: str
     description: str | None
 
@@ -19,6 +18,5 @@ class CreateCategory(BaseModel):
 
 
 class UpdateCategory(BaseModel):
-    business_id: int | None = None
     name: str | None = None
     description: str | None

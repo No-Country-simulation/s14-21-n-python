@@ -4,9 +4,8 @@ from api.dependencies.auth import validate_authenticate_user
 from api.dependencies.db import get_session
 from crud.category import CategoryCrud
 from fastapi import APIRouter, Depends, status
-from schemas.category import CreateCategory, CategorySchema, UpdateCategory
+from schemas.category import CategorySchema, CreateCategory, UpdateCategory
 from sqlalchemy.ext.asyncio.session import AsyncSession
-
 
 router = APIRouter()
 
@@ -22,7 +21,9 @@ async def create_category(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
-    new_category = CategoryCrud(db).create(category_create)
+    new_category = await CategoryCrud(db).create(
+        category_create.model_copy(update={"business": business_id})
+    )
 
     return new_category
 
