@@ -6,8 +6,8 @@ from pydantic import BaseModel, ConfigDict
 
 class ProductSchema(BaseModel):
     id: int
-    business_id: int | None = None
-    category_id: int | None = None
+    business_id: int
+    category_id: int
     brand: str
     name: str
     stock: int
@@ -21,8 +21,8 @@ class ProductSchema(BaseModel):
 
 
 class CreateProductSchema(BaseModel):
-    business_id: int | None = None
-    category_id: int | None = None
+    business_id: int
+    category_id: int
     brand: str
     name: str
     stock: int
