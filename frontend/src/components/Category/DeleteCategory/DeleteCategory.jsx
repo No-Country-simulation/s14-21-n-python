@@ -1,5 +1,4 @@
 import styles from "./DeleteCategory.module.css";
-import product from "../../../assets/gray.jpeg";
 import { useState } from "react";
 
 export const DeleteCategory = ({ onDelete }) => {

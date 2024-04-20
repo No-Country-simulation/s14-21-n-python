@@ -3,12 +3,18 @@ import style from "./Supplier.module.css";
 import jsonData from "./suppliers.json";
 import { SlPencil } from "react-icons/sl";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+
+
 
 const Supplier = () => {
   const [editingId, setEditingId] = useState(null);
   const [jsonDataState, setJsonData] = useState(jsonData); // State to manage supplier data
   const [editedValues, setEditedValues] = useState({});
   const [showAdminColumn, setShowAdminColumn] = useState(false); // State to manage column visibility
+
+
+
 
   const handleEdit = (id) => {
     setEditingId(id);
@@ -47,7 +53,17 @@ const Supplier = () => {
       <h1 className={style.title}>Proveedores</h1>
       <hr className={style.separateLine} />
       <section>
-        <div>
+        <div className={style.admCont}>
+        <div className={style.searchContainer}>
+            <input
+              type="search"
+              placeholder="Buscar..."
+              className={style.searchInput}
+            />
+           <FaSearch className={style.searchIcon} />
+
+          </div>
+
           <button className={style.admBtn} onClick={toggleAdminColumn}>
             Administrar
           </button>
@@ -57,7 +73,7 @@ const Supplier = () => {
         <div className={style.header}>
           <div className={style.column}>Nombre</div>
           <div className={style.column}>Mail</div>
-          <div className={style.column}>Telefono</div>
+          <div className={style.column}>Teléfono</div>
           <div className={style.column}>Dirección</div>
           <div className={style.column}>Cuit</div>
           {showAdminColumn && <div className={style.column}>Administrar</div>}
