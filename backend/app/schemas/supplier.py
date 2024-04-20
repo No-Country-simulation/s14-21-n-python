@@ -13,6 +13,7 @@ class SupplierSchema(BaseModel):
 
 
 class CreateSupplierSchema(BaseModel):
+    business_id: int = None
     name: str
     phone: str
     address: str
