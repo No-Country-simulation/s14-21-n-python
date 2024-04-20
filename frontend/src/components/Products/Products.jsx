@@ -1,6 +1,9 @@
 import style from "./Products.module.css";
+import { useState } from "react";
 import jsonData from "./products.json";
 import { FaSearch } from "react-icons/fa";
+import Modal from "../Modal/Modal";
+import AddProd from "../AddProd/AddProd";
 
 const Products = () => {
   /* const testArray = [
@@ -70,6 +73,16 @@ const Products = () => {
     },
   ]; */
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openPopup = () => {
+    setIsOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+  };
+
   return (
     <main>
       <div className={style.container}>
@@ -84,6 +97,13 @@ const Products = () => {
             />
             <FaSearch className={style.searchIcon} />
           </div>
+
+          <button className={style.admBtn} onClick={openPopup}>
+            Agregar
+          </button>
+          <Modal isOpen={isOpen} onClose={closePopup}>
+            <AddProd />
+          </Modal>
         </section>
 
         <section>

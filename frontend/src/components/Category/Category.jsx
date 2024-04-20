@@ -56,12 +56,12 @@ export const Category = () => {
             onMouseLeave={() => setHoveredItem(null)}
           >
             {hoveredItem !== item && (
-              <h2 className={styles.hideTitle}>{item}</h2>
+              <h3 className={styles.hideTitle}>{item}</h3>
             )}
             {hoveredItem === item && (
               <div className={styles.deleteOverlay}>
                 <button className={styles.buttonTrash} onClick={handleWarning}>
-                  <FaTrashAlt fontSize={40} />
+                  <FaTrashAlt fontSize={40} color={"d6fff5"} />
                 </button>
               </div>
             )}
@@ -74,9 +74,9 @@ export const Category = () => {
             onMouseLeave={() => setHovered(false)}
             onClick={openPopup}
           >
-            <IoMdAddCircle fontSize={50} color={"#00B389"} />
+            <IoMdAddCircle fontSize={50} color={"#d6fff5"} />
           </button>
-          <h2>Crear Nueva Categoría</h2>
+          <h3>Nueva Categoría</h3>
           <Modal isOpen={isOpen} onClose={closePopup}>
             <AddCategory />
           </Modal>
