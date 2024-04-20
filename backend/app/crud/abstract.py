@@ -75,6 +75,8 @@ class BaseCrud(ABC):
         else:
             raise ValueError(f"Instance with id {model_id} not found")
 
+        return instance
+
     async def delete(self, model_id: int):
         statement = select(self.model).where(self.model.id == model_id)
         result = await self.session.execute(statement)
