@@ -183,7 +183,7 @@
 .deleteCategoryBox {
   position: absolute;
   background-color: rgba(169, 169, 169, 0.43);
-  width: 100%;
+  width: 85%;
   display: flex;
   justify-content: center;
   align-items: center;
