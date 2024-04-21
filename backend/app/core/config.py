@@ -29,4 +29,5 @@ settings = {
     "secret_key": os.getenv("SECRET_KEY"),
     "algorithm": os.getenv("ALGORITHM"),
     "expire_token": os.getenv("EXPIRE_TOKEN"),
+    "cors_domains": os.getenv("CORS_DOMAINS"),
 }
