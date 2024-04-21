@@ -12,8 +12,8 @@ app.add_middleware(
     # domains must be specified in the .env as a string with a space as delimiter
     allow_origins=[settings["cors_domains"].split(" ")],
     allow_credentials=True,
-    allows_methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allows_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allow_headers=["*"],
 )
 
 # Include API routes
