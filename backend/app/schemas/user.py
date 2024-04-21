@@ -31,7 +31,7 @@ class UserLogin(BaseModel):
 
 class UserSchema(BaseModel):
     id: int
-    name: str
+    name: str | None = None
     email: EmailStr
     business_id: int | None = None
 
