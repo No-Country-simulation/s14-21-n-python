@@ -68,16 +68,6 @@ const AddProd = () => {
         />
       </div>
       <div className={style.inputs}>
-        <label>Proveedor</label>
-        <input
-          type="text"
-          required
-          name="provider"
-          value={formData.provider}
-          onChange={handleChange}
-        />
-      </div>
-      <div className={style.inputs}>
         <label>Cantidad</label>
         <input
           type="number"

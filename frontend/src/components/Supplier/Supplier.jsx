@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Supplier.module.css";
 import jsonData from "./suppliers.json";
 import { SlPencil } from "react-icons/sl";
 import { FaRegTrashAlt, FaSearch } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 import AddSupplier from "../AddSupplier/AddSupplier";
+import api from "../../Api.js";
 
 const Supplier = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [jsonDataState, setJsonData] = useState(jsonData);
   const [editingId, setEditingId] = useState(null);
   const [editedValues, setEditedValues] = useState({});
   const [showAdminColumn, setShowAdminColumn] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [suppliers, setSuppliers] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get("/businesses/4/suppliers/");
+        setSuppliers(response.data);
+      } catch (error) {
+        console.error("Error in request:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
@@ -101,9 +116,9 @@ const Supplier = () => {
           <div className={style.column}>Cuit</div>
           {showAdminColumn && <div className={style.column}>Administrar</div>}
         </div>
-        {filteredData.map((prov) => (
-          <div className={style.card} key={prov.id}>
-            {editingId === prov.id ? (
+        {suppliers.map((supplier) => (
+          <div className={style.card} key={supplier.id}>
+            {editingId === supplier.id ? (
               <>
                 <input
                   className={style.editInputStyle}
@@ -140,26 +155,28 @@ const Supplier = () => {
                   value={editedValues.cuit || ""}
                   onChange={handleInputChange}
                 />
-                <button className={style.saveBtn} onClick={handleSave}>Guardar</button>
+                <button className={style.saveBtn} onClick={handleSave}>
+                  Guardar
+                </button>
               </>
             ) : (
               <>
-                <p className={style.column}>{prov.name}</p>
-                <p className={style.column}>{prov.mail}</p>
-                <p className={style.column}>{prov.tel}</p>
-                <p className={style.column}>{prov.address}</p>
-                <p className={style.column}>{prov.cuit}</p>
+                <p className={style.column}>{supplier.name}</p>
+                <p className={style.column}>{supplier.email}</p>
+                <p className={style.column}>{supplier.phone}</p>
+                <p className={style.column}>{supplier.address}</p>
+                <p className={style.column}>{supplier.cuit}</p>
                 {showAdminColumn && (
                   <div className={style.column}>
                     <button
                       className={style.editBtn}
-                      onClick={() => handleEdit(prov.id)}
+                      onClick={() => handleEdit(supplier.id)}
                     >
                       <SlPencil />
                     </button>
                     <button
                       className={style.deleteBtn}
-                      onClick={() => handleDelete(prov.id)}
+                      onClick={() => handleDelete(supplier.id)}
                     >
                       <FaRegTrashAlt />
                     </button>

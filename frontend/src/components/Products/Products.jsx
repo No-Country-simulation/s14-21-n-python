@@ -1,77 +1,41 @@
 import style from "./Products.module.css";
-import { useState } from "react";
-import jsonData from "./products.json";
+import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 import AddProd from "../AddProd/AddProd";
+import api from "../../Api.js";
 
 const Products = () => {
-  /* const testArray = [
-    {
-      id: "1",
-      date: "fecha",
-      product: "Producto 1",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "2",
-      date: "fecha",
-      product: "Producto 2",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "3",
-      date: "fecha",
-      product: "Producto 3",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "4",
-      date: "fecha",
-      product: "Producto 4",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "5",
-      date: "fecha",
-      product: "Producto 5",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "6",
-      date: "fecha",
-      product: "Producto 6",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "7",
-      date: "fecha",
-      product: "Producto 7",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "8",
-      date: "fecha",
-      product: "Producto 8",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-  ]; */
+  const [products, setProducts] = useState([]);
+  const [categoriesMap, setCategoriesMap] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const categoriesResponse = await api.get("/businesses/4/categories/");
+        const categories = categoriesResponse.data;
+        console.log(categoriesResponse.data);
+        const categoriesMap = {};
+        categories.forEach((category) => {
+          categoriesMap[category.id] = category.name;
+        });
+        setCategoriesMap(categoriesMap);
+
+        const productsResponse = await api.get("/businesses/4/products/");
+        const products = productsResponse.data;
+
+        const productsWithCategoryNames = products.map((product) => ({
+          ...product,
+          categoryName: categoriesMap[product.category_id],
+        }));
+        setProducts(productsWithCategoryNames);
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -120,16 +84,15 @@ const Products = () => {
               </div>
               <div className={style.column}>Proveedor</div>
             </div>
-            {jsonData.map((prod) => {
+            {products.map((product) => {
               return (
-                <div className={style.row} key={prod.id}>
-                  <div className={style.column}>{prod.name}</div>
-                  <div className={style.column}>{prod.description}</div>
-                  <div className={style.column}>{prod.brand}</div>
-                  <div className={style.column}>{prod.category}</div>
-                  <div className={style.column}>{prod.amount}</div>
-                  <div className={style.column}>$ {prod.price}</div>
-                  <div className={style.column}> {prod.provider}</div>
+                <div className={style.row} key={product.id}>
+                  <div className={style.column}>{product.name}</div>
+                  <div className={style.column}>{product.description}</div>
+                  <div className={style.column}>{product.brand}</div>
+                  <div className={style.column}>{product.categoryName}</div>
+                  <div className={style.column}>{product.stock}</div>
+                  <div className={style.column}>$ {product.original_price}</div>
                 </div>
               );
             })}
