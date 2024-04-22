@@ -8,7 +8,7 @@ import Footer from "./components/Footer/Footer";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Supplier from "./components/Supplier/Supplier";
 import Orders from "./components/Orders/Order";
-import { Category } from "./components/Category/Category";
+import Category from "./components/Category/Category";
 import ByMonth from "./components/Reports/ByMonth";
 import ByCategory from "./components/Reports/ByCategory";
 import ByProduct from "./components/Reports/ByProduct";

@@ -49,13 +49,22 @@ const AddSale = () => {
       </div>
       <div className={style.inputs}>
         <label>Marca</label>
-        <input
+        <select
           type="text"
           required
           name="brand"
           value={formData.brand}
           onChange={handleChange}
-        />
+        >
+          <option value="">Seleccionar una marca</option>
+          <option value="producto2">Producto2</option>
+          <option value="producto3">Producto3</option>
+          <option value="producto4">Producto4</option>
+          <option value="producto5">Producto5</option>
+          <option value="producto6">Producto6</option>
+          <option value="producto7">Producto7</option>
+          <option value="producto8">Producto8</option>
+        </select>
       </div>
       <div className={style.inputs}>
         <label>Cantidad</label>

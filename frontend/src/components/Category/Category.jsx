@@ -1,30 +1,34 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdAddCircle } from "react-icons/io";
 import styles from "./Category.module.css";
 import { DeleteCategory } from "./DeleteCategory/DeleteCategory.jsx";
 import { FaTrashAlt } from "react-icons/fa";
 import Modal from "../Modal/Modal.jsx";
 import AddCategory from "../AddCategory/AddCategory.jsx";
+import api from "../../Api.js";
 
-export const Category = () => {
-  const categoryItems = [
-    "Víveres",
-    "Dulces",
-    "Bebidas",
-    "Pastas",
-    "Harinas",
-    "Lácteos",
-    "Snacks",
-    "Aseo Personal",
-    "Hogar",
-    "Juguetes",
-    "Enlatados",
-  ];
-
+const Category = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get("/businesses/4/categories/");
+        if (Array.isArray(response.data)) {
+          setCategories(response.data);
+        } else {
+          console.error("Error: La respuesta de la API no es un array");
+        }
+      } catch (error) {
+        console.error("Error en la solicitud:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleWarning = () => {
     setShowWarning(!showWarning);
@@ -38,27 +42,23 @@ export const Category = () => {
     setIsOpen(false);
   };
 
-  const filteredCategories = categoryItems.filter((item) =>
-    item.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
-
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>Categorías</h1>
       <hr className={styles.separateLine} />
 
       <section className={styles.productMainContainer}>
-        {filteredCategories.map((item) => (
+        {categories.map((category) => (
           <div
-            key={item}
+            key={category.id}
             className={styles.productContainer}
-            onMouseEnter={() => setHoveredItem(item)}
+            onMouseEnter={() => setHoveredItem(category.name)}
             onMouseLeave={() => setHoveredItem(null)}
           >
-            {hoveredItem !== item && (
-              <h3 className={styles.hideTitle}>{item}</h3>
+            {hoveredItem !== category.name && (
+              <h3 className={styles.hideTitle}>{category.name}</h3>
             )}
-            {hoveredItem === item && (
+            {hoveredItem === category.name && (
               <div className={styles.deleteOverlay}>
                 <button className={styles.buttonTrash} onClick={handleWarning}>
                   <FaTrashAlt fontSize={40} color={"d6fff5"} />
@@ -91,3 +91,5 @@ export const Category = () => {
     </main>
   );
 };
+
+export default Category;
