@@ -35,8 +35,8 @@ const Supplier = () => {
 
   const filteredData = jsonDataState.filter((prov) =>
     Object.values(prov).some((value) =>
-      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
-    )
+      value.toString().toLowerCase().includes(searchQuery.toLowerCase()),
+    ),
   );
 
   const handleEdit = (id) => {
