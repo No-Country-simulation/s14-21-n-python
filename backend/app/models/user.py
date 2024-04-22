@@ -17,6 +17,7 @@ class User(Base):
     name: Mapped[Optional[str]]
     email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str]
+    is_creator: Mapped[bool] = mapped_column(default=False)
 
     business_id: Mapped[Optional[int]] = mapped_column(ForeignKey("business.id"))
     business: Mapped[Optional[Business]] = relationship(
