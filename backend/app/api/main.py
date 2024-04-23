@@ -1,6 +1,7 @@
 from api.routes import auth, business, hello, user, transaction, category, products,  supplier
 from fastapi import APIRouter
 from api.routes import hello, auth, user
+from api.routes import filter_best_sales
 
 api_router = APIRouter()
 api_router.include_router(hello.router)
@@ -50,5 +51,15 @@ api_router.include_router(
     supplier.router,
     prefix="/api/businesses",
     tags=["Supplier"],
+    responses={404: {"description": "Not found"}},
+)
+
+
+
+### Agregado
+api_router.include_router(
+    filter_best_sales.router,
+    prefix="/api/businesses",
+    tags=["Filter"],
     responses={404: {"description": "Not found"}},
 )

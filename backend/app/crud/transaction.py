@@ -6,19 +6,19 @@ class TransactionCrud(BaseCrud):
     model = Transaction
 
 
-### refactorizar 
+### REFACTORIZAR ####
 
 from typing import Optional, List, Tuple
 from sqlalchemy import select, func, desc
 from models.models import Transaction, Product
 from crud.abstract import BaseCrud
-from datetime import datetime
+from datetime import date
 
 class CRUDTransaction(BaseCrud):
     model = Transaction
 
     async def get_best_selling_products_in_time_range(
-        self, start_date: datetime, end_date: Optional[datetime] = None
+        self, start_date: date, end_date: Optional[date] = None
     ) -> Optional[List[Tuple[Product, int]]]:
         if end_date is None:
             end_date = start_date

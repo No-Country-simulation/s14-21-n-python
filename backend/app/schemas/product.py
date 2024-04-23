@@ -39,7 +39,7 @@ class UpdateProduct(BaseModel):
     minimum_stock: int | None = None
 
 
-### Agregado (refactorizar)
+### Agregado (REFACTORIZAR)
 
 from pydantic import BaseModel
 from typing import List
