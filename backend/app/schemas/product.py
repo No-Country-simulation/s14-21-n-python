@@ -37,3 +37,16 @@ class UpdateProduct(BaseModel):
     stock: int | None = None
     description: str | None = None
     minimum_stock: int | None = None
+
+
+### Agregado (refactorizar)
+
+from pydantic import BaseModel
+from typing import List
+
+class ProductResponse(BaseModel):
+    name: str
+    total_quantity_sold: int
+
+class BestSellingProductsResponse(BaseModel):
+    products: List[ProductResponse]
