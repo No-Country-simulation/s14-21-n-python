@@ -1,6 +1,5 @@
-from datetime import datetime
+from datetime import date
 from decimal import Decimal
-from typing import Optional
 
 from pydantic import BaseModel, ConfigDict
 from .common import TypeOpEnum, PaymentMethodEnum, StatusEnum
@@ -11,35 +10,36 @@ class TransactionSchema(BaseModel):
     business_id: int
     product_id: int | None = None
     supplier_id: int | None = None
-    type_op: TypeOpEnum
+    type: TypeOpEnum
     quantity: int
     price: Decimal
     payment_method: PaymentMethodEnum
     status: StatusEnum
-    transaction_date: datetime
+    transaction_date: date
 
     model_config = ConfigDict(from_attributes=True)
 
 
 class CreateTransaction(BaseModel):
+    business_id: int
     product_id: int | None = None
     supplier_id: int | None = None
-    type_op: TypeOpEnum
+    type: TypeOpEnum
     quantity: int
-    price: Decimal | None = None
+    price: Decimal
     payment_method: PaymentMethodEnum
     status: StatusEnum
-    transaction_date: datetime
+    transaction_date: date
 
     model_config = ConfigDict(from_attributes=True)
 
 
 class UpdateTransaction(BaseModel):
-    type_op: TypeOpEnum | None = None
+    type: TypeOpEnum | None = None
     quantity: int | None = None
     price: Decimal | None = None
     payment_method: PaymentMethodEnum | None = None
     status: StatusEnum | None = None
-    transaction_date: datetime | None = None
+    transaction_date: date | None = None
 
     model_config = ConfigDict(from_attributes=True)
