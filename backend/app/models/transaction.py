@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING
 
 from core.database import Base
-from sqlalchemy import DateTime, Enum, ForeignKey, Numeric
+from sqlalchemy import Date, Enum, ForeignKey, Numeric
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 if TYPE_CHECKING:
@@ -34,9 +34,7 @@ class Transaction(Base):
             name="payment_status",
         )
     )
-    transaction_date = mapped_column(
-        DateTime
-    )  # NO ESTOY SEGURO # Yo tampoco, no te preocupes
+    transaction_date = mapped_column(Date)
 
     product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
     business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
