@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date
 from decimal import Decimal
 
 from pydantic import BaseModel, ConfigDict
@@ -14,14 +14,14 @@ class ProductSchema(BaseModel):
     description: str
     minimum_stock: int | None = None
     original_price: Decimal
-    purchase_date: datetime | None = None
-    expiration_date: datetime | None = None
+    purchase_date: date | None = None
+    expiration_date: date | None = None
 
     model_config = ConfigDict(from_attributes=True)
 
 
 class CreateProductSchema(BaseModel):
-    business_id: int
+    business_id: int | None = None
     category_id: int
     brand: str
     name: str
@@ -29,8 +29,8 @@ class CreateProductSchema(BaseModel):
     description: str | None = None
     minimum_stock: int | None = None
     original_price: Decimal
-    purchase_date: datetime | None = None
-    expiration_date: datetime | None = None
+    purchase_date: date | None = None
+    expiration_date: date | None = None
 
 
 class UpdateProduct(BaseModel):
