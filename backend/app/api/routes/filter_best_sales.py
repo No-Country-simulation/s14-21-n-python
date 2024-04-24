@@ -14,8 +14,9 @@ router = APIRouter()
     "/{business_id}/best-selling-products/", response_model=BestSellingProductsResponse
 )
 async def get_best_selling_products(
+    business_id: int,
     start_date: date,
-    end_date: date,
+    end_date: date | None = None,
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
