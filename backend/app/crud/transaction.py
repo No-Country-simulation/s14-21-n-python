@@ -15,14 +15,14 @@ class TransactionCrud(BaseCrud):
             end_date = start_date
 
         result = await self.session.execute(
-            select(Product, func.sum(Transaction.quantity).label("total_quantity"))
+            select(Product, func.sum(Transaction.quantity).label("quantity"))
             .join(Transaction)
             .filter(
                 Transaction.transaction_date >= start_date,
                 Transaction.transaction_date <= end_date,
             )
             .group_by(Product.id)
-            .order_by(desc("total_quantity"))
+            .order_by(desc("quantity"))
         )
 
         best_selling_products = result.scalars().all()
