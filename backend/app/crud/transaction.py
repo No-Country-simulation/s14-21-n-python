@@ -9,7 +9,10 @@ class TransactionCrud(BaseCrud):
     model = Transaction
 
     async def get_best_selling_products_in_time_range(
-        self, start_date: date, end_date: Optional[date] = None
+        self,
+        all_products: bool,
+        start_date: date,
+        end_date: Optional[date] = None,
     ) -> Optional[List[Tuple[Product, int]]]:
         if end_date is None:
             end_date = start_date
