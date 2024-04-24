@@ -1,20 +1,11 @@
-from crud.abstract import BaseCrud
-from models.models import Transaction
-
-
-class TransactionCrud(BaseCrud):
-    model = Transaction
-
-
-### REFACTORIZAR ####
-
 from typing import Optional, List, Tuple
 from sqlalchemy import select, func, desc
 from models.models import Transaction, Product
 from crud.abstract import BaseCrud
 from datetime import date
 
-class CRUDTransaction(BaseCrud):
+
+class TransactionCrud(BaseCrud):
     model = Transaction
 
     async def get_best_selling_products_in_time_range(
@@ -24,14 +15,11 @@ class CRUDTransaction(BaseCrud):
             end_date = start_date
 
         result = await self.session.execute(
-            select(
-                Product,
-                func.sum(Transaction.quantity).label("total_quantity")
-            )
+            select(Product, func.sum(Transaction.quantity).label("total_quantity"))
             .join(Transaction)
             .filter(
                 Transaction.transaction_date >= start_date,
-                Transaction.transaction_date <= end_date
+                Transaction.transaction_date <= end_date,
             )
             .group_by(Product.id)
             .order_by(desc("total_quantity"))
@@ -48,7 +36,9 @@ class CRUDTransaction(BaseCrud):
 
         # Filtra los productos que tienen la cantidad máxima de ventas
         best_selling_products = [
-            (product, quantity) for product, quantity in best_selling_products if quantity == max_quantity
+            (product, quantity)
+            for product, quantity in best_selling_products
+            if quantity == max_quantity
         ]
 
         # Si hay más de un producto con la cantidad máxima de ventas, devuélvelos todos
