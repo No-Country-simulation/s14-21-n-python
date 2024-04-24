@@ -11,7 +11,8 @@ router = APIRouter()
 
 
 @router.get(
-    "/{business_id}/best-selling-products/", response_model=BestSellingProductsResponse
+    "/{business_id}/best-selling-products/",
+    response_model=List[Tuple[str, int]],
 )
 async def get_best_selling_products(
     business_id: int,
