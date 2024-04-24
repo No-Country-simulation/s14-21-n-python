@@ -63,7 +63,10 @@ const Dashboard = () => {
 
           <div className={style.titleAndAmount}>
             <p>Disponibles</p>
+            <div className={style.cantidad}>
             <p>10</p>
+            </div>
+            
           </div>
         </div>
       </div>

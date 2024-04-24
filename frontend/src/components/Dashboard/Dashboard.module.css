@@ -29,6 +29,7 @@
   justify-content: space-evenly;
   margin-top: 10px;
   padding: 5px;
+   
 }
 
 .additionalContainer {
@@ -39,6 +40,7 @@
   background-color: #b78eb9;
   color: #003c43;
   font-size: 18px;
+  padding: 10px;
 }
 
 .card2 {
@@ -52,12 +54,20 @@
   align-items: flex-start;
 }
 
+.card2 h3{
+  font-size: 22px;
+  margin-left: 10px;
+}
+
 .dropdown {
   border-radius: 30px;
+  border-color: #003c43;
+  border-style:solid;
   margin-left: auto;
   min-width: 200px; /* Ancho mínimo */
   width: max-content; /* Ancho del contenido */
   padding: 5px 10px; /* Relleno interno */
+  
 }
 
 .select {
@@ -67,17 +77,19 @@
   background-color: transparent; /* Fondo transparente */
   cursor: pointer; /* Cambia el cursor al pasar por encima del select */
   outline: none; /* Quita el contorno al enfocar el select */
-  border: 2px solid;
-  border-radius: 10px;
+  font-size: 16px;
   color: #003c43;
+  
 }
 
-.select:hover {
-  background-color: #f0f0f0; /* Cambia el color de fondo al pasar por encima */
+
+select option {
+  background-color: transparent;
 }
 
 .titleAndAmount {
   margin-left: auto;
+  font-size: 12px;
 }
 .titleAndAmount p {
   margin-left: auto;
@@ -89,6 +101,7 @@
 .productInfo {
   display: flex; /* Utilizamos flexbox para organizar los elementos horizontalmente */
   align-items: center; /* Centramos verticalmente los elementos */
+  
 }
 
 .productInfo h4 {
@@ -103,8 +116,8 @@
 .priceAndDescription {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  margin-left: 10px;
+  gap: 10px;
+  margin: 10px;
 }
 
 .containerAdd {
@@ -127,16 +140,15 @@
   align-items: center;
   background-color: #d6fff5;
   color: #003c43;
-  border: 1px solid #ccc;
   border-radius: 20px;
-  height: 91px;
-  width: 91px;
+  height: 100px;
+  width: 100px;
   justify-content: center;
 }
 
 .cardIcon svg {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 
 .containerAdd h3 {
@@ -151,6 +163,7 @@
   border-radius: 10px;
   height: 40px;
   width: 100px;
+  margin: 5px;
   justify-content: center;
   color: #003c43;
 }
@@ -159,4 +172,6 @@
   margin: 10px;
   text-align: center;
   font-size: 24px;
+  width:29px;
+  height:29px;
 }
