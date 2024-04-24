@@ -7,7 +7,7 @@ from .common import TypeOpEnum, PaymentMethodEnum, StatusEnum
 
 class TransactionSchema(BaseModel):
     id: int
-    business_id: int
+    business_id: int | None = None
     product_id: int | None = None
     supplier_id: int | None = None
     type: TypeOpEnum
@@ -21,7 +21,7 @@ class TransactionSchema(BaseModel):
 
 
 class CreateTransaction(BaseModel):
-    business_id: int
+    business_id: int | None = None
     product_id: int | None = None
     supplier_id: int | None = None
     type: TypeOpEnum
