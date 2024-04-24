@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
 from core.database import Base
 from sqlalchemy import Date, Enum, ForeignKey, Numeric
@@ -34,10 +34,10 @@ class Transaction(Base):
             name="payment_status",
         )
     )
-    transaction_date = mapped_column(Date)
+    transaction_date: Mapped[Optional[Date]] = mapped_column(Date)
 
     product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
-    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
+    business_id: Mapped[Optional[int]] = mapped_column(ForeignKey("business.id"))
     supplier_id: Mapped[int] = mapped_column(ForeignKey("supplier.id"))
 
     product: Mapped[Product] = relationship(

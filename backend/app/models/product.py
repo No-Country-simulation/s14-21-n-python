@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING, List, Optional
 
 from core.database import Base
 from sqlalchemy import Date, ForeignKey, Integer, Numeric, String
@@ -26,10 +26,10 @@ class Product(Base):
     # https://docs.sqlalchemy.org/en/20/tutorial/metadata.html#declaring-mapped-classes can use old style for now. we'll need to figure out the types later
     minimum_stock = mapped_column(Numeric(10, 2))
     original_price = mapped_column(Numeric(10, 2))
-    purchase_date = mapped_column(Date)
-    expiration_date = mapped_column(Date)
+    purchase_date: Mapped[Optional[Date]] = mapped_column(Date)
+    expiration_date: Mapped[Optional[Date]] = mapped_column(Date)
 
-    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
+    business_id: Mapped[Optional[int]] = mapped_column(ForeignKey("business.id"))
     business: Mapped[Business] = relationship(
         back_populates="product",
     )
