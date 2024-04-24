@@ -29,7 +29,7 @@ class Product(Base):
     purchase_date: Mapped[Optional[Date]] = mapped_column(Date)
     expiration_date: Mapped[Optional[Date]] = mapped_column(Date)
 
-    business_id: Mapped[Optional[int]] = mapped_column(ForeignKey("business.id"))
+    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
     business: Mapped[Business] = relationship(
         back_populates="product",
     )

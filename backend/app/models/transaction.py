@@ -37,7 +37,7 @@ class Transaction(Base):
     transaction_date: Mapped[Optional[Date]] = mapped_column(Date)
 
     product_id: Mapped[int] = mapped_column(ForeignKey("product.id"))
-    business_id: Mapped[Optional[int]] = mapped_column(ForeignKey("business.id"))
+    business_id: Mapped[int] = mapped_column(ForeignKey("business.id"))
     supplier_id: Mapped[int] = mapped_column(ForeignKey("supplier.id"))
 
     product: Mapped[Product] = relationship(
