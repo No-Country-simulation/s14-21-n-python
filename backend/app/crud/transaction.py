@@ -14,23 +14,42 @@ class TransactionCrud(BaseCrud):
         start_date: date,
         end_date: Optional[date] = None,
     ) -> Optional[List[Tuple[Product, int]]]:
+
         if end_date is None:
             end_date = start_date
 
-        result = await self.session.execute(
-            select(Product, func.sum(Transaction.quantity).label("quantity"))
-            .join(Transaction)
-            .filter(
-                Transaction.transaction_date >= start_date,
-                Transaction.transaction_date <= end_date,
+        if all_products:
+            result = await self.session.execute(
+                select(Product, func.sum(Transaction.quantity).label("quantity"))
+                .join(Transaction)
+                .filter(
+                    Transaction.transaction_date >= start_date,
+                    Transaction.transaction_date <= end_date,
+                )
+                .group_by(Product.id)
+                .order_by(desc("quantity"))
             )
-            .group_by(Product.id)
-            .order_by(desc("quantity"))
-        )
 
-        best_selling_products = [
-            (product.name, quantity) for product, quantity in result
-        ]
+            best_selling_products = [
+                (product.name, quantity) for product, quantity in result
+            ]
+
+        elif not all_products:
+            result = await self.session.execute(
+                select(Product, func.sum(Transaction.quantity).label("quantity"))
+                .join(Transaction)
+                .filter(
+                    Transaction.transaction_date >= start_date,
+                    Transaction.transaction_date <= end_date,
+                )
+                .group_by(Product.id)
+                .order_by(desc("quantity"))
+                .limit(1)
+            )
+
+            best_selling_products = [
+                (product.name, quantity) for product, quantity in result
+            ]
 
         return best_selling_products
 
