@@ -1,3 +1,4 @@
+from typing import List, Tuple
 from fastapi import APIRouter, Depends
 from datetime import date
 from api.dependencies.auth import validate_authenticate_user
