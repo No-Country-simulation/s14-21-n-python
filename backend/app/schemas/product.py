@@ -1,3 +1,4 @@
+from typing import List
 from datetime import date
 from decimal import Decimal
 
@@ -39,14 +40,10 @@ class UpdateProduct(BaseModel):
     minimum_stock: int | None = None
 
 
-### Agregado (REFACTORIZAR)
-
-from pydantic import BaseModel
-from typing import List
-
 class ProductResponse(BaseModel):
     name: str
     total_quantity_sold: int
+
 
 class BestSellingProductsResponse(BaseModel):
     products: List[ProductResponse]
