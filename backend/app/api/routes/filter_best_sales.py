@@ -1,8 +1,7 @@
-### Agregado refactorizar
-from typing import List
 from fastapi import APIRouter, Depends
 from datetime import date
-from crud.transaction import CRUDTransaction
+from api.dependencies.auth import validate_authenticate_user
+from crud.transaction import TransactionCrud
 from api.dependencies.db import get_session
 from schemas.product import BestSellingProductsResponse, ProductResponse
 from sqlalchemy.ext.asyncio.session import AsyncSession
@@ -10,18 +9,29 @@ from sqlalchemy.ext.asyncio.session import AsyncSession
 
 router = APIRouter()
 
-@router.get("/best-selling-products/", response_model=BestSellingProductsResponse)
+
+@router.get(
+    "/{business_id}/best-selling-products/", response_model=BestSellingProductsResponse
+)
 async def get_best_selling_products(
-    start_date: date = None,
-    end_date: date = None,
-    db: AsyncSession = Depends(get_session)
+    start_date: date,
+    end_date: date,
+    db: AsyncSession = Depends(get_session),
+    current_user: str = Depends(validate_authenticate_user),
 ):
     # Lógica para obtener los productos más vendidos
-    best_selling_products = await CRUDTransaction.get_best_selling_products_in_time_range(start_date, end_date)
+
+    print(end_date)
+    print(start_date)
+    best_selling_products = await TransactionCrud(
+        db
+    ).get_best_selling_products_in_time_range(start_date, end_date)
 
     products_data = []
     for product, total_quantity_sold in best_selling_products:
-        product_data = ProductResponse(name=product.name, total_quantity_sold=total_quantity_sold)
+        product_data = ProductResponse(
+            name=product.name, total_quantity_sold=total_quantity_sold
+        )
         products_data.append(product_data)
 
     return BestSellingProductsResponse(products=products_data)
