@@ -25,18 +25,27 @@ class TransactionCrud(BaseCrud):
             .order_by(desc("quantity"))
         )
 
-        best_selling_products = result.scalars().all()
-
-        # Si no hay ventas en el rango de tiempo dado, devuelve None
-        if not best_selling_products:
-            return None
-
-        # Determina la cantidad máxima de ventas
-        max_quantity = best_selling_products[0][1]
-
-        # Filtra los productos que tienen la cantidad máxima de ventas
         best_selling_products = [
             (product.name, quantity) for product, quantity in result
         ]
 
         return best_selling_products
+
+    # best_selling_products = result.scalars().all()
+
+    # Determina la cantidad máxima de ventas
+    # max_quantity = best_selling_products[0][1]
+
+    # # Filtra los productos que tienen la cantidad máxima de ventas
+    # best_selling_products = [
+    #     (product, quantity)
+    #     for product, quantity in best_selling_products
+    #     if quantity == max_quantity
+    # ]
+
+    # # Si hay más de un producto con la cantidad máxima de ventas, devuélvelos todos
+    # if len(best_selling_products) > 1:
+    #     return best_selling_products
+    # else:
+    #     # Si solo hay un producto con la cantidad máxima de ventas, devuelve solo ese producto
+    #     return best_selling_products[0] if best_selling_products else None
