@@ -30,10 +30,6 @@ class TransactionCrud(BaseCrud):
                 .order_by(desc("quantity"))
             )
 
-            best_selling_products = [
-                (product.name, quantity) for product, quantity in result
-            ]
-
         elif not all_products:
             result = await self.session.execute(
                 select(Product, func.sum(Transaction.quantity).label("quantity"))
@@ -47,10 +43,9 @@ class TransactionCrud(BaseCrud):
                 .limit(1)
             )
 
-            best_selling_products = [
-                (product.name, quantity) for product, quantity in result
-            ]
-
+        best_selling_products = [
+            (product.name, quantity) for product, quantity in result
+        ]
         return best_selling_products
 
     # best_selling_products = result.scalars().all()
