@@ -1,4 +1,13 @@
-from api.routes import auth, business, hello, user, transaction, category, products,  supplier
+from api.routes import (
+    auth,
+    business,
+    hello,
+    user,
+    transaction,
+    category,
+    products,
+    supplier,
+)
 from fastapi import APIRouter
 from api.routes import hello, auth, user
 from api.routes import filter_best_sales
@@ -55,8 +64,6 @@ api_router.include_router(
 )
 
 
-
-### Agregado
 api_router.include_router(
     filter_best_sales.router,
     prefix="/api/businesses",
