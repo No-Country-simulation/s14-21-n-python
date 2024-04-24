@@ -36,14 +36,7 @@ class TransactionCrud(BaseCrud):
 
         # Filtra los productos que tienen la cantidad máxima de ventas
         best_selling_products = [
-            (product, quantity)
-            for product, quantity in best_selling_products
-            if quantity == max_quantity
+            (product.name, quantity) for product, quantity in result
         ]
 
-        # Si hay más de un producto con la cantidad máxima de ventas, devuélvelos todos
-        if len(best_selling_products) > 1:
-            return best_selling_products
-        else:
-            # Si solo hay un producto con la cantidad máxima de ventas, devuelve solo ese producto
-            return best_selling_products[0] if best_selling_products else None
+        return best_selling_products
