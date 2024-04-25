@@ -1,69 +1,83 @@
 import style from "./AddSale.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "../../Api.js";
 
 const AddSale = () => {
   const [formData, setFormData] = useState({
-    date: "",
-    product: "",
-    brand: "",
-    amount: "",
+    product_id: "",
+    quantity: "",
     price: "",
+    transaction_date: "",
+    type: "Sale",
+    payment_method: "cash",
+    status: "Completed",
   });
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await api.get("/businesses/4/products/");
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error al obtener la lista de productos:", error);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await api.post("/businesses/4/transactions/", formData);
+      setFormData({
+        product_id: "",
+        quantity: "",
+        price: "",
+        transaction_date: "",
+        type: "Sale",
+        payment_method: "cash",
+        status: "Completed",
+      });
+    } catch (error) {
+      console.error("Error al agregar la venta:", error);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(formData);
   };
 
   return (
-    <form className={style.container}>
+    <form className={style.container} onSubmit={handleSubmit}>
       <div className={style.inputs}>
         <label>Fecha</label>
         <input
           type="date"
           required
-          name="date"
-          value={formData.date}
+          name="transaction_date"
+          value={formData.transaction_date}
           onChange={handleChange}
         />
       </div>
       <div className={style.inputs}>
         <label>Producto</label>
         <select
-          name="product"
-          id="prod"
+          name="product_id"
           required
-          value={formData.product}
+          value={formData.product_id}
           onChange={handleChange}
         >
-          <option value="producto1">Producto1</option>
-          <option value="producto2">Producto2</option>
-          <option value="producto3">Producto3</option>
-          <option value="producto4">Producto4</option>
-          <option value="producto5">Producto5</option>
-          <option value="producto6">Producto6</option>
-          <option value="producto7">Producto7</option>
-          <option value="producto8">Producto8</option>
-        </select>
-      </div>
-      <div className={style.inputs}>
-        <label>Marca</label>
-        <select
-          type="text"
-          required
-          name="brand"
-          value={formData.brand}
-          onChange={handleChange}
-        >
-          <option value="">Seleccionar una marca</option>
-          <option value="producto2">Producto2</option>
-          <option value="producto3">Producto3</option>
-          <option value="producto4">Producto4</option>
-          <option value="producto5">Producto5</option>
-          <option value="producto6">Producto6</option>
-          <option value="producto7">Producto7</option>
-          <option value="producto8">Producto8</option>
+          <option value="">Seleccionar producto...</option>
+          {products.map((product) => (
+            <option key={product.id} value={product.id}>
+              {product.name}
+            </option>
+          ))}
         </select>
       </div>
       <div className={style.inputs}>
@@ -74,8 +88,8 @@ const AddSale = () => {
           min="0"
           pattern="[0-9]*"
           required
-          name="amount"
-          value={formData.amount}
+          name="quantity"
+          value={formData.quantity}
           onChange={handleChange}
         />
       </div>

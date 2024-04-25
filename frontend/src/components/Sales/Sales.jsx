@@ -21,8 +21,14 @@ const Sales = () => {
         });
         setProductsMap(productsMap);
 
-        const salesResponse = await api.get("/businesses/4/transactions/");
-        const sales = salesResponse.data;
+        const transactionsResponse = await api.get(
+          "/businesses/4/transactions/"
+        );
+        const transactions = transactionsResponse.data;
+
+        const sales = transactions.filter(
+          (transaction) => transaction.type === "Sale"
+        );
 
         const salesWithProductNames = sales.map((sale) => ({
           ...sale,
@@ -83,8 +89,7 @@ const Sales = () => {
         <div className={style.layout}>
           <div className={style.header}>
             <div className={style.column}>Fecha</div>
-            <div className={style.column}>Producto</div>
-            <div className={style.column}>Marca</div>
+            <div className={style.column1}>Producto</div>
             <div className={style.column}>Cantidad</div>
             <div className={style.column}>Precio</div>
           </div>
@@ -92,8 +97,7 @@ const Sales = () => {
             return (
               <div className={style.row} key={sale.id}>
                 <div className={style.column}>{sale.transaction_date}</div>
-                <div className={style.column}>{sale.productName}</div>
-                <div className={style.column}>{sale.brand}</div>
+                <div className={style.column1}>{sale.productName}</div>
                 <div className={style.column}>{sale.quantity}</div>
                 <div className={style.column}>$ {sale.price}</div>
               </div>
