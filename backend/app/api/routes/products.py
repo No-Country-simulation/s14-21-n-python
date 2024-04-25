@@ -4,7 +4,7 @@ from api.dependencies.auth import validate_authenticate_user
 from api.dependencies.db import get_session
 from crud.product import ProductCrud
 from fastapi import APIRouter, Depends, status
-from schemas.product import ProductSchema, CreateProductSchema, UpdateProduct
+from schemas.product import CreateProductSchema, ProductSchema, UpdateProduct
 from sqlalchemy.ext.asyncio.session import AsyncSession
 
 router = APIRouter()

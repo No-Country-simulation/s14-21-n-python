@@ -1,3 +1,4 @@
+from typing import List
 from datetime import date
 from decimal import Decimal
 
@@ -37,3 +38,12 @@ class UpdateProduct(BaseModel):
     stock: int | None = None
     description: str | None = None
     minimum_stock: int | None = None
+
+
+class ProductResponse(BaseModel):
+    name: str
+    total_quantity_sold: int
+
+
+class BestSellingProductsResponse(BaseModel):
+    products: List[ProductResponse]
