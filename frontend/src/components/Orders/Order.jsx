@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import AddOrder from "../AddOrder/AddOrder";
 import Modal from "../Modal/Modal";
-import api from "../../Api.js"; 
+import api from "../../Api.js";
 
 const Orders = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDeliveredOrders, setShowDeliveredOrders] = useState(false);
   const [deliveredOrders, setDeliveredOrders] = useState([]);
   const [pendingOrders, setPendingOrders] = useState([]);
-  
+
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -19,7 +19,9 @@ const Orders = () => {
         const orders = response.data;
 
         const pending = orders.filter((order) => order.status === "Pending");
-        const delivered = orders.filter((order) => order.status === "Completed");
+        const delivered = orders.filter(
+          (order) => order.status === "Completed",
+        );
 
         setPendingOrders(pending);
         setDeliveredOrders(delivered);
@@ -31,18 +33,22 @@ const Orders = () => {
     };
 
     fetchOrders();
-  }, []); 
-  
+  }, []);
+
   const handleOrdersToggle = () => {
     setShowDeliveredOrders(!showDeliveredOrders);
   };
 
   const filteredOrders = showDeliveredOrders
     ? deliveredOrders.filter((order) =>
-        String(order.product_id).toLowerCase().includes(searchTerm.toLowerCase())
+        String(order.product_id)
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()),
       )
     : pendingOrders.filter((order) =>
-        String(order.product_id).toLowerCase().includes(searchTerm.toLowerCase())
+        String(order.product_id)
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()),
       );
 
   const handleStateChange = (index) => {
@@ -92,10 +98,7 @@ const Orders = () => {
           <Modal isOpen={isOpen} onClose={closePopup}>
             <AddOrder />
           </Modal>
-          <button
-            onClick={handleOrdersToggle}
-            className={styles.admBtn}
-          >
+          <button onClick={handleOrdersToggle} className={styles.admBtn}>
             {showDeliveredOrders ? "Pedidos Pendientes" : "Pedidos Entregados"}
           </button>
         </div>
@@ -114,13 +117,16 @@ const Orders = () => {
         </div>
         {filteredOrders.length === 0 ? (
           <div className={`${styles.row2} ${styles.rowWithMargin}`}>
-          <div className={styles.cell} colSpan="5">
-            No se encontró pedidos.
-          </div>
+            <div className={styles.cell} colSpan="5">
+              No se encontró pedidos.
+            </div>
           </div>
         ) : (
           filteredOrders.map((order, index) => (
-            <div key={index} className={`${styles.row2} ${styles.rowWithMargin}`}>
+            <div
+              key={index}
+              className={`${styles.row2} ${styles.rowWithMargin}`}
+            >
               <div className={styles.cell}>{order.transaction_date}</div>
               <div className={styles.cell}>{order.product_id}</div>
               <div className={styles.cell}>{order.quantity}</div>
@@ -151,13 +157,16 @@ const Orders = () => {
         </div>
         {filteredOrders.length === 0 ? (
           <div className={`${styles.row2} ${styles.rowWithMargin}`}>
-          <div className={styles.cell} colSpan="5">
-            No se encontró pedidos.
-          </div>
+            <div className={styles.cell} colSpan="5">
+              No se encontró pedidos.
+            </div>
           </div>
         ) : (
           filteredOrders.map((order, index) => (
-            <div key={index} className={`${styles.row2} ${styles.rowWithMargin}`}>
+            <div
+              key={index}
+              className={`${styles.row2} ${styles.rowWithMargin}`}
+            >
               <div className={styles.cell}>{order.transaction_date}</div>
               <div className={styles.cell}>{order.product_id}</div>
               <div className={styles.cell}>{order.quantity}</div>
