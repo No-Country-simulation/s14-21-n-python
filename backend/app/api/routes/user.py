@@ -3,7 +3,7 @@ from typing import List
 from api.dependencies.auth import validate_authenticate_user
 from api.dependencies.db import get_session
 from crud.user import UserCrud
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, HTTPException, status
 from schemas.user import CreateUserSchema, UserSchema, UserUpdate
 from sqlalchemy.ext.asyncio.session import AsyncSession
 from utils.password import hash
@@ -15,6 +15,14 @@ router = APIRouter()
 async def create_user(
     user_create: CreateUserSchema, db: AsyncSession = Depends(get_session)
 ):
+    # would probably be better to refactor the crud create method instead, oh well
+    existing_user = await UserCrud(db).get_by_attribute("email", user_create.email)
+    if existing_user:
+        raise HTTPException(
+            status_code=403,
+            detail=f"User with mail {existing_user.email} is already registered",
+        )
+
     hashed_password = await hash(user_create.password)
     user_create.password = hashed_password
 
