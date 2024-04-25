@@ -14,6 +14,22 @@
     </p>
 </div>
 
+<div align='center'>
+    <a href="https://www.youtube.com" target="_blank">
+          <img  src="https://img.shields.io/badge/VER_VIDEO_DEMO-3378FF?style=for-the-badge&logo=vercel&logoColor=%23343B4E"/>
+      </a>
+    <a href="https://www.figma.com/file/ZRejVVcSk6UXkgjg2Es8nK/StockEase?type=design&node-id=71-2&mode=design&t=mQJkRYcnvQFU0RMW-0" target="_blank">
+          <img  src="https://img.shields.io/badge/VER_DISE%C3%91O-3378FF?style=for-the-badge&logo=figma&logoColor=%23343B4E"/>
+      </a>
+    <a href="https://stockease.mooo.com/docs" target="_blank">
+          <img  src="https://img.shields.io/badge/VER_API-3378FF?style=for-the-badge&logo=swagger&logoColor=%23343B4E"/>
+      </a>
+    <a href="https://github.com/No-Country/s14-21-n-python/issues" target="_blank">
+          <img  src="https://img.shields.io/badge/REPORTAR_BUG-343B4E?style=for-the-badge"/>
+      </a>
+</div>
+
+
 <!-- ABOUT THE PROJECT -->
 <br>
 <h1>Acerca del Proyecto</h1>
@@ -37,7 +53,7 @@ Con un enfoque en la usabilidad y la funcionalidad básica, Stock Ease proporcio
 
 <h3>QA</h3>
 
-![Skills](https://skillicons.dev/icons?i=selenium,postman&theme=light)
+![Skills](https://skillicons.dev/icons?i=postman&theme=light)
 
 <br>
 <!-- Organización -->
@@ -56,43 +72,38 @@ Para instalar el proyecto localmente:
 
 <h3>Back-End (FastAPI)</h3>
 
-Clona el repositorio del Back-End.
-
+Clona el repositorio del Back-End:
 ```bash
   git clone https://github.com/No-Country/s14-21-n-python
 ```
 
 Instala poetry:
-
 ```bash
-pip install pipx
-pipx ensurepath
-pipx install poetry
+  pip install pipx
+  pipx ensurepath
+  pipx install poetry
 ```
 
 Instala las dependencias utilizando poetry:
-
-```BASH
-poetry install
+```bash
+  poetry install
 ```
 
 Configura la base de datos PostgreSQL en el archivo de configuración.
 
 Aplica las migraciones:
-
 ```bash
-alembic upgrade head
+  alembic upgrade head
 ```
 
 Inicia el servidor FastAPI:
-
-```BASH
+```bash
   uvicorn main:app --reload
 ```
 
 <h3>Front-End (React)</h3>
 
-Clona el repositorio del frontend.
+Clona el repositorio del frontend:
 
 ```BASH
   git clone https://github.com/No-Country/s14-21-n-python
@@ -104,7 +115,7 @@ Instala las dependencias utilizando npm:
   npm install
 ```
 
-Configura la URL del backend en los archivos de configuración.
+Configura la URL del backend en los archivos de configuración:
 
 ```BASH
   npm install
@@ -132,13 +143,13 @@ Además, el Registro y Análisis de Ventas permite capturar transacciones y gene
 <br>
 
 <!-- DEMO -->
-<h1>Demo en Línea</h1>
+<!-- <h1>Demo en Línea</h1>
 
 Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_DE_LA_DEMO_FRONTEND).
 
 ¡Explora todas las funcionalidades y familiarízate con la aplicación antes de descargarla o contribuir al proyecto!
 
-<br>
+<br> -->
 
 <!-- TEAMS -->
 <h1>Equipo</h1>
@@ -230,7 +241,7 @@ Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_D
                 </a>
               </td>
               <td>
-                <a href="https://github.com/" target="_blank">
+                <a href="https://github.com/crescowboy" target="_blank">
                   <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
                 </a>
               </td>
@@ -359,7 +370,7 @@ Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_D
                 </a>
               </td>
               <td>
-                <a href="https://github.com/" target="_blank">
+                <a href="https://github.com/rafa3789" target="_blank">
                   <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
                 </a>
               </td>
@@ -406,28 +417,58 @@ Puedes probar una versión demo del Gestor de Inventario en línea [aquí](URL_D
 <br>
 
 <!-- Contribution -->
-<h1>Contribución</h1>
+<h1>Contribuir al proyecto</h1>
 
 Si deseas contribuir a este proyecto, puedes seguir los siguientes pasos:
 
-1. Realiza un fork de este repositorio en tu propia cuenta.
-2. Crea una rama para tus cambios.
-3. Realiza los cambios y realiza commits con descripciones claras.
-4. Envía un pull request a este repositorio con tus cambios.
+Realiza un fork de este repositorio en tu propia cuenta.
+
+Clonar al local:
+```bash 
+  git clone https://github.com/No-Country/s14-21-n-python.git 
+```
+
+Crea una rama para tus cambios:
+```bash 
+  git checkout -b feature/New feature 
+```
+
+Haz tus cambios, mejoras o correcciones que desees.
+
+Realiza commits con descripciones claras:
+```bash
+  git commit -am 'Add: New feature' 
+```
+
+Sincroniza con el repositorio original.
+```bash
+ git remote add upstream https://github.com/No-Country/s14-21-n-python.git 
+```
+
+Hacer push de la Rama. 
+```bash
+ git push origin feature/New feature 
+```
+
+Crea un pull request a este repositorio con tus cambios y espera la revision.
 
 <br>
 
 <!-- License -->
-<h1>Licencia</h1>
+<!-- <h1>Licencia</h1>
 
 <br>
-<br>
+<br> -->
 
 <!-- ACKNOWLEDGMENTS -->
+<h1>Agradecimientos</h1>
+
+<br>
+
 <div align='center'>
-<h3>Agradecimientos</h3>
+<!-- <h3>Agradecimientos</h3> -->
   <a href="https://www.nocountry.tech/" target="_blank">
-    <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
+    <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="300">
   </a>
 </div>
 
