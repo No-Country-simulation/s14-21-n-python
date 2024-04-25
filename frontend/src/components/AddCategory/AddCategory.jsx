@@ -1,60 +1,48 @@
 import { useState } from "react";
-import styles from "./AddCategory.module.css";
-import api from "../../Api.js"; // Asegúrate de tener una referencia a tu objeto API para hacer solicitudes
+import style from "./AddCategory.module.css";
+import api from "../../Api.js";
 
 const AddCategory = () => {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (event) => {
-    const inputValue = event.target.value;
-    // Valida si el nombre contiene solo letras y espacios
-    if (!/^[a-zA-Z\s]*$/.test(inputValue)) {
+    if (!/^[a-zA-Z\s]*$/.test(event.target.value)) {
       setErrorMessage("¡No se aceptan números ni símbolos!");
     } else {
       setErrorMessage("");
-      setName(inputValue);
+      setName(event.target.value);
     }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (name.trim() === "") {
-      setErrorMessage("El nombre de la categoría no puede estar vacío.");
-      return;
-    }
-
     try {
-      // Hacer una solicitud POST para agregar la categoría
       await api.post("/businesses/4/categories/", {
         name,
-        description: "Nueva categoría creada por el usuario",
+        description: "string",
       });
       console.log("Categoría agregada con éxito:", name);
-      setName(""); // Restablece el campo de entrada después de enviar
-      setErrorMessage(""); // Borra cualquier mensaje de error
+      setName("");
     } catch (error) {
       console.error("Error al agregar la categoría:", error);
-      setErrorMessage("Error al agregar la categoría. Intenta de nuevo.");
     }
   };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
-      <div className={styles.inputs}>
-        <label>Nombre de la Categoría</label>
+    <form className={style.container} onSubmit={handleSubmit}>
+      <div className={style.inputs}>
+        <label>Nombre</label>
         <input
           type="text"
           value={name}
           onChange={handleInputChange}
-          placeholder="Ingrese un nombre para la categoría"
+          placeholder="Ingrese un nombre"
         />
-        {errorMessage && (
-          <p className={styles.errorMessage}>{errorMessage}</p>
-        )}
+        {errorMessage && <p className={style.errorMessage}>{errorMessage}</p>}
       </div>
-      <input className={styles.submitButton} type="submit" value="Agregar" />
+      <input className={style.button} type="submit" value="Agregar" />
     </form>
   );
 };
