@@ -13,7 +13,7 @@ class TransactionCrud(BaseCrud):
         all_products: bool,
         start_date: date,
         end_date: Optional[date] = None,
-    ) -> Optional[List[Tuple[Product, int]]]:
+    ):
 
         if end_date is None:
             end_date = start_date
@@ -44,6 +44,13 @@ class TransactionCrud(BaseCrud):
             )
 
         best_selling_products = [
-            (product.name, quantity) for product, quantity in result
+            (
+                product.name,
+                product.original_price,
+                product.stock,
+                product.description,
+                quantity,
+            )
+            for product, quantity in result
         ]
         return best_selling_products
