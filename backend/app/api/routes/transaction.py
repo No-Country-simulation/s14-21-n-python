@@ -1,4 +1,5 @@
 from datetime import date
+from decimal import Decimal
 from typing import Annotated, List, Tuple
 
 from api.dependencies.auth import validate_authenticate_user
@@ -95,7 +96,7 @@ async def update_transaction(
 
 @router.get(
     "/{business_id}/best-selling-products/",
-    response_model=List[Tuple[str, int]],
+    response_model=List[Tuple[str, Decimal, int, str, int]],
     status_code=status.HTTP_200_OK,
 )
 async def get_best_selling_products(
