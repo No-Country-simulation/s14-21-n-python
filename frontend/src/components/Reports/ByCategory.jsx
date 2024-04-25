@@ -6,31 +6,31 @@ import style from "./ByCategory.module.css";
 
 const data = [
   {
-    name: "Categoria A",
+    name: "Conservas",
     count: 200,
   },
   {
-    name: "Categoria B",
+    name: "Lácteos",
     count: 2000,
   },
   {
-    name: "Categoria C",
+    name: "Limpieza",
     count: 1700,
   },
   {
-    name: "Categoria D",
+    name: "Carnes",
     count: 900,
   },
   {
-    name: "Categoria E",
+    name: "Golosinas",
     count: 1281,
   },
   {
-    name: "Categoria F",
+    name: "Bebidas",
     count: 3400,
   },
   {
-    name: "Categoria G",
+    name: "Congelados",
     count: 500,
   },
 ];
