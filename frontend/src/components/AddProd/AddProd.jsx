@@ -4,13 +4,12 @@ import api from "../../Api.js";
 
 const AddProd = () => {
   const [formData, setFormData] = useState({
-    business_id: "4",
-    name: "",
-    description: "",
-    category_id: "",
-    brand: "",
-    stock: "",
-    original_price: "",
+    category_id: 2,
+    brand: "La Serenísima",
+    name: "Crema de Leche",
+    stock: 5,
+    description: "Entera",
+    original_price: 1800,
   });
 
   const [categories, setCategories] = useState([]);
@@ -67,8 +66,7 @@ const AddProd = () => {
       <div className={style.inputs}>
         <label>Categoría</label>
         <select
-          name="Categoria"
-          id="categoria"
+          name="category_id"
           required
           value={formData.category_id}
           onChange={handleChange}
@@ -99,7 +97,7 @@ const AddProd = () => {
           min="0"
           pattern="[0-9]*"
           required
-          name="amount"
+          name="stock"
           value={formData.stock}
           onChange={handleChange}
         />
@@ -113,7 +111,7 @@ const AddProd = () => {
           pattern="[0-9]+(\.[0-9]{1,2})?"
           step="0.01"
           required
-          name="price"
+          name="original_price"
           value={formData.original_price}
           onChange={handleChange}
         />
