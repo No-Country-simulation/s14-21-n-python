@@ -29,8 +29,7 @@ async def get_best_selling_products(
         db
     ).get_best_selling_products_in_time_range(all_products, start_date, end_date)
 
-    if not best_selling_products:
-        return []
+    return best_selling_products
 
     # products_data = []
     # for product, total_quantity_sold in best_selling_products:
@@ -40,5 +39,3 @@ async def get_best_selling_products(
     #     products_data.append(product_data)
 
     # return BestSellingProductsResponse(products=products_data)
-
-    return best_selling_products
