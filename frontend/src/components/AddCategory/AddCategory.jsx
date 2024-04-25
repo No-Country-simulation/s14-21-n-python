@@ -1,5 +1,6 @@
 import { useState } from "react";
 import style from "./AddCategory.module.css";
+import api from "../../Api.js";
 
 const AddCategory = () => {
   const [name, setName] = useState("");
@@ -14,10 +15,19 @@ const AddCategory = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Nombre a agregar:", name);
-    setName("");
+
+    try {
+      await api.post("/businesses/4/categories/", {
+        name,
+        description: "string",
+      });
+      console.log("Categoría agregada con éxito:", name);
+      setName("");
+    } catch (error) {
+      console.error("Error al agregar la categoría:", error);
+    }
   };
 
   return (

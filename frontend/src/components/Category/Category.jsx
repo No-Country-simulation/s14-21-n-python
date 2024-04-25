@@ -61,7 +61,7 @@ const Category = () => {
             {hoveredItem === category.name && (
               <div className={styles.deleteOverlay}>
                 <button className={styles.buttonTrash} onClick={handleWarning}>
-                  <FaTrashAlt fontSize={40} color={"d6fff5"} />
+                  <FaTrashAlt fontSize={40} color={"#ecfefd"} />
                 </button>
               </div>
             )}
