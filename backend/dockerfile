@@ -1,0 +1,27 @@
+# Use a slim base image of Python
+FROM python:3.11-slim-buster
+
+# Install Poetry
+RUN pip install poetry
+
+# Ensure that console output is not buffered
+ENV PYTHONUNBUFFERED=1
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the poetry files to the working directory
+COPY pyproject.toml poetry.lock ./
+
+# Install dependencies
+RUN poetry install --no-dev --no-root
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose port 8000 to allow connections to the container from outside
+EXPOSE 8000
+
+# Set the entrypoint command to run uvicorn
+CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+

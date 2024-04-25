@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+
+  db:
+    container_name: postgresql_db
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+  # development only
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    ports:
+      - 5050:80
+    depends_on:
+      - db
+
+  app:
+    container_name: app
+    build: .
+    command: bash -c "poetry run alembic upgrade head; poetry run uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - pgadmin
+
+volumes:
+  postgres_data:
+  app:
