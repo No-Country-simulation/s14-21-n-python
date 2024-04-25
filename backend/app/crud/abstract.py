@@ -50,6 +50,44 @@ class BaseCrud(ABC):
         else:
             raise AttributeError
 
+    async def get_all_by_attributes(self, attribute_dict: dict[str, any]):
+        statement = select(self.model)
+        if all(
+            hasattr(self.model, attribute_key)
+            for attribute_key in attribute_dict.keys()
+        ):
+            for attribute_key in attribute_dict:
+                model_attribute = getattr(self.model, attribute_key)
+                statement = statement.where(
+                    model_attribute == attribute_dict[attribute_key]
+                )
+
+            result = await self.session.execute(statement)
+
+            return result.scalars().all()
+
+        else:
+            raise AttributeError
+
+    async def get_by_attributes(self, attribute_dict: dict[str, any]):
+        statement = select(self.model)
+        if all(
+            hasattr(self.model, attribute_key)
+            for attribute_key in attribute_dict.keys()
+        ):
+            for attribute_key in attribute_dict:
+                model_attribute = getattr(self.model, attribute_key)
+                statement = statement.where(
+                    model_attribute == attribute_dict[attribute_key]
+                )
+
+            result = await self.session.execute(statement)
+
+            return result.scalars().all()
+
+        else:
+            raise AttributeError
+
     async def create(self, data: BaseModel):
         new_instance = self.model(**data.model_dump())
 
