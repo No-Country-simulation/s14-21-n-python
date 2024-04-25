@@ -19,10 +19,10 @@ const Orders = () => {
   // Función para filtrar los productos basados en el término de búsqueda
   const filteredProducts = showDeliveredOrders
     ? deliveredProducts.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
+        product.product.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : jsonData.products.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
+        product.product.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
   // Función para obtener el estado de un producto dado su índice

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://18.219.238.18:8000/api/",
+  baseURL: "https://stockease.mooo.com/api",
 });
 
 api.interceptors.request.use((config) => {
