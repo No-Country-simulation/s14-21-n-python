@@ -101,10 +101,10 @@ select option {
 .productInfo {
   display: flex; /* Utilizamos flexbox para organizar los elementos horizontalmente */
   align-items: center; /* Centramos verticalmente los elementos */
-  
+ 
 }
 
-.productInfo h4 {
+.productInfo h3 {
   margin-left: 10px; /* Añadimos un margen izquierdo para separar el ícono del texto */
 }
 .productDetails {
