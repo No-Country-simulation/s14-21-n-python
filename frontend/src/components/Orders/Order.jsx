@@ -1,65 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Order.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import jsonData from "./orders.json";
 import AddOrder from "../AddOrder/AddOrder";
 import Modal from "../Modal/Modal";
+import api from "../../Api.js"; 
 
 const Orders = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDeliveredOrders, setShowDeliveredOrders] = useState(false);
-  const [deliveredProducts, setDeliveredProducts] = useState([]);
+  const [deliveredOrders, setDeliveredOrders] = useState([]);
+  const [pendingOrders, setPendingOrders] = useState([]);
+  
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await api.get("/businesses/4/transactions/");
+        const orders = response.data;
 
+        const pending = orders.filter((order) => order.status === "Pending");
+        const delivered = orders.filter((order) => order.status === "Completed");
+
+        setPendingOrders(pending);
+        setDeliveredOrders(delivered);
+
+        console.log("Pedidos obtenidos:", orders);
+      } catch (error) {
+        console.error("Error al obtener los pedidos:", error);
+      }
+    };
+
+    fetchOrders();
+  }, []); 
+  
   const handleOrdersToggle = () => {
     setShowDeliveredOrders(!showDeliveredOrders);
-    console.log("Pedidos", showDeliveredOrders ? "Hechos" : "Entregados");
   };
 
-  // Función para filtrar los productos basados en el término de búsqueda
-  const filteredProducts = showDeliveredOrders
-    ? deliveredProducts.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
+  const filteredOrders = showDeliveredOrders
+    ? deliveredOrders.filter((order) =>
+        String(order.product_id).toLowerCase().includes(searchTerm.toLowerCase())
       )
-    : jsonData.products.filter((product) =>
-        product.product.toLowerCase().includes(searchTerm.toLowerCase()),
+    : pendingOrders.filter((order) =>
+        String(order.product_id).toLowerCase().includes(searchTerm.toLowerCase())
       );
 
-  // Función para obtener el estado de un producto dado su índice
-  const getProductState = (index) => {
-    const currentState = showDeliveredOrders
-      ? "Entregado"
-      : jsonData.products[index].state[0];
-    return (
-      <button
-        onClick={() => handleStateChange(index)}
-        className={styles.stateButton}
-      >
-        {currentState}
-      </button>
-    );
-  };
-
   const handleStateChange = (index) => {
-    // Copiar el estado actual de los productos entregados y pendientes
-    const updatedDeliveredProducts = [...deliveredProducts];
-    const updatedProducts = [...jsonData.products];
+    const updatedPendingOrders = [...pendingOrders];
+    const updatedDeliveredOrders = [...deliveredOrders];
 
-    // Actualizar el estado del producto en la lista de productos pendientes
-    updatedProducts[index].state[0] = "Entregado";
+    const order = updatedPendingOrders[index];
+    order.status = "Completed";
 
-    // Agregar el producto a la lista de entregados
-    updatedDeliveredProducts.push(updatedProducts[index]);
+    updatedDeliveredOrders.push(order);
+    updatedPendingOrders.splice(index, 1);
 
-    // Eliminar el producto de la lista de productos pendientes
-    updatedProducts.splice(index, 1);
-
-    // Actualizar los estados
-    setDeliveredProducts(updatedDeliveredProducts);
-    jsonData.products = updatedProducts; // Actualizar la lista de productos en el archivo JSON
-
-    console.log("Estado actualizado:", updatedProducts[index].state[0]);
+    setDeliveredOrders(updatedDeliveredOrders);
+    setPendingOrders(updatedPendingOrders);
   };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const openPopup = () => {
@@ -73,32 +72,35 @@ const Orders = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Pedidos</h1>
-      <hr className={styles.separateLine} />
       <div className={styles.filterContainer}>
         <div className={styles.inputContainer}>
           <div className={styles.searchContainer}>
             <input
               type="text"
               placeholder="Buscar..."
-              className={styles.searchInput}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              className={styles.searchInput}
             />
             <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
           </div>
         </div>
         <div className={styles.buttons}>
-          <button className={styles.admBtn} onClick={openPopup}>
+          <button onClick={openPopup} className={styles.admBtn}>
             Agregar
           </button>
           <Modal isOpen={isOpen} onClose={closePopup}>
             <AddOrder />
           </Modal>
-          <button onClick={handleOrdersToggle} className={styles.admBtn}>
-            {showDeliveredOrders ? "Pedidos Hechos" : "Pedidos Entregados"}
+          <button
+            onClick={handleOrdersToggle}
+            className={styles.admBtn}
+          >
+            {showDeliveredOrders ? "Pedidos Pendientes" : "Pedidos Entregados"}
           </button>
         </div>
       </div>
+
       <div
         className={styles.table}
         style={{ display: showDeliveredOrders ? "none" : "block" }}
@@ -110,27 +112,32 @@ const Orders = () => {
           <div className={styles.cell}>Proveedor</div>
           <div className={styles.cell}>Estado</div>
         </div>
-        {filteredProducts.length === 0 ? (
-          <div className={`${styles.row} ${styles.rowWithMargin}`}>
-            <div className={styles.cell} colSpan="5">
-              No se encontró el pedido.
-            </div>
+        {filteredOrders.length === 0 ? (
+          <div className={`${styles.row2} ${styles.rowWithMargin}`}>
+          <div className={styles.cell} colSpan="5">
+            No se encontró pedidos.
+          </div>
           </div>
         ) : (
-          filteredProducts.map((product, index) => (
-            <div
-              key={index}
-              className={`${styles.row} ${styles.rowWithMargin}`}
-            >
-              <div className={styles.cell}>{product.date}</div>
-              <div className={styles.cell}>{product.product}</div>
-              <div className={styles.cell}>{product.amount}</div>
-              <div className={styles.cell}>{product.supplier}</div>
-              <div className={styles.cell}>{getProductState(index)}</div>
+          filteredOrders.map((order, index) => (
+            <div key={index} className={`${styles.row2} ${styles.rowWithMargin}`}>
+              <div className={styles.cell}>{order.transaction_date}</div>
+              <div className={styles.cell}>{order.product_id}</div>
+              <div className={styles.cell}>{order.quantity}</div>
+              <div className={styles.cell}>{order.supplier_id}</div>
+              <div className={styles.cell}>
+                <button
+                  onClick={() => handleStateChange(index)}
+                  className={styles.statusBtn}
+                >
+                  Hecho
+                </button>
+              </div>
             </div>
           ))
         )}
       </div>
+
       <div
         className={styles.table}
         style={{ display: showDeliveredOrders ? "block" : "none" }}
@@ -142,22 +149,19 @@ const Orders = () => {
           <div className={styles.cell}>Proveedor</div>
           <div className={styles.cell}>Estado</div>
         </div>
-        {filteredProducts.length === 0 ? (
-          <div className={`${styles.row} ${styles.rowWithMargin}`}>
-            <div className={styles.cell} colSpan="5">
-              No se encontró el pedido.
-            </div>
+        {filteredOrders.length === 0 ? (
+          <div className={`${styles.row2} ${styles.rowWithMargin}`}>
+          <div className={styles.cell} colSpan="5">
+            No se encontró pedidos.
+          </div>
           </div>
         ) : (
-          filteredProducts.map((product, index) => (
-            <div
-              key={index}
-              className={`${styles.row2} ${styles.rowWithMargin}`}
-            >
-              <div className={styles.cell}>{product.date}</div>
-              <div className={styles.cell}>{product.product}</div>
-              <div className={styles.cell}>{product.amount}</div>
-              <div className={styles.cell}>{product.supplier}</div>
+          filteredOrders.map((order, index) => (
+            <div key={index} className={`${styles.row2} ${styles.rowWithMargin}`}>
+              <div className={styles.cell}>{order.transaction_date}</div>
+              <div className={styles.cell}>{order.product_id}</div>
+              <div className={styles.cell}>{order.quantity}</div>
+              <div className={styles.cell}>{order.supplier_id}</div>
               <div className={styles.cell}>
                 <button className={styles.stateButton}>Entregado</button>
               </div>

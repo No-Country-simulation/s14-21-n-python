@@ -1,23 +1,48 @@
 import style from "./AddProd.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import api from "../../Api.js";
 
 const AddProd = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    category: "",
-    brand: "",
-    provider: "",
-    amount: "",
-    price: "",
+    category_id: 2,
+    brand: "La Serenísima",
+    name: "Crema de Leche",
+    stock: 5,
+    description: "Entera",
+    original_price: 1800,
   });
+
+  const [categories, setCategories] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await api.get("/businesses/4/categories/");
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Error al obtener la lista de categorias:", error);
+      }
+    };
+    fetchCategories();
+  }, []);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await api.post("/businesses/4/products/", formData);
+    } catch (error) {
+      console.error("Error al agregar el producto:", error);
+    }
+  };
+
   return (
-    <form className={style.container}>
+    <form onSubmit={handleSubmit} className={style.container}>
       <div className={style.inputs}>
         <label>Nombre</label>
         <input
@@ -41,20 +66,17 @@ const AddProd = () => {
       <div className={style.inputs}>
         <label>Categoría</label>
         <select
-          name="Categoria"
-          id="categoria"
+          name="category_id"
           required
-          value={formData.category}
+          value={formData.category_id}
           onChange={handleChange}
         >
-          <option value="categoria1">Categoría 1</option>
-          <option value="categoria2">Categoría 2</option>
-          <option value="categoria3">Categoría 3</option>
-          <option value="categoria4">Categoría 4</option>
-          <option value="categoria5">Categoría 5</option>
-          <option value="categoria6">Categoría 6</option>
-          <option value="categoria7">Categoría 7</option>
-          <option value="categoria8">Categoría 8</option>
+          <option value="">Selecciona una categoria...</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.name}>
+              {category.name}
+            </option>
+          ))}
         </select>
       </div>
       <div className={style.inputs}>
@@ -75,8 +97,8 @@ const AddProd = () => {
           min="0"
           pattern="[0-9]*"
           required
-          name="amount"
-          value={formData.amount}
+          name="stock"
+          value={formData.stock}
           onChange={handleChange}
         />
       </div>
@@ -89,8 +111,8 @@ const AddProd = () => {
           pattern="[0-9]+(\.[0-9]{1,2})?"
           step="0.01"
           required
-          name="price"
-          value={formData.price}
+          name="original_price"
+          value={formData.original_price}
           onChange={handleChange}
         />
       </div>

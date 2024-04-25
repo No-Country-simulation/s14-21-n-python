@@ -4,6 +4,7 @@ import api from "../../Api.js";
 
 const AddSale = () => {
   const [formData, setFormData] = useState({
+    business_id: "4",
     product_id: "",
     quantity: "",
     price: "",
@@ -57,11 +58,13 @@ const AddSale = () => {
       <div className={style.inputs}>
         <label>Fecha</label>
         <input
-          type="date"
+          type="text"
           required
           name="transaction_date"
           value={formData.transaction_date}
           onChange={handleChange}
+          pattern="\d{4}-\d{2}-\d{2}"
+          placeholder="yyyy-mm-dd"
         />
       </div>
       <div className={style.inputs}>
