@@ -22,12 +22,12 @@ const Sales = () => {
         setProductsMap(productsMap);
 
         const transactionsResponse = await api.get(
-          "/businesses/4/transactions/"
+          "/businesses/4/transactions/",
         );
         const transactions = transactionsResponse.data;
 
         const sales = transactions.filter(
-          (transaction) => transaction.type === "Sale"
+          (transaction) => transaction.type === "Sale",
         );
 
         const salesWithProductNames = sales.map((sale) => ({
