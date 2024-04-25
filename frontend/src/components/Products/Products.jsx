@@ -73,26 +73,55 @@ const Products = () => {
         <section>
           <div className={style.layout}>
             <div className={style.header}>
-              <div className={style.column}>Producto</div>
-              <div className={style.column}>Descripción</div>
-              <div className={style.column}>Marca</div>
-              <div className={style.column}>Categoría</div>
-              <div className={style.column}>Stock</div>
               <div className={style.column}>
-                Precio
-                <p>compra</p>
+                {" "}
+                <p className={style.headerColumn1}>Producto</p>
               </div>
-              <div className={style.column}>Proveedor</div>
+              <div className={style.column}>
+                <p className={style.headerColumn2}>Descripción</p>
+              </div>
+              <div className={style.column}>
+                <p className={style.headerColumn3}>Marca</p>
+              </div>
+              <div className={style.column}>
+                <p className={style.headerColumn4}>Categoría</p>
+              </div>
+              <div className={style.column}>
+                <p className={style.headerColumn5}>Stock</p>
+              </div>
+              <div className={style.column}>
+                <p className={style.headerColumn6}>Precio</p>
+                <p className={style.headerColumn6}>compra</p>
+              </div>
             </div>
             {products.map((product) => {
               return (
                 <div className={style.row} key={product.id}>
-                  <div className={style.column}>{product.name}</div>
-                  <div className={style.column}>{product.description}</div>
-                  <div className={style.column}>{product.brand}</div>
-                  <div className={style.column}>{product.categoryName}</div>
-                  <div className={style.column}>{product.stock}</div>
-                  <div className={style.column}>$ {product.original_price}</div>
+                  <div className={style.column}>
+                    {" "}
+                    <p className={style.contentColumn1}>{product.name}</p>
+                  </div>
+                  <div className={style.column}>
+                    <p className={style.contentColumn2}>
+                      {product.description}
+                    </p>
+                  </div>
+                  <div className={style.column}>
+                    <p className={style.contentColumn3}>{product.brand}</p>
+                  </div>
+                  <div className={style.column}>
+                    <p className={style.contentColumn4}>
+                      {product.categoryName}
+                    </p>
+                  </div>
+                  <div className={style.column}>
+                    <p className={style.contentColumn5}>{product.stock}</p>
+                  </div>
+                  <div className={style.column}>
+                    <p className={style.contentColumn6}>
+                      $ {product.original_price}
+                    </p>
+                  </div>
                 </div>
               );
             })}
