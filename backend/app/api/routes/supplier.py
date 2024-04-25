@@ -54,7 +54,7 @@ async def get_all_suppliers(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
-    suppliers = await SupplierCrud(db).get_all()
+    suppliers = await SupplierCrud(db).get_all_by_attributes({"is_active": True})
 
     return suppliers
 
@@ -68,7 +68,10 @@ async def delete_supplier(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
-    await SupplierCrud(db).delete(supplier_id)
+    supplier = await SupplierCrud(db).get(supplier_id)
+    # Yes, this should be in a CRUD method
+    supplier.is_active = False
+    await db.commit()
 
 
 @router.put("/{business_id}/suppliers/{supplier_id}/", status_code=status.HTTP_200_OK)
