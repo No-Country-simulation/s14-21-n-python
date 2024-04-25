@@ -29,7 +29,6 @@
       </a>
 </div>
 
-
 <!-- ABOUT THE PROJECT -->
 <br>
 <h1>Acerca del Proyecto</h1>
@@ -73,11 +72,13 @@ Para instalar el proyecto localmente:
 <h3>Back-End (FastAPI)</h3>
 
 Clona el repositorio del Back-End:
+
 ```bash
   git clone https://github.com/No-Country/s14-21-n-python
 ```
 
 Instala poetry:
+
 ```bash
   pip install pipx
   pipx ensurepath
@@ -85,6 +86,7 @@ Instala poetry:
 ```
 
 Instala las dependencias utilizando poetry:
+
 ```bash
   poetry install
 ```
@@ -92,11 +94,13 @@ Instala las dependencias utilizando poetry:
 Configura la base de datos PostgreSQL en el archivo de configuración.
 
 Aplica las migraciones:
+
 ```bash
   alembic upgrade head
 ```
 
 Inicia el servidor FastAPI:
+
 ```bash
   uvicorn main:app --reload
 ```
@@ -424,30 +428,35 @@ Si deseas contribuir a este proyecto, puedes seguir los siguientes pasos:
 Realiza un fork de este repositorio en tu propia cuenta.
 
 Clonar al local:
-```bash 
-  git clone https://github.com/No-Country/s14-21-n-python.git 
+
+```bash
+  git clone https://github.com/No-Country/s14-21-n-python.git
 ```
 
 Crea una rama para tus cambios:
-```bash 
-  git checkout -b feature/New feature 
+
+```bash
+  git checkout -b feature/New feature
 ```
 
 Haz tus cambios, mejoras o correcciones que desees.
 
 Realiza commits con descripciones claras:
+
 ```bash
-  git commit -am 'Add: New feature' 
+  git commit -am 'Add: New feature'
 ```
 
 Sincroniza con el repositorio original.
+
 ```bash
- git remote add upstream https://github.com/No-Country/s14-21-n-python.git 
+ git remote add upstream https://github.com/No-Country/s14-21-n-python.git
 ```
 
-Hacer push de la Rama. 
+Hacer push de la Rama.
+
 ```bash
- git push origin feature/New feature 
+ git push origin feature/New feature
 ```
 
 Crea un pull request a este repositorio con tus cambios y espera la revision.
