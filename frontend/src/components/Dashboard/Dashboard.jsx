@@ -53,10 +53,10 @@ const Dashboard = () => {
               <FaRegStar />
             </div>
             <div className={style.productDetails}>
-              <h4>Nombre del producto</h4>
+              <h3>Leche La Serenisima</h3>
               <div className={style.priceAndDescription}>
-                <p>Precio $</p>
-                <p>Aquí va la descripción del producto</p>
+                <p>Precio $ 1.400</p>
+                <p>Leche entera de 1 Lto La Serenísima</p>
               </div>
             </div>
           </div>
