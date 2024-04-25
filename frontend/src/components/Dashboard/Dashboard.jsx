@@ -63,7 +63,9 @@ const Dashboard = () => {
 
           <div className={style.titleAndAmount}>
             <p>Disponibles</p>
-            <p>10</p>
+            <div className={style.cantidad}>
+              <p>10</p>
+            </div>
           </div>
         </div>
       </div>

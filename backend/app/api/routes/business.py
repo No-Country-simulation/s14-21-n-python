@@ -3,7 +3,8 @@ from typing import List
 from api.dependencies.auth import validate_authenticate_user
 from api.dependencies.db import get_session
 from crud.business import BusinessCrud
-from fastapi import APIRouter, Depends, status
+from crud.user import UserCrud
+from fastapi import APIRouter, Depends, HTTPException, status
 from schemas.busines import BusinessSchema, CreateBusinessSchema, UpdateBusinessSchema
 from sqlalchemy.ext.asyncio.session import AsyncSession
 
@@ -37,7 +38,16 @@ async def create_business(
     db: AsyncSession = Depends(get_session),
     current_user: str = Depends(validate_authenticate_user),
 ):
+    if current_user.business_id:
+        raise HTTPException(status_code=403, detail="User already has a business")
+
     business = await BusinessCrud(db).create(business_data)
+
+    # yes, it would be better to do it via the CRUD but the update method receives a pydantic model
+    current_user.business_id = business.id
+    await db.commit()
+    await db.refresh(business)
+
     return business
 
 

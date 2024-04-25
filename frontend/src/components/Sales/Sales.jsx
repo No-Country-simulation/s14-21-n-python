@@ -1,76 +1,47 @@
 import style from "./Sales.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddSale from "../AddSale/AddSale";
 import Modal from "../Modal/Modal";
+import api from "../../Api.js";
 
 const Sales = () => {
-  const testArray = [
-    {
-      id: "1",
-      date: "fecha",
-      product: "Producto 1",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "2",
-      date: "fecha",
-      product: "Producto 2",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "3",
-      date: "fecha",
-      product: "Producto 3",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "4",
-      date: "fecha",
-      product: "Producto 4",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "5",
-      date: "fecha",
-      product: "Producto 5",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "6",
-      date: "fecha",
-      product: "Producto 6",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "7",
-      date: "fecha",
-      product: "Producto 7",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-    {
-      id: "8",
-      date: "fecha",
-      product: "Producto 8",
-      brand: "Marca",
-      amount: "20",
-      price: "9999",
-    },
-  ];
+  const [sales, setSales] = useState([]);
+  const [productsMap, setProductsMap] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const productsResponse = await api.get("/businesses/4/products/");
+        const products = productsResponse.data;
+        console.log(productsResponse.data);
+        const productsMap = {};
+        products.forEach((product) => {
+          productsMap[product.id] = product.name;
+        });
+        setProductsMap(productsMap);
+
+        const transactionsResponse = await api.get(
+          "/businesses/4/transactions/",
+        );
+        const transactions = transactionsResponse.data;
+
+        const sales = transactions.filter(
+          (transaction) => transaction.type === "Sale",
+        );
+
+        const salesWithProductNames = sales.map((sale) => ({
+          ...sale,
+          productName: productsMap[sale.product_id],
+        }));
+        setSales(salesWithProductNames);
+      } catch (error) {
+        console.error("Error in request:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -118,18 +89,16 @@ const Sales = () => {
         <div className={style.layout}>
           <div className={style.header}>
             <div className={style.column}>Fecha</div>
-            <div className={style.column}>Producto</div>
-            <div className={style.column}>Marca</div>
+            <div className={style.column1}>Producto</div>
             <div className={style.column}>Cantidad</div>
             <div className={style.column}>Precio</div>
           </div>
-          {testArray.map((sale) => {
+          {sales.map((sale) => {
             return (
               <div className={style.row} key={sale.id}>
-                <div className={style.column}>{sale.date}</div>
-                <div className={style.column}>{sale.product}</div>
-                <div className={style.column}>{sale.brand}</div>
-                <div className={style.column}>{sale.amount}</div>
+                <div className={style.column}>{sale.transaction_date}</div>
+                <div className={style.column1}>{sale.productName}</div>
+                <div className={style.column}>{sale.quantity}</div>
                 <div className={style.column}>$ {sale.price}</div>
               </div>
             );
