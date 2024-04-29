@@ -1,7 +1,9 @@
 import os
 from fastapi.security import OAuth2PasswordBearer
 from datetime import datetime, timedelta, timezone
-from jose import JWTError, jwt
+import jwt
+from jwt.exceptions import PyJWTError
+
 from schemas.user import TokenData
 
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -31,7 +33,7 @@ async def verify_token(token: str, credentials_exception):
         if email is None:
             raise credentials_exception
         token_data = TokenData(email=email)
-    except JWTError:
+    except PyJWTError:
         raise credentials_exception
 
     return token_data
