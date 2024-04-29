@@ -1,4 +1,4 @@
-from typing import Optional, List, Tuple
+from typing import Optional, List
 from sqlalchemy import select, func, desc
 from schemas.product import ProductResponse
 from models.models import Transaction, Product
