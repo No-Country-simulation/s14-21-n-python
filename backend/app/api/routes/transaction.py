@@ -1,11 +1,12 @@
 from datetime import date
-from typing import Annotated, List, Tuple
+from typing import Annotated, List
 
 from api.dependencies.auth import validate_authenticate_user
 from api.dependencies.db import get_session
 from crud.transaction import TransactionCrud
 from fastapi import APIRouter, Depends, Query, status
 from schemas.transaction import CreateTransaction, TransactionSchema, UpdateTransaction
+from schemas.product import ProductResponse
 from sqlalchemy.ext.asyncio.session import AsyncSession
 
 router = APIRouter()
@@ -95,7 +96,7 @@ async def update_transaction(
 
 @router.get(
     "/{business_id}/best-selling-products/",
-    response_model=List[Tuple[str, int]],
+    response_model=List[ProductResponse],
     status_code=status.HTTP_200_OK,
 )
 async def get_best_selling_products(
