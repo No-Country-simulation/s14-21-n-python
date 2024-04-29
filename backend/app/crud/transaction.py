@@ -1,5 +1,6 @@
 from typing import Optional, List, Tuple
 from sqlalchemy import select, func, desc
+from schemas.product import ProductResponse
 from models.models import Transaction, Product
 from crud.abstract import BaseCrud
 from datetime import date
@@ -13,7 +14,7 @@ class TransactionCrud(BaseCrud):
         all_products: bool,
         start_date: date,
         end_date: Optional[date] = None,
-    ):
+    ) -> List[ProductResponse]:
 
         if end_date is None:
             end_date = start_date
@@ -43,14 +44,17 @@ class TransactionCrud(BaseCrud):
                 .limit(1)
             )
 
-        best_selling_products = [
-            (
-                product.name,
-                product.original_price,
-                product.stock,
-                product.description,
-                quantity,
+        best_selling_products = result.fetchall()
+
+        mapped_product = [
+            ProductResponse(
+                name=product.name,
+                original_price=product.original_price,
+                stock=product.stock,
+                description=product.description,
+                quantity=quantity,
             )
-            for product, quantity in result
+            for product, quantity in best_selling_products
         ]
-        return best_selling_products
+
+        return mapped_product
