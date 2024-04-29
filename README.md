@@ -6,7 +6,7 @@
   <a href="https://github.com/No-Country/s14-21-n-python" target="_blank">
   <img src="frontend/src/assets/logo.png" alt="Banner" width="40%">
   </a>
-  <h3>Bienvenidos a StockEasy</h3>
+  <h3>Bienvenidos a StockEase</h3>
 </div>
 <div>
     <p>
