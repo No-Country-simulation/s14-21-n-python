@@ -1,4 +1,3 @@
-from typing import List
 from datetime import date
 from decimal import Decimal
 
@@ -42,8 +41,7 @@ class UpdateProduct(BaseModel):
 
 class ProductResponse(BaseModel):
     name: str
-    total_quantity_sold: int
-
-
-class BestSellingProductsResponse(BaseModel):
-    products: List[ProductResponse]
+    original_price: Decimal
+    stock: int
+    description: str | None = None
+    quantity: int
